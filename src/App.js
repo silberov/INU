@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import butt from './button1.png'
+import styled from 'styled-components';
+import colors from './utils/colors';
+import { typography } from './utils/typography';
+
+import Button from './componenets/Buttons/Buttons'
 import './App.css';
 
 function App() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <div>
+        <img src={butt} alt={"jzdhf"}/>
+      </div> */}
+      
+      <Button>Next</Button>
+      <img src={butt} alt={"jzdhf"}/>
     </div>
   );
 }
+
+
+
+
+
+
 
 export default App;
