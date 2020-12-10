@@ -6,13 +6,13 @@ import { typography } from '../../utils/typography';
   font-family: tondo, sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: ${typography.button};
+  font-size: 1.4em;
   cursor: pointer;
   color: ${colors.white};
   padding: 12px 68px;
   border-radius: 30px;
   border: none;
-  background: ${colors.primary};
+  background: ${colors.primaryGrad};
   filter: drop-shadow(0 3px 6px #00000029);
 `;
 
