@@ -12,8 +12,10 @@ import { typography } from '../../utils/typography';
   padding: 12px 68px;
   border-radius: 30px;
   border: none;
+  outline:none;
   background: ${colors.primaryGrad};
   filter: drop-shadow(0 3px 6px #00000029);
+  width: 200px;
 `;
 
 export default Button;
