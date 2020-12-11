@@ -1,0 +1,11 @@
+input {
+  margin-top: 50px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px grey solid;
+  place-items:center;
+  width: 220px;
+  text-align: left;
+  outline: transparent;
+  font-size: medium;
+}

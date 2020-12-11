@@ -3,24 +3,30 @@
 // import colors from './utils/colors';
 import { H1 , H3 , P } from './utils/typography';
 
-import Button from './componenets/Buttons/Buttons'
+import Button from './components/Buttons/Buttons'
 import './App.css';
 import colors from './utils/colors';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Login from './components/Login'
+
 
 function App() {
   
   return (
     <div className="App">
       
+
+      <BrowserRouter>
+      <Switch>
+      <Route path='/' component={Login} />
+      </Switch>
+    </BrowserRouter>
+
+
+
       
-      <H1>Add Your Profile <br/>Picture</H1>
-      <H1>Create Your Profile</H1>
-      <H3 wight="light">Aug 26 - Aug 31</H3>
-      <P size="large">How intense was the pain <br/>during sex?</P>
-      <P size="normal">How intense was the pain <br/>during sex?</P>
-      <P size="small" color={colors.seconderyGray}>How intense was the pain <br/>during sex?</P>
-      <P size="xsmall" color={colors.seconderyGray}>How intense was the pain <br/>during sex?</P>
-      <Button>Next</Button>
+ 
+      <Button>Login</Button>
       
 
     </div>
