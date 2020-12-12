@@ -1,14 +1,15 @@
 
 // import styled from 'styled-components';
 // import colors from './utils/colors';
-import { H1 , H3 , P } from './utils/typography';
 
-import Button from './components/Buttons/Buttons'
+
+
 import './App.css';
-import colors from './utils/colors';
+// import colors from './utils/colors';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Login from './components/Login'
-
+import Register from "./components/Register"
+import ResetPassword from "./components/ResetPassword"
 
 function App() {
   
@@ -18,8 +19,14 @@ function App() {
 
       <BrowserRouter>
       <Switch>
-      <Route path='/' component={Login} />
+      <Route exact path='/' component={Login} />
       </Switch>
+      <Switch>
+      <Route  path='/user/register' component={Register} />
+     </Switch>
+     <Switch>
+      <Route  path='/user/reset-password' component={ResetPassword} />
+     </Switch>
     </BrowserRouter>
 
 

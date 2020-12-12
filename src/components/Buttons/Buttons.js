@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../utils/colors';
-import { typography } from '../../utils/typography';
+// import { typography } from '../../utils/typography';
 
  const Button = styled.button`
   font-family: tondo, sans-serif;
@@ -15,7 +15,7 @@ import { typography } from '../../utils/typography';
   outline:none;
   background: ${colors.primaryGrad};
   filter: drop-shadow(0 3px 6px #00000029);
-  width: 200px;
+  width: 210px;
 `;
 
 export default Button;
