@@ -131,7 +131,7 @@ export const P = styled.p`
 export const CustomInput = styled.input.attrs((props) => ({
   // we can define static props
   type: props.type,
-
+  onChange: (e)=> props.saveInput(e.target.value),
   // or we can define dynamic ones
   placeholder: props.placeholder,
 }))`

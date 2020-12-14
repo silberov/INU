@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import colors from '../../utils/colors';
 // import { typography } from '../../utils/typography';
 
- const Button = styled.button`
+ const Button = styled.button.attrs((props) => ({
+  // we can define static props
+  onClick: props.runOnClick,
+}))`
   font-family: tondo, sans-serif;
   font-style: normal;
   font-weight: bold;
