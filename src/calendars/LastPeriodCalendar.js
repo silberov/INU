@@ -3,7 +3,7 @@ import { format } from 'date-fns'
 import { enGB } from 'date-fns/locale'
 import { DateRangePickerCalendar, START_DATE } from 'react-nice-dates'
 import 'react-nice-dates/build/style.css'
-import './App.css'
+// import './App.css'
 
 // Very rough implementation of multiple date selection
 export default function CalendarExample() {
@@ -15,6 +15,7 @@ export default function CalendarExample() {
     }
     return (
       <div className="calendar">
+        <h2>Select the dates of your last period. </h2>
         <p>Selected start date: {startDate ? format(startDate, 'dd MMM yyyy', { locale: enGB }) : 'none'}.</p>
         <p>Selected end date: {endDate ? format(endDate, 'dd MMM yyyy', { locale: enGB }) : 'none'}.</p>
         <p>Currently selecting: {focus}.</p>
