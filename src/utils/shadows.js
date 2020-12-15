@@ -3,4 +3,4 @@ const shadows = {
 	shadowCard: 'drop-shadow(0 3px 10px ##0000002B)'
 }
 
-export default shadows;
+export default shadows

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import colors from '../../utils/colors';
-import { typography } from '../../utils/typography';
+
+
+//const DisabledButton = styled.{Button}
 
  const Button = styled.button`
   font-family: tondo, sans-serif;
@@ -14,6 +16,12 @@ import { typography } from '../../utils/typography';
   border: none;
   background: ${colors.primaryGrad};
   filter: drop-shadow(0 3px 6px #00000029);
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    outline: none;
+  }
 `;
 
 export default Button;

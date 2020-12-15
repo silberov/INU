@@ -1,17 +1,8 @@
 import styled from 'styled-components';
-import colors from './colors'
+import colors from '../utils/colors'
 export const primaryFont = "tondo, sans-serif";
 
-// export const typography = {
-//     h1: '1.6em',
-//     sub: '1.2em',
-//     h2: '1.2em',
-//     paragraph: '1.2em',
-//     button: '1.35em'
-// };
-
-
-export const H1 = styled.h1`
+export const MainHeader = styled.h1`
     font-family: ${primaryFont};
     font-size: 1.6em;
     line-height: 1.3em;
@@ -20,7 +11,7 @@ export const H1 = styled.h1`
     margin: ${props => props.margin ? props.margin : 0};
 `;
 
-export const H2 = styled.h2`
+export const Header = styled.h2`
     font-family: ${primaryFont};
     font-size: 1.25em;
     line-height: 1.05em;
@@ -41,7 +32,7 @@ export const H2 = styled.h2`
     margin: ${props => props.margin ? props.margin : 0};
 `;
 
-export const H3 = styled.h3`
+export const SubHeader = styled.h3`
     font-family: ${primaryFont};
     font-size: 1.125em;
     line-height: 1.05em;
