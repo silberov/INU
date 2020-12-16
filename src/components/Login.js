@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import Button from "../components/Buttons/Buttons.js";
-// import colors from './utils/colors';
+import { Link } from "react-router-dom";
 
-import { H3, CustomInput, FormContainer } from "../utils/typography";
-// import colors from "../utils/colors";
+import { H3, CustomInput, FormContainer, P } from "../utils/typography";
+import colors from "../utils/colors";
 import { postDataToPath } from "../utils/api";
 
 export default function Login() {
@@ -36,10 +36,17 @@ export default function Login() {
       />
       <Button runOnClick={handleSubmit}>Login</Button>
 
-      <Button>Register</Button>
-      <a href="" id="password-reset">
-        Forget Password
-      </a>
+      <Link to="/user/register">
+        <Button> Register</Button>
+      </Link>
+
+      <Link to="/user/reset-password">
+        <P> Forget Password</P>
+      </Link>
+
+       
+
+      <P color={colors.importantMessage}>{errorMessage}</P>
     </FormContainer>
   );
 }

@@ -1,15 +1,15 @@
 import React from "react";
 
-import { H3, CustomInput, FormContainer } from "../utils/typography";
+import { H1, CustomInput, FormContainer } from "../utils/typography";
 
 import Button from "./Buttons/Buttons.js";
 
 export default function ResetPassword() {
   return (
     <FormContainer>
-      <H3>
+      <H1>
         <strong> Reset Your Password</strong>
-      </H3>
+      </H1>
 
       <CustomInput placeholder="Full Name" type="text" />
 
