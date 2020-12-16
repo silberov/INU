@@ -19,6 +19,8 @@ import colors from '../../utils/colors';
   background: ${colors.primaryGrad};
   filter: drop-shadow(0 3px 6px #00000029);
   width: 210px;
+  margin-top: 20px;
+  margin-bottom:5px;
 `;
 
 export default Button;

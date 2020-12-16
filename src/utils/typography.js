@@ -126,12 +126,10 @@ export const P = styled.p`
   color: ${(props) => (props.color ? props.color : colors.primaryGray)};
 `;
 
-
-
 export const CustomInput = styled.input.attrs((props) => ({
   // we can define static props
   type: props.type,
-  onChange: (e)=> props.saveInput(e.target.value),
+  onChange: (e) => props.saveInput(e.target.value),
   // or we can define dynamic ones
   placeholder: props.placeholder,
 }))`
@@ -144,4 +142,13 @@ export const CustomInput = styled.input.attrs((props) => ({
   text-align: left;
   outline: transparent;
   font-size: large;
+`;
+
+export const FormContainer = styled.div`
+  margin-top: 200px;
+  padding-bottom: 100px;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
 `;
