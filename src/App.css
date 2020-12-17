@@ -46,3 +46,7 @@
 
 .nice-dates-day.-period { color: red; }
 .nice-dates-day.-ovulation { color: cornflowerblue; }
+
+.form {
+  width: 150px;
+}
