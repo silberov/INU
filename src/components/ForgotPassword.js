@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 
-import Button from "../components/Buttons/Buttons.js";
-import { Link } from "react-router-dom";
-
 import { H3, CustomInput, FormContainer, P } from "../utils/typography";
 import colors from "../utils/colors";
+
 import { postDataToPath } from "../utils/api";
 
-export default function Login() {
+import Button from "./Buttons/Buttons.js";
+
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("user/login", { email, password });
+    const response = await postDataToPath("user/", { email, name });
     if (response.error) {
       setErrorMessage(response.error);
     } else {
@@ -26,23 +26,14 @@ export default function Login() {
   return (
     <FormContainer>
       <H3>
-        <strong>Enter Your Login Details</strong>
+        <strong> Reset Your Password</strong>
       </H3>
+
+      <CustomInput saveInput={setName} placeholder="Full Name" type="text" />
+
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
-      <CustomInput
-        saveInput={setPassword}
-        placeholder="Password"
-        type="password"
-      />
-      <Button runOnClick={handleSubmit}>Login</Button>
 
-      <Link to="/user/register">
-        <Button>Register</Button>
-      </Link>
-
-      <Link to="/user/forgot-password">
-        <P>Forget Password</P>
-      </Link>
+      <Button runOnClick={handleSubmit}>Reset</Button>
       <P color={colors.importantMessage}>{errorMessage}</P>
     </FormContainer>
   );

@@ -151,4 +151,6 @@ export const FormContainer = styled.div`
   text-align: center;
   justify-content: center;
   align-content: center;
+  margin-left: 40%;
+  max-width: 200px;
 `;
