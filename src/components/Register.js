@@ -28,7 +28,7 @@ export default function Register() {
       // TODO log in user and use it somehow. This part comes later.
       setTimeout(() => {
         setUser(response);
-      }, 1500);
+      }, 2000);
     }
   };
 

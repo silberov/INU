@@ -22,9 +22,9 @@ export default function Login() {
     } else {
       setTimeout(() => {
         setUser(response);
-      }, 1500);
+      }, 2000);
       
-      setMessage("you are logged in!");
+      setMessage("");
     }
 
   };

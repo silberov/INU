@@ -18,7 +18,7 @@ export default function ForgotPassword() {
     if (response.error) {
       setErrorMessage(response.error);
     } else {
-      setErrorMessage('ok we sent an email')
+      setErrorMessage(response.message)
     }
   };
 
