@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
+import Dashboard from "./components/Dashboard";
+import ResetPassword from "./components/ResetPassword"
 
 function App() {
   return (
@@ -21,6 +23,13 @@ function App() {
         <Switch>
           <Route path="/user/forgot-password" component={ForgotPassword} />
         </Switch>
+        <Switch>
+          <Route path="/user/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <Route path="/user/reset-password" component={ResetPassword} />
+        </Switch>
+
       </BrowserRouter>
     </div>
   );

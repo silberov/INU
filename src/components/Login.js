@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "../components/Buttons/Buttons.js";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { H3, CustomInput, FormContainer, P } from "../utils/typography";
 import colors from "../utils/colors";
@@ -10,18 +10,28 @@ import { postDataToPath } from "../utils/api";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [message, setMessage] = useState("");
+  const [user, setUser] = useState(undefined);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("user/login", { email, password });
+    setMessage("");
+    const response = await postDataToPath("/user/login", { email, password });
     if (response.error) {
-      setErrorMessage(response.error);
+      setMessage(response.error);
     } else {
-      // TODO log in user and use it somehow. This part comes later.
-      const user = response;
+      setTimeout(() => {
+        setUser(response);
+      }, 1500);
+      
+      setMessage("you are logged in!");
     }
+
   };
+
+  if (user) {
+    return <Redirect to={"/user/dashboard"} />;
+  }
 
   return (
     <FormContainer>
@@ -43,7 +53,7 @@ export default function Login() {
       <Link to="/user/forgot-password">
         <P>Forget Password</P>
       </Link>
-      <P color={colors.importantMessage}>{errorMessage}</P>
+      <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );
 }

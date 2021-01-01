@@ -14,19 +14,18 @@ export default function ForgotPassword() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("user/", { email, name });
+  const response = await postDataToPath("/user/forgot-password", { email, name });
     if (response.error) {
       setErrorMessage(response.error);
     } else {
-      // TODO log in user and use it somehow. This part comes later.
-      const user = response;
+      setErrorMessage('ok we sent an email')
     }
   };
 
   return (
     <FormContainer>
       <H3>
-        <strong> Reset Your Password</strong>
+        <strong> Forgot Your Password? Please enter details</strong>
       </H3>
 
       <CustomInput saveInput={setName} placeholder="Full Name" type="text" />

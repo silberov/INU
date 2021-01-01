@@ -1,7 +1,7 @@
 const BASE_URL = 'http://localhost:8080'
 
 export async function postDataToPath(path, data) {
-  const url = `${BASE_URL}/${path}`
+  const url = `${BASE_URL}${path}`
   const response = await fetch(url, {
     method: 'POST',
     headers: {

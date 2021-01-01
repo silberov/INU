@@ -4,16 +4,18 @@ import { H3, CustomInput, FormContainer, P } from "../utils/typography";
 
 import Button from "../components/Buttons/Buttons.js";
 import { postDataToPath } from "../utils/api";
+import { Redirect } from "react-router-dom";
 
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState(undefined);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("user/create", {
+    const response = await postDataToPath("/user/create", {
       name,
       email,
       password,
@@ -24,9 +26,15 @@ export default function Register() {
     } else {
       setMessage("You are registered!");
       // TODO log in user and use it somehow. This part comes later.
-      const user = response;
+      setTimeout(() => {
+        setUser(response);
+      }, 1500);
     }
   };
+
+  if (user) {
+    return <Redirect to={{ redirect: "/" }} />;
+  }
 
   return (
     <FormContainer>
