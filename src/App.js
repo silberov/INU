@@ -9,6 +9,8 @@ import Register from "./components/Register";
 import ForgotPassword from "./components/ForgotPassword";
 import Dashboard from "./components/Dashboard";
 import ResetPassword from "./components/ResetPassword"
+import TypoTest from "./components/TypoTest";
+// import TypoTest from "./typo-test";
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/user/reset-password" component={ResetPassword} />
+        </Switch>
+        <Switch>
+          <Route path="/typotest" component={TypoTest} />
         </Switch>
 
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import colors from "../utils/colors";
-import { H3, CustomInput, FormContainer, P } from "../utils/typography";
+import { SubHeader, CustomInput, FormContainer, P } from "./typography";
 
 import Button from "../components/Buttons/Buttons.js";
 import { postDataToPath } from "../utils/api";
@@ -38,9 +38,9 @@ export default function Register() {
 
   return (
     <FormContainer>
-      <H3>
+      <SubHeader>
         <strong>Create Your Profile</strong>
-      </H3>
+      </SubHeader>
       <CustomInput saveInput={setName} placeholder="Name" type="text" />
 
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
