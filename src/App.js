@@ -4,11 +4,11 @@
 import "./App.css";
 // import colors from './utils/colors';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import ForgotPassword from "./components/ForgotPassword";
-import Dashboard from "./components/Dashboard";
-import ResetPassword from "./components/ResetPassword"
+import Login from "./components/Login/Login";
+import Register from "./components/Login/Register";
+import ForgotPassword from "./components/Login/ForgotPassword";
+import Dashboard from "./components/Dashboard/Dashboard";
+import ResetPassword from "./components/Login/ResetPassword"
 
 function App() {
   return (

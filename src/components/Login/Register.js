@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-
-import Button from "../components/Buttons/Buttons.js";
-import { Link, Redirect } from "react-router-dom";
-
-import { H3, CustomInput, FormContainer, P } from "../utils/typography";
 import colors from "../utils/colors";
-import { postDataToPath } from "../utils/api";
+import { H3, CustomInput, FormContainer, P } from "../utils/typography";
 
-export default function Login() {
+import Button from "../Buttons/Buttons.js";
+import { postDataToPath } from "../utils/api";
+import { Redirect } from "react-router-dom";
+
+export default function Register() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -15,44 +15,44 @@ export default function Login() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    setMessage("");
-    const response = await postDataToPath("/user/login", { email, password });
+    const response = await postDataToPath("/user/create", {
+      name,
+      email,
+      password,
+    });
+
     if (response.error) {
       setMessage(response.error);
     } else {
+      setMessage("You are registered!");
+      // TODO log in user and use it somehow. This part comes later.
       setTimeout(() => {
         setUser(response);
       }, 2000);
-      
-      setMessage("");
     }
-
   };
 
   if (user) {
-    return <Redirect to={"/user/dashboard"} />;
+    return <Redirect to={{ redirect: "/" }} />;
   }
 
   return (
     <FormContainer>
       <H3>
-        <strong>Enter Your Login Details</strong>
+        <strong>Create Your Profile</strong>
       </H3>
+      <CustomInput saveInput={setName} placeholder="Name" type="text" />
+
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
+
       <CustomInput
         saveInput={setPassword}
         placeholder="Password"
         type="password"
       />
-      <Button runOnClick={handleSubmit}>Login</Button>
 
-      <Link to="/user/register">
-        <Button>Register</Button>
-      </Link>
+      <Button runOnClick={handleSubmit}>Register</Button>
 
-      <Link to="/user/forgot-password">
-        <P>Forget Password</P>
-      </Link>
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );

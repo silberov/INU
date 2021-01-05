@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {CustomInput, H1, FormContainer,P} from "../utils/typography"
-import  Buttons from "./Buttons/Buttons"
+import  Buttons from "../Buttons/Buttons"
 import { postDataToPath } from "../utils/api";
 import colors from "../utils/colors";
 import queryString from 'query-string';
