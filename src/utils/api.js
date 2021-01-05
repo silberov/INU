@@ -1,13 +1,12 @@
-const BASE_URL = 'http://localhost:8080'
-
 export async function postDataToPath(path, data) {
-  const url = `${BASE_URL}${path}`
+  const BASE_URL = process.env.REACT_APP_BACK_END_URL;
+  const url = `${BASE_URL}${path}`;
   const response = await fetch(url, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
-  })
-  return response.json()
+    body: JSON.stringify(data),
+  });
+  return response.json();
 }
