@@ -1,36 +1,38 @@
-
 // import styled from 'styled-components';
 // import colors from './utils/colors';
-import { H1 , H3 , P } from './utils/typography';
 
-import Button from './componenets/Buttons/Buttons'
-import './App.css';
-import colors from './utils/colors';
+import "./App.css";
+// import colors from './utils/colors';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
+import Dashboard from "./components/Dashboard";
+import ResetPassword from "./components/ResetPassword"
 
 function App() {
-  
   return (
     <div className="App">
-      
-      
-      <H1>Add Your Profile <br/>Picture</H1>
-      <H1>Create Your Profile</H1>
-      <H3 wight="light">Aug 26 - Aug 31</H3>
-      <P size="large">How intense was the pain <br/>during sex?</P>
-      <P size="normal">How intense was the pain <br/>during sex?</P>
-      <P size="small" color={colors.seconderyGray}>How intense was the pain <br/>during sex?</P>
-      <P size="xsmall" color={colors.seconderyGray}>How intense was the pain <br/>during sex?</P>
-      <Button>Next</Button>
-      
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+        <Switch>
+          <Route path="/user/register" component={Register} />
+        </Switch>
+        <Switch>
+          <Route path="/user/forgot-password" component={ForgotPassword} />
+        </Switch>
+        <Switch>
+          <Route path="/user/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <Route path="/user/reset-password" component={ResetPassword} />
+        </Switch>
 
+      </BrowserRouter>
     </div>
   );
 }
-
-
-
-
-
-
 
 export default App;
