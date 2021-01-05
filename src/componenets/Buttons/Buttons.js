@@ -20,6 +20,10 @@ const BUTTON_MODIFIERS = {
   therapy: () => css`
     border-radius: ${corners.therapy};
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
   `,
   blue: () => css`
     background: ${colors.buleGrad};
