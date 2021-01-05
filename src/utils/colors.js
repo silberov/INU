@@ -11,11 +11,11 @@
 	disabledGray: '#CCCBCC',
 
 	//Text colors
-	
 	primaryGray: '#575756',
 	seconderyGray: '#848484',
 	lightGray: '#C5C3CA',
 	white: '#ffffff',
+	importantMessage: "#FF0000",
 	
 };
 

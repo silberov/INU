@@ -101,3 +101,32 @@ export const P = styled.p`
     ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
     ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
 `
+
+export const CustomInput = styled.input.attrs((props) => ({
+    // we can define static props
+    type: props.type,
+    onChange: (e) => props.saveInput(e.target.value),
+    // or we can define dynamic ones
+    placeholder: props.placeholder,
+  }))`
+    margin-top: 50px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px ${colors.seconderyGray} solid;
+    place-items: center;
+    width: 200px;
+    text-align: left;
+    outline: transparent;
+    font-size: large;
+  `;
+  
+  export const FormContainer = styled.div`
+    margin-top: 200px;
+    padding-bottom: 100px;
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    margin-left: 40%;
+    max-width: 200px;
+  `;

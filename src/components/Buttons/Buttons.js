@@ -43,6 +43,7 @@ const BUTTON_MODIFIERS = {
   padding: 12px 68px;
   border-radius: ${corners.button};
   border: none;
+  outline:none;
   background: ${colors.primaryGrad};
   filter: ${shadows.button};
   &:focus {

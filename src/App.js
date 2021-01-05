@@ -1,42 +1,43 @@
-
 // import styled from 'styled-components';
 // import colors from './utils/colors';
-import { MainHeader , Header , SubHeader , P } from './componenets/typography';
 
-import Button from './componenets/Buttons/Buttons'
-import Therapy from "./componenets/Therapy/Therapy";
-import './App.css';
-import colors from './utils/colors';
+import "./App.css";
+// import colors from './utils/colors';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import ForgotPassword from "./components/ForgotPassword";
+import Dashboard from "./components/Dashboard";
+import ResetPassword from "./components/ResetPassword"
+import TypoTest from "./components/TypoTest";
+// import TypoTest from "./typo-test";
 
 function App() {
-  
   return (
     <div className="App">
-      <MainHeader>Add Your Profile <br/>Picture</MainHeader>
-      <MainHeader>Create Your Profile</MainHeader>
-      <Header modifiers={"bold"}>Aug 26 - Aug 31</Header>
-      <SubHeader modifiers={"light"}>Aug 26 - Aug 31</SubHeader>
-      <Button>Next</Button>
-      <Button modifiers={'disabled'}>Next</Button>
-      <Button modifiers={['therapy']}>day 1</Button>
-      <Button modifiers={['therapy', 'blue']}>day 2</Button>
-      <Button modifiers={['therapy', 'orange']}>day 3</Button>
-      <P modifiers={['xlarge', 'gray2']}>How intense was the pain <br/>during sex?</P>
-      <P modifiers={['large','purple']}>How intense was the pain <br/>during sex?</P>
-      <P>How intense was the pain <br/>during sex?</P>
-      <P modifiers={['small', 'gray3']}>How intense was the pain <br/>during sex?</P>
-      <P modifiers={'xsmall'}>How intense was the pain <br/>during sex?</P>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Login} />
+        </Switch>
+        <Switch>
+          <Route path="/user/register" component={Register} />
+        </Switch>
+        <Switch>
+          <Route path="/user/forgot-password" component={ForgotPassword} />
+        </Switch>
+        <Switch>
+          <Route path="/user/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <Route path="/user/reset-password" component={ResetPassword} />
+        </Switch>
+        <Switch>
+          <Route path="/typotest" component={TypoTest} />
+        </Switch>
 
-
-      <Therapy />
+      </BrowserRouter>
     </div>
   );
 }
-
-
-
-
-
-
 
 export default App;
