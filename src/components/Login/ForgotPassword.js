@@ -4,6 +4,8 @@ import { SubHeader, CustomInput, FormContainer, P } from "../typography";
 import colors from "../utils/colors";
 
 import { postDataToPath } from "../utils/api";
+import { Link } from "react-router-dom";
+
 
 import Button from "../Buttons/Buttons.js";
 
@@ -19,7 +21,10 @@ export default function ForgotPassword() {
       setErrorMessage(response.error);
     } else {
       setErrorMessage(response.message)
-    }
+    } 
+ 
+
+
   };
 
   return (
@@ -33,7 +38,11 @@ export default function ForgotPassword() {
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
 
       <Button runOnClick={handleSubmit}>Reset</Button>
+      <Link to="/login">
+          <SubHeader color={colors.primary}><strong>Log in</strong></SubHeader>
+        </Link>
       <P color={colors.importantMessage}>{errorMessage}</P>
+    
     </FormContainer>
   );
 }

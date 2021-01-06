@@ -31,7 +31,7 @@ const response = await postDataToPath("/user/reset-password", { newPassword,repe
 };
 
 if (resetSuccessful) {
-  return <Redirect to={"/"} />;
+  return <Redirect to={"/login"} />;
 }
 
 return (<FormContainer>
