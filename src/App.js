@@ -10,14 +10,18 @@ import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword"
 import TypoTest from "./components/TypoTest";
+import HomePage from "./components/HomePage/HomePage";
 // import TypoTest from "./typo-test";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Switch>
+          <Route exact path="/" component={HomePage} />
+        </Switch>
         <Switch>
-          <Route exact path="/" component={Login} />
+          <Route  path="/login" component={Login} />
         </Switch>
         <Switch>
           <Route path="/user/register" component={Register} />

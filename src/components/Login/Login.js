@@ -46,9 +46,7 @@ export default function Login() {
       />
       <Button runOnClick={handleSubmit}>Login</Button>
 
-      <Link to="/user/register">
-        <Button>Register</Button>
-      </Link>
+     
 
       <Link to="/user/forgot-password">
         <P>Forget Password</P>
