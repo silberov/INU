@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import ForgotPassword from "./components/Login/ForgotPassword";
-import Dashboard from "./components/Dashboard.js";
+import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword"
 import TypoTest from "./components/TypoTest";
 // import TypoTest from "./typo-test";

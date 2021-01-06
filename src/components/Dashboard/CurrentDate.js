@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1, H3 } from "../utils/typography"
+import { MainHeader, SubHeader } from "../typography"
 
 
 
@@ -14,8 +14,8 @@ function CurrentDate() {
     
     return (
         <div className='currentDate'>
-            <H1>{date} {month} {year}</H1>
-            <H3>X day of your cycle</H3>
+            <MainHeader>{date} {month} {year}</MainHeader>
+            <SubHeader>X day of your cycle</SubHeader>
 
         </div>
     )

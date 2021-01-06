@@ -1,4 +1,4 @@
-import { H1 } from "../utils/typography";
+
 import TheraphySuggestions from './TheraphySuggestions';
 import DailySuggestions from './DailySuggestions';
 import CurrentDate from './CurrentDate';
