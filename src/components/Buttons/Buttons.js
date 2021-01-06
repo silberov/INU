@@ -1,8 +1,8 @@
 import styled, {css} from 'styled-components';
 import { applyStyleModifiers } from 'styled-components-modifiers';
 
-import colors from '../../utils/colors';
-import { shadows, corners } from '../../utils/effects';
+import colors from '../utils/colors';
+import { shadows, corners } from '../utils/effects';
 
 // const TherapyDiv =  styled.button`
 //     background: ${colors.primaryGrad};
@@ -19,11 +19,14 @@ const BUTTON_MODIFIERS = {
   `,
   therapy: () => css`
     border-radius: ${corners.therapy};
-    padding: 20px;
+    //padding: 20px 30px;
+    width: 144px;
+    height: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 0 0 20px 0;
+ 
   `,
   blue: () => css`
     background: ${colors.buleGrad};
@@ -33,17 +36,25 @@ const BUTTON_MODIFIERS = {
   `,
 }
 
+export const Moon = styled.img`
+  height: 27px;
+  width: 27px;
+  margin-left: 10px;
+`
+
  const Button = styled.button`
   font-family: 'tondo', sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 1.4em;
+  line-height: 1.13em;
   cursor: pointer;
   color: ${colors.white};
   padding: 12px 68px;
+  margin: 20px auto;
   border-radius: ${corners.button};
   border: none;
-  outline:none;
+  outline: none;
   background: ${colors.primaryGrad};
   filter: ${shadows.button};
   &:focus {

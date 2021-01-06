@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components';
 import { applyStyleModifiers } from 'styled-components-modifiers';
 
-import colors from '../utils/colors'
+import colors from './utils/colors'
 export const primaryFont = "tondo, sans-serif";
 
 const FONT_WEIGHT_MODIFIERS = {
