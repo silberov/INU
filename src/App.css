@@ -45,7 +45,9 @@
 }
 
 .nice-dates-day.-period { color: red; }
+.nice-dates-day.-period2 { color: red; }
 .nice-dates-day.-ovulation { color: cornflowerblue; }
+.nice-dates-day.-ovulation2 { color: cornflowerblue; }
 
 .form {
   width: 150px;

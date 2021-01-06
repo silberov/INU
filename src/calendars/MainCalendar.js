@@ -11,6 +11,9 @@ export default function MainCalendar() {
   const [nextPeriod, setNextPeriod] = useState([]);
   const [nextOvulation, setNextOvulation] = useState([]);
   const [input, setInput] = useState([]);
+  const [periodTwo, setPeriodTwo] = useState([]);
+  const [ovulationTwo, setOvulationTwo] = useState([]);
+
 
   const handlePickDate = (date) => {
     let output = [add(new Date(date), { days: input-1 })];
@@ -20,6 +23,7 @@ export default function MainCalendar() {
     setDate(date);
     setNextPeriod(output);
     handlePickOvulation(date);
+    handlePickDateTwo();
     console.log("output", output)
   };
 
@@ -29,7 +33,33 @@ export default function MainCalendar() {
       output.push(add(new Date(output[i]), { days: 1 }));
     }
     setNextOvulation(output);
+
   };
+
+  // console.log("month two", monthTwo)
+
+
+  const handlePickDateTwo = () => {
+    let monthTwo = nextPeriod[0]
+    console.log("month 2", monthTwo)
+    let output = [add(new Date(monthTwo), { days: input-1 })];
+    for (let i = 0; i < 6; i++) {
+      output.push(add(new Date(output[i]), { days: 1 }));
+      console.log("output 2", output)
+      setPeriodTwo(output)
+      handlePickOvulationTwo()
+    }};
+
+    const handlePickOvulationTwo = () => {
+      let monthTwo = nextPeriod[0]
+      let output = [add(new Date(monthTwo), { days: (input/3) })];
+      for (let i = 0; i < 4; i++) {
+        output.push(add(new Date(output[i]), { days: 1 }));
+      }
+      setOvulationTwo(output);  
+    };
+
+
 
 
   const modifiers = {
@@ -38,16 +68,28 @@ export default function MainCalendar() {
         return isSameDay(d, date);
       });
     },
+    highlight2: (monthTwo) => {
+      return periodTwo.some((d) => {
+        return isSameDay(d, monthTwo);
+      });
+    },
     ovulation: (date) => {
       return nextOvulation.some((d) => {
         return isSameDay(d, date);
+      });
+    },
+    ovulation2: (monthTwo) => {
+      return ovulationTwo.some((d) => {
+        return isSameDay(d, monthTwo);
       });
     }
   };
 
   const modifiersClassNames = {
     highlight: "-period",
-    ovulation: "-ovulation"
+    highlight2: "-period2",
+    ovulation: "-ovulation",
+    ovulation2: "-ovulation2"
   };
 
   console.log(nextPeriod);
