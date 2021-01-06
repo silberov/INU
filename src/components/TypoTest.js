@@ -1,7 +1,7 @@
 import { MainHeader , Header , SubHeader , P } from './typography';
 import Button from './Buttons/Buttons'
 import Therapy from "./Therapy/Therapy";
-import "../App.css";
+import "../App.css"
 
 
 

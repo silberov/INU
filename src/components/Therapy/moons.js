@@ -27,8 +27,38 @@ import moon26 from "../../moon-icons/moon25.png";
 import moon27 from "../../moon-icons/moon26.png";
 
 
-export const moons = [
-    moon1, moon2, moon3, moon4, moon5, moon6, moon7, moon8, moon9, moon10, 
-    moon11, moon12, moon13, moon14, moon15, moon16, moon17, moon18, moon19, moon20,
-    moon21, moon22, moon23, moon24, moon25, moon26, moon27
+export const therapyFiles = [
+    {title: "First Quarter", color: "purple",
+        data: [
+            {text: "day1", icon: moon1, file:".//***"},
+            {text: "day2", icon: moon2, file:".//***"},
+            {text: "day3", icon: moon3, file:".//***"},
+            {text: "day4", icon: moon4, file:".//***"},
+            {text: "day5", icon: moon5, file:".//***"},
+            {text: "day6", icon: moon6, file:".//***"},
+            {text: "day7", icon: moon7, file:".//***"}
+        ]
+    },
+    {title: "Second Quarter", color: "blue",
+        data: [
+            {text: "day8", icon: moon8, file:".//***"},
+            {text: "day9", icon: moon9, file:".//***"},
+            {text: "day10", icon: moon10, file:".//***"},
+            {text: "day11", icon: moon11, file:".//***"},
+            {text: "day12", icon: moon12, file:".//***"},
+            {text: "day13", icon: moon13, file:".//***"},
+            {text: "day14", icon: moon13, file:".//***"}
+        ]
+    },
+    {title: "Third Quarter", color: "orange",
+        data: [
+            {text: "day15", icon: moon15, file:".//***"},
+            {text: "day16", icon: moon16, file:".//***"},
+            {text: "day17", icon: moon17, file:".//***"},
+            {text: "day18", icon: moon18, file:".//***"},
+            {text: "day19", icon: moon19, file:".//***"},
+            {text: "day20", icon: moon20, file:".//***"},
+            {text: "day21", icon: moon21, file:".//***"}
+        ]
+    }  
 ]
