@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { H3, CustomInput, FormContainer, P } from "../utils/typography";
+import { SubHeader, CustomInput, FormContainer, P } from "./typography";
 import colors from "../utils/colors";
 
 import { postDataToPath } from "../utils/api";
@@ -24,9 +24,9 @@ export default function ForgotPassword() {
 
   return (
     <FormContainer>
-      <H3>
+      <SubHeader>
         <strong> Forgot Your Password? Please enter details</strong>
-      </H3>
+      </SubHeader>
 
       <CustomInput saveInput={setName} placeholder="Full Name" type="text" />
 

@@ -1,6 +1,9 @@
-const effects = {
-	shadowButton: 'drop-shadow(0 3px 6px #00000029)',
-	shadowCard: 'drop-shadow(0 3px 10px #0000002B)'
+export const corners = {
+	therapy: '14px',
+	button: '30px',
 }
 
-export default effects;
+export const shadows = {
+	button: 'drop-shadow(0 3px 6px #00000029)',
+	card: 'drop-shadow(0 3px 10px ##0000002B)',
+}

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+<<<<<<< HEAD:src/components/Login/ResetPassword.js
 import {CustomInput, H1, FormContainer,P} from "../utils/typography"
 import  Buttons from "../Buttons/Buttons"
+=======
+import {CustomInput, MainHeader, FormContainer,P} from "./typography"
+import  Buttons from "./Buttons/Buttons"
+>>>>>>> 80ce32d60068fd6e5dbc4a36bdd2486df42e42ff:src/components/ResetPassword.js
 import { postDataToPath } from "../utils/api";
 import colors from "../utils/colors";
 import queryString from 'query-string';
@@ -35,7 +40,7 @@ if (resetSuccessful) {
 }
 
 return (<FormContainer>
-<H1>Please Enter New Password</H1>
+<MainHeader>Please Enter New Password</MainHeader>
 <CustomInput saveInput={setNewPassword} placeholder="New Password" type="password" />
 
 <CustomInput saveInput={setRepeatPassword} placeholder="Repeat Password" type="password" />
