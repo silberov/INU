@@ -120,26 +120,24 @@ export const CustomInput = styled.input.attrs((props) => ({
 `;
 
 export const FormContainer = styled.div`
-    margin-top: 200px;
+  margin-top: 200px;
   display: grid;
   text-align: center;
   justify-content: center;
   align-content: center;
-  margin-left: 25%;
+  margin-left: 40%;
   max-width: 200px;
-  //   overflow: hidden;
 `;
 
 export const LogoHomePage = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 30%;
-  margin-bottom: 25%;
+  margin-left: 35%;
+  margin-bottom: 20%;
 `;
 
 export const BottomPattern = styled.img`
   width: 400px;
-  position: absolute;
-  bottom: 0px;
+  margin-top: 100px;
 `;

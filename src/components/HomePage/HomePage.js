@@ -3,13 +3,7 @@ import React from "react";
 import Button from "../Buttons/Buttons";
 import { Link } from "react-router-dom";
 
-import {
-  
-  FormContainer,
-  P,
-  LogoHomePage,
-  BottomPattern,
-} from "../typography";
+import { FormContainer, P, LogoHomePage, BottomPattern } from "../typography";
 import colors from "../utils/colors";
 import applogo from "../../images/applogo.png";
 import bottompattern from "../../images/bottompattern.png";
@@ -26,8 +20,8 @@ export default function HomePage() {
         <Link to="/login">
           <P color={colors.primary}>Log in</P>
         </Link>
+        <BottomPattern src={bottompattern} alt="bottom-pattren" />
       </FormContainer>
-      <BottomPattern src={bottompattern} alt="bottom-pattren" />
     </div>
   );
 }
