@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "../components/Buttons/Buttons.js";
+import Button from "../Buttons/Buttons";
 import { Link, Redirect } from "react-router-dom";
 
 import { SubHeader, CustomInput, FormContainer, P } from "./typography";

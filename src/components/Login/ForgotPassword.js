@@ -5,7 +5,7 @@ import colors from "../utils/colors";
 
 import { postDataToPath } from "../utils/api";
 
-import Button from "./Buttons/Buttons.js";
+import Button from "../Buttons/Buttons.js";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");

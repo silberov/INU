@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import colors from "../utils/colors";
 import { SubHeader, CustomInput, FormContainer, P } from "./typography";
 
-import Button from "../components/Buttons/Buttons.js";
+import Button from "../Buttons/Buttons.js";
 import { postDataToPath } from "../utils/api";
 import { Redirect } from "react-router-dom";
 
