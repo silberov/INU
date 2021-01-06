@@ -1,8 +1,8 @@
 import styled, {css} from 'styled-components';
 import { applyStyleModifiers } from 'styled-components-modifiers';
 
-import colors from '../../utils/colors';
-import { shadows, corners } from '../../utils/effects';
+import colors from '../utils/colors';
+import { shadows, corners } from '../utils/effects';
 
 // const TherapyDiv =  styled.button`
 //     background: ${colors.primaryGrad};

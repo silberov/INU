@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-<<<<<<< HEAD:src/components/Login/ResetPassword.js
-import {CustomInput, H1, FormContainer,P} from "../utils/typography"
+import {CustomInput, MainHeader, FormContainer,P} from "../typography"
 import  Buttons from "../Buttons/Buttons"
-=======
-import {CustomInput, MainHeader, FormContainer,P} from "./typography"
-import  Buttons from "./Buttons/Buttons"
->>>>>>> 80ce32d60068fd6e5dbc4a36bdd2486df42e42ff:src/components/ResetPassword.js
 import { postDataToPath } from "../utils/api";
 import colors from "../utils/colors";
 import queryString from 'query-string';
