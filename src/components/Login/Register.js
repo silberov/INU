@@ -12,6 +12,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [user, setUser] = useState(undefined);
+  const [shouldLogin, setShouldLogin] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -23,6 +24,13 @@ export default function Register() {
 
     if (response.error) {
       setMessage(response.error);
+      if (response.error.includes("login")) {
+       
+        setTimeout(() => {
+          setShouldLogin(true);
+        }, 2000);
+        
+      }
     } else {
       setMessage("You are registered!");
       // TODO log in user and use it somehow. This part comes later.
@@ -32,8 +40,8 @@ export default function Register() {
     }
   };
 
-  if (user) {
-    return <Redirect to={{ redirect: "/" }} />;
+  if (user || shouldLogin) {
+    return <Redirect to="/login" />;
   }
 
   return (

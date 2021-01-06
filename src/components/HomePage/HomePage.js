@@ -4,8 +4,7 @@ import Button from "../Buttons/Buttons";
 import { Link } from "react-router-dom";
 
 import {
-  SubHeader,
-  CustomInput,
+  
   FormContainer,
   P,
   LogoHomePage,
@@ -25,7 +24,7 @@ export default function HomePage() {
         </Link>
 
         <Link to="/login">
-          <P>Log in</P>
+          <P color={colors.primary}>Log in</P>
         </Link>
       </FormContainer>
       <BottomPattern src={bottompattern} alt="bottom-pattren" />
