@@ -5,12 +5,13 @@ import "./App.css";
 // import colors from './utils/colors';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/Login/Login";
-import Register from "./components/Login/Register";
+import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword"
 import TypoTest from "./components/TypoTest";
 import HomePage from "./components/HomePage/HomePage";
+import Register2 from "./components/Login/Register2";
 // import TypoTest from "./typo-test";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/user/register" component={Register} />
+        </Switch>
+        <Switch>
+          <Route path="/user/register-2" component={Register2} />
         </Switch>
         <Switch>
           <Route path="/user/forgot-password" component={ForgotPassword} />
