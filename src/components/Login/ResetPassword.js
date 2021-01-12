@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {CustomInput, H1, FormContainer,P} from "../utils/typography"
+import {CustomInput, MainHeader, FormContainer,P} from "../typography"
 import  Buttons from "../Buttons/Buttons"
 import { postDataToPath } from "../utils/api";
 import colors from "../utils/colors";
@@ -28,14 +28,14 @@ const response = await postDataToPath("/user/reset-password", { newPassword,repe
       setResetSuccessful(true)
     }, 1500);
   }
-};
+ }
 
 if (resetSuccessful) {
-  return <Redirect to={"/"} />;
+  return <Redirect to={"/login"} />;
 }
 
 return (<FormContainer>
-<H1>Please Enter New Password</H1>
+<MainHeader>Please Enter New Password</MainHeader>
 <CustomInput saveInput={setNewPassword} placeholder="New Password" type="password" />
 
 <CustomInput saveInput={setRepeatPassword} placeholder="Repeat Password" type="password" />
