@@ -46,7 +46,7 @@ export const Moon = styled.img`
   font-family: 'tondo', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.3em;
   line-height: 1.13em;
   cursor: pointer;
   color: ${colors.white};
