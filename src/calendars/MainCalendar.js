@@ -10,7 +10,7 @@ export default function MainCalendar() {
   const [date, setDate] = useState();
   const [nextPeriod, setNextPeriod] = useState([]);
   const [nextOvulation, setNextOvulation] = useState([]);
-  const [input, setInput] = useState([]);
+  const [input, setInput] = useState(28);
   const [periodTwo, setPeriodTwo] = useState([]);
   const [ovulationTwo, setOvulationTwo] = useState([]);
 
@@ -114,7 +114,6 @@ export default function MainCalendar() {
           value={input}
           onChange={(event) => {console.log("days", input);setInput(event.target.value)}}
         />
-         {/* <input type="submit" disabled={!input ? true : false} value="submit" class="button" /> */}
         </form></div>
     <div className='calendar'>
       <p>

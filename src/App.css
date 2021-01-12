@@ -39,10 +39,10 @@
   max-width: 480px;
   transition: none;
 }
-.calendar {
+/* .calendar {
   width: 50%;
   height: 50%
-}
+} */
 
 .nice-dates-day.-period { color: red; }
 .nice-dates-day.-period2 { color: red; }
