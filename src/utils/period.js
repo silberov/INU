@@ -13,11 +13,14 @@ export function calculatePeriod(start, cycleDuration) {
 	return period;
 }
 
-export function predictPeriods(starting, number) {
+export function predictPeriods(starting, number, cycleLength) {
 	let periods = [];
 	for (let i = 0; i < number; i++) {
 		periods.push(
-			calculatePeriod(new Date(starting.setMonth(starting.getMonth() + i)))
+			calculatePeriod(
+				new Date(starting.setMonth(starting.getMonth() + i)),
+				cycleLength
+			)
 		);
 	}
 	return periods;

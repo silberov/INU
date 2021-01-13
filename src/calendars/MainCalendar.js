@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { predictPeriods } from '../utils/period';
-import { add, format, isSameDay } from 'date-fns';
+import { add, format, isSameDay, getDay } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 import { DatePickerCalendar } from 'react-nice-dates';
 import 'react-nice-dates/build/style.css';
@@ -17,78 +17,37 @@ import {
 import colors from '../components/utils/colors';
 
 export default function MainCalendar() {
-	const today = new Date();
 	const [date, setDate] = useState(new Date());
-	const [periods, setPeriods] = useState();
+	const [periodsArray, setPeriods] = useState([]);
 	const [nextPeriod, setNextPeriod] = useState([]);
 	const [nextOvulation, setNextOvulation] = useState([]);
 	const [input, setInput] = useState(28);
 	const [periodTwo, setPeriodTwo] = useState([]);
 	const [ovulationTwo, setOvulationTwo] = useState([]);
-	useEffect(() => {
-		console.log('date changed', date);
-		setPeriods(predictPeriods(date, 3));
-		console.log(periods);
-	}, [date]);
 
-	const handlePickDate = (date) => {};
-
-	function changeModifier(array) {
-		// [{startingDate, dates:[],  ovulation:"dsfg"}]
-		const modifiers = {};
-		array.map((el) => {
-			modifiers.highlight = (date) => {
-				return {
-					...modifiers.hightlight,
-					...nextPeriod.some((d) => {
-						return isSameDay(d, date);
-					}),
-				};
-			};
-		});
-		/*
-        {
-            highlight:(date)=>el.period.some((d)=>{return isSameDay(d,  date)})
-        }
-    */
-	}
+	const handlePickDate = (date) => {
+		setDate(date);
+		setPeriods(predictPeriods(date, 3, 28));
+	};
 	const modifiers = {
 		highlight: (date) => {
-			return nextPeriod.some((d) => {
-				return isSameDay(d, date);
-			});
-		},
-		highlight2: (monthTwo) => {
-			return periodTwo.some((d) => {
-				return isSameDay(d, monthTwo);
-			});
+			let allDates = periodsArray.reduce((dates, period) => {
+				return [...dates, ...period.dates];
+			}, []);
+			return allDates.some((d) => isSameDay(d, date));
 		},
 		ovulation: (date) => {
-			return nextOvulation.some((d) => {
-				return isSameDay(d, date);
-			});
-		},
-		ovulation2: (monthTwo) => {
-			return ovulationTwo.some((d) => {
-				return isSameDay(d, monthTwo);
-			});
+			let allOvulation = periodsArray.reduce((dates, period) => {
+				return [...dates, period.ovulation];
+			}, []);
+			return allOvulation.some((d) => isSameDay(d, date));
 		},
 	};
-	console.log(modifiers);
 
 	const modifiersClassNames = {
 		highlight: '-period',
-		highlight2: '-period2',
 		ovulation: '-ovulation',
-		ovulation2: '-ovulation2',
 	};
-
-	// console.log(nextPeriod);
-	// console.log('next period 0', nextPeriod[0]);
-
-	// const handleFormSubmit = (event) => {
-	//   console.log(input)
-	// }
 
 	return (
 		<div>
@@ -123,11 +82,11 @@ export default function MainCalendar() {
 						</p>
 						<DatePickerCalendar
 							date={date}
-							onDateChange={(e) => setDate(e)}
-							modifiers={(date) => modifiers(date)}
+							onDateChange={handlePickDate}
+							modifiers={modifiers}
 							modifiersClassNames={modifiersClassNames}
 							locale={enGB}
-							months={2}
+							// months={2}
 						/>
 					</div>
 				</P>
