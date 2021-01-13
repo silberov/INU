@@ -2,7 +2,14 @@ import React, { useState } from 'react'
 import '../App.css';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import { Link } from 'react-router-dom';
 
+
+import Button from "../components/Buttons/Buttons";
+import { FormContainer, P, MainHeader, Header } from "../components/typography";
+import colors from "../components/utils/colors";
+// import applogo from "../../images/applogo.png";
+// import bottompattern from "../../images/bottompattern.png";
 
 export default function PeriodDates() {
     const [selectedDay, setSelectedDay] = useState();
@@ -15,9 +22,10 @@ export default function PeriodDates() {
   }
 
     return (
-      <div>
-          <p>Select your cycle length. The average is 28 days.</p>
-        <form>
+        <FormContainer>
+      <div><div>
+          <Header color={colors.primary}>Select your cycle length. The average is 28 days.
+        <br /><form>
         <input
           className="form"
           type="number"
@@ -27,11 +35,15 @@ export default function PeriodDates() {
           value={input}
           onChange={(event) => {console.log("days", input);setInput(event.target.value)}}
         />        
-        </form>
-        {selectedDay && <p>Day: {selectedDay.toLocaleDateString()}</p>}
-        {!selectedDay && <p>Select the first day of your last period.</p>}
-        <DayPickerInput onDayChange={handleDayChange} />
-      </div>
+        </form></Header></div>
+        <div>
+        <br /><Header>Select the first day of your last period.</Header>
+        {selectedDay && <P>{selectedDay.toLocaleDateString()}</P>}
+        {!selectedDay && <P>dd/mm/yyyy</P>}
+        <P><DayPickerInput onDayChange={handleDayChange} /></P>
+        </div>
+        <br /><Link to="/calendar"><Button>Next</Button></Link>
+        </div></FormContainer> 
     );
 }
 

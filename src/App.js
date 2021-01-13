@@ -7,7 +7,7 @@ import PeriodDates from './calendars/PeriodDates';
 
 import "./App.css";
 // import colors from './utils/colors';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
@@ -21,10 +21,6 @@ import Register2 from "./components/Login/Register2";
 function App() {
   return (
     <div className="App">
-     <Router>
-     <Route exact path="/period" component={PeriodDates}  />
-     <Route exact path="/calendar" component={MainCalendar}  />
-     </Router>
       <BrowserRouter>
       <Switch>
           <Route exact path="/" component={HomePage} />
@@ -49,6 +45,12 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/typotest" component={TypoTest} />
+        </Switch>
+        <Switch>
+        <Route exact path="/period" component={PeriodDates}  />
+        </Switch>
+        <Switch>
+        <Route exact path="/calendar" component={MainCalendar}  />
         </Switch>
 
       </BrowserRouter>

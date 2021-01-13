@@ -4,17 +4,31 @@ import { enGB } from 'date-fns/locale'
 import { DatePickerCalendar } from 'react-nice-dates'
 import 'react-nice-dates/build/style.css'
 import '../App.css'
+import Button from "../components/Buttons/Buttons";
+import { FormContainer, P, MainHeader, Header, LogoHomePage, BottomPattern } from "../components/typography";
+import colors from "../components/utils/colors";
 
 
 export default function MainCalendar() {
+  const today = new Date();
+  console.log(today)
   const [date, setDate] = useState();
+  const [currentDate, setCurrentDate] = useState(today)
   const [nextPeriod, setNextPeriod] = useState([]);
   const [nextOvulation, setNextOvulation] = useState([]);
   const [input, setInput] = useState(28);
   const [periodTwo, setPeriodTwo] = useState([]);
   const [ovulationTwo, setOvulationTwo] = useState([]);
 
-
+ /*
+Solution2
+  state:
+  startingDate:"Mon Feb 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",
+  period:[["Mon Feb 01 2021 00:00:00 GMT+0100 (Central European Standard Time)",""Mon Feb 01 2021 00:00:00 GMT+0100 (Central European Standard Time)", "Mon Feb 01 2021 00:00:00 GMT+0100 (Central European Standard Time)"]]
+  useEffect(()=>{
+    // recalculatePeriod(startingDate)
+  },[startingDate])
+  */
   const handlePickDate = (date) => {
     let output = [add(new Date(date), { days: input-1 })];
     for (let i = 0; i < 6; i++) {
@@ -102,6 +116,7 @@ export default function MainCalendar() {
 
   return (
     <div>
+      <FormContainer><P color={colors.primary}>
     <div>
       <p>How many days does your cycle usually last? The average is 28 days.</p>
       <form>
@@ -129,7 +144,17 @@ export default function MainCalendar() {
         modifiersClassNames={modifiersClassNames}
         locale={enGB}
         months={2}
+        month={currentDate}
+        onMonthChange={(e) => {
+          console.log('event',e)
+          // let newToday = new Date();
+          // newToday.setMonth(newToday.getMonth() + 1)
+          // console.log('newToday',newToday)
+          setCurrentDate((currentDate)=>{
+            return new Date(currentDate.setMonth(currentDate.getMonth() + 1))
+          })
+        }}
       />
-    </div></div>
+    </div></P></FormContainer></div>
   )
 }

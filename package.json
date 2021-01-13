@@ -6,19 +6,13 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
-<<<<<<< HEAD
     "date-fns": "^2.16.1",
-=======
     "query-string": "^6.13.8",
->>>>>>> 7cf132237e19a94081c02b3824770e104321385b
     "react": "^17.0.1",
     "react-day-picker": "^7.4.8",
     "react-dom": "^17.0.1",
-<<<<<<< HEAD
     "react-nice-dates": "^3.0.7",
     "react-number-picker": "^1.0.5",
-=======
->>>>>>> 7cf132237e19a94081c02b3824770e104321385b
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
