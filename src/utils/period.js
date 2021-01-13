@@ -17,10 +17,7 @@ export function predictPeriods(starting, number, cycleLength) {
 	let periods = [];
 	for (let i = 0; i < number; i++) {
 		periods.push(
-			calculatePeriod(
-				new Date(starting.setMonth(starting.getMonth() + i)),
-				cycleLength
-			)
+			calculatePeriod(new Date(add(starting, { months: i })), cycleLength)
 		);
 	}
 	return periods;

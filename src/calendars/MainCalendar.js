@@ -18,16 +18,19 @@ import colors from '../components/utils/colors';
 
 export default function MainCalendar() {
 	const [date, setDate] = useState(new Date());
-	const [periodsArray, setPeriods] = useState([]);
+	const [periodsArray, setPeriodsArray] = useState([]);
 	const [nextPeriod, setNextPeriod] = useState([]);
 	const [nextOvulation, setNextOvulation] = useState([]);
 	const [input, setInput] = useState(28);
 	const [periodTwo, setPeriodTwo] = useState([]);
 	const [ovulationTwo, setOvulationTwo] = useState([]);
 
-	const handlePickDate = (date) => {
-		setDate(date);
-		setPeriods(predictPeriods(date, 3, 28));
+	useEffect(() => {
+		setPeriodsArray(() => predictPeriods(new Date(date), 3, input));
+	}, [date, input]);
+
+	const handlePickDate = (selectedDate) => {
+		setDate(selectedDate);
 	};
 	const modifiers = {
 		highlight: (date) => {
@@ -82,11 +85,11 @@ export default function MainCalendar() {
 						</p>
 						<DatePickerCalendar
 							date={date}
-							onDateChange={handlePickDate}
+							onDateChange={(date) => handlePickDate(date)}
 							modifiers={modifiers}
 							modifiersClassNames={modifiersClassNames}
 							locale={enGB}
-							// months={2}
+							// months={1}
 						/>
 					</div>
 				</P>
