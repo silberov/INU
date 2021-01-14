@@ -28,10 +28,10 @@ const response = await postDataToPath("/user/reset-password", { newPassword,repe
       setResetSuccessful(true)
     }, 1500);
   }
-};
+ }
 
 if (resetSuccessful) {
-  return <Redirect to={"/"} />;
+  return <Redirect to={"/login"} />;
 }
 
 return (<FormContainer>

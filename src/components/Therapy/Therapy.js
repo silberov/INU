@@ -4,7 +4,7 @@ import { P, SubHeader } from "../typography";
 import Button, { Moon } from "../Buttons/Buttons";
 import { therapyFiles } from "./moons";
 
-const SectionWraper = styled.div`
+ export const SectionWraper = styled.div`
   max-width: 800px;
   margin: auto;
   display: flex;

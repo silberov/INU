@@ -1,23 +1,33 @@
 import React from 'react';
-import { MainHeader, SubHeader } from "../typography"
+import { P,MainHeader, SubHeader } from "../typography";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+
+
+ // CSS
+
+ const DateDiv= styled.div`
+ text-align:center;`
 
 
 
 function CurrentDate() {
 
+    const [day,setDay] = useState();
+    
     const d = new Date();
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 
     const month = months[d.getMonth()]
-    const year = d.getUTCFullYear()
     const date = d.getDate()
     
     return (
-        <div className='currentDate'>
-            <MainHeader>{date} {month} {year}</MainHeader>
-            <SubHeader>X day of your cycle</SubHeader>
+        <DateDiv>
+            <P>{date} {month}</P>
+            <SubHeader>Day X</SubHeader>
+            <P>Beginning of your period</P>
 
-        </div>
+        </DateDiv>
     )
 }
 

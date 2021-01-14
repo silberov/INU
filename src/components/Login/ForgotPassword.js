@@ -4,6 +4,7 @@ import { SubHeader, CustomInput, FormContainer, P } from "../typography";
 import colors from "../utils/colors";
 
 import { postDataToPath } from "../utils/api";
+import { Link, Redirect } from "react-router-dom";
 
 import Button from "../Buttons/Buttons.js";
 
@@ -11,16 +12,27 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [forgetPassword, setForgetPassword] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-  const response = await postDataToPath("/user/forgot-password", { email, name });
+    const response = await postDataToPath("/user/forgot-password", {
+      email,
+      name,
+    });
     if (response.error) {
       setErrorMessage(response.error);
     } else {
-      setErrorMessage(response.message)
+      setErrorMessage(response.message);
+      setTimeout(() => {
+        setForgetPassword(true);
+      }, 2000);
     }
   };
+
+  if (forgetPassword) {
+    return <Redirect to={"/login"} />;
+  }
 
   return (
     <FormContainer>
@@ -33,6 +45,7 @@ export default function ForgotPassword() {
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
 
       <Button runOnClick={handleSubmit}>Reset</Button>
+      
       <P color={colors.importantMessage}>{errorMessage}</P>
     </FormContainer>
   );

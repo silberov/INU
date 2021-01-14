@@ -6,12 +6,14 @@ import Button from "../Buttons/Buttons.js";
 import { postDataToPath } from "../utils/api";
 import { Redirect } from "react-router-dom";
 
-export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+export default function Register2(props) {
+  const { name, email } = props?.location?.state || {};
+
   const [password, setPassword] = useState("");
+  const [repeatPassword, setRepeatPassword] = useState("");
   const [message, setMessage] = useState("");
   const [user, setUser] = useState(undefined);
+  const [shouldLogin, setShouldLogin] = useState(false);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -19,10 +21,16 @@ export default function Register() {
       name,
       email,
       password,
+      repeatPassword
     });
 
     if (response.error) {
       setMessage(response.error);
+      if (response.error.includes("login")) {
+        setTimeout(() => {
+          setShouldLogin(true);
+        }, 2000);
+      }
     } else {
       setMessage("You are registered!");
       // TODO log in user and use it somehow. This part comes later.
@@ -32,22 +40,26 @@ export default function Register() {
     }
   };
 
-  if (user) {
-    return <Redirect to={{ redirect: "/" }} />;
+  if (!email || !name) {
+    return <Redirect to="/user/register" />;
+  }
+
+  if (user || shouldLogin) {
+    return <Redirect to="/login" />;
   }
 
   return (
     <FormContainer>
-      <SubHeader>
-        <strong>Create Your Profile</strong>
-      </SubHeader>
-      <CustomInput saveInput={setName} placeholder="Name" type="text" />
-
-      <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
+      <SubHeader>Select Your password</SubHeader>
 
       <CustomInput
         saveInput={setPassword}
         placeholder="Password"
+        type="password"
+      />
+      <CustomInput
+        saveInput={setRepeatPassword}
+        placeholder="Repeat Password"
         type="password"
       />
 
