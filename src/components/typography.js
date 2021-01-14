@@ -83,6 +83,7 @@ export const Header = styled.h2`
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const SubHeader = styled.h3`

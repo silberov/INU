@@ -2,6 +2,8 @@
 
 function ProgressBar() {
     return (
+        <>
+        </>
 
     );
 }

@@ -15,12 +15,12 @@ const PlayerMainWrap = styled.div`
 `
 
 
-function Player () {
+function Player (props) {
     return (
         <PlayerMainWrap>
-            <MainHeader modifiers={["center", "light"]}>Therapy · Day 1</MainHeader>
+            <MainHeader modifiers={["center", "light"]}>Therapy · {props.title}</MainHeader>
             <CenterImg src={meditation}/>
-            <MainHeader modifiers={["center", "bold"]}>Be calm and relax</MainHeader>
+            <Header modifiers={["center"]}>{props.description}</Header>
             <PlayerControl />
         </PlayerMainWrap>
     );

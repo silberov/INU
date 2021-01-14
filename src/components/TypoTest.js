@@ -26,9 +26,9 @@ function TypoTest () {
         <P modifiers={'xsmall'}>How intense was the pain <br/>during sex?</P> */}
 
 
-        <Therapy />
+        {/* <Therapy /> */}
 
-        {/* <Player /> */}
+        <Player title={"day1"} description={"apocalypse and chill"} />
     </>
     );
 }
