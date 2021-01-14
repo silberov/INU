@@ -22,10 +22,10 @@ function App() {
           <Route exact path="/" component={HomePage} />
         </Switch>
         <Switch>
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/auth/login" component={Login} />
         </Switch>
         <Switch>
-          <Route path="/user/register" component={Register} />
+          <Route path="/auth/register" component={Register} />
         </Switch>
         <Switch>
           <Route path="/user/register-2" component={Register2} />
@@ -37,7 +37,7 @@ function App() {
           <Route path="/user/dashboard" component={Dashboard} />
         </Switch>
         <Switch>
-          <Route path="/user/reset-password" component={ResetPassword} />
+          <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
           <Route path="/typotest" component={TypoTest} />
