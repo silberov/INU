@@ -30,7 +30,7 @@ export default function Register() {
       ) : (
         <Link
           to={{
-            pathname: "/user/register-2",
+            pathname: "/auth/register-2",
             state: {
               name,
               email,

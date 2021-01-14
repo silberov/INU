@@ -13,7 +13,7 @@ export default function HomePage() {
     <div>
       <FormContainer>
         <LogoHomePage src={applogo} alt="logo" />
-        <Link to="/user/register">
+        <Link to="/auth/register">
           <Button>Register</Button>
         </Link>
 

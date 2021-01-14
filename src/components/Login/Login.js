@@ -16,7 +16,7 @@ export default function Login() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     setMessage("");
-    const response = await postDataToPath("/auth/login", { email, password });
+    const response = await postDataToPath("/login", { email, password });
     if (response.error) {
       setMessage(response.error);
     } else {
@@ -48,7 +48,7 @@ export default function Login() {
 
      
 
-      <Link to="/user/forgot-password">
+      <Link to="/forgot-password">
         <P>Forget Password</P>
       </Link>
       <Link to="/typotest">
