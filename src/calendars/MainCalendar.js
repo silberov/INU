@@ -53,51 +53,51 @@ Solution2
   // console.log("month two", monthTwo)
 
 
-  const handlePickDateTwo = () => {
-    let monthTwo = nextPeriod[0]
-    console.log("month 2", monthTwo)
-    let output = [add(new Date(monthTwo), { days: input-1 })];
-    for (let i = 0; i < 6; i++) {
-      output.push(add(new Date(output[i]), { days: 1 }));
-      console.log("output 2", output)
-      setPeriodTwo(output)
-      handlePickOvulationTwo()
-    }};
+  // const handlePickDateTwo = () => {
+  //   let monthTwo = nextPeriod[0]
+  //   console.log("month 2", monthTwo)
+  //   let output = [add(new Date(monthTwo), { days: input-1 })];
+  //   for (let i = 0; i < 6; i++) {
+  //     output.push(add(new Date(output[i]), { days: 1 }));
+  //     console.log("output 2", output)
+  //     setPeriodTwo(output)
+  //     handlePickOvulationTwo()
+  //   }};
 
-    const handlePickOvulationTwo = () => {
-      let monthTwo = nextPeriod[0]
-      let output = [add(new Date(monthTwo), { days: (input/3) })];
-      for (let i = 0; i < 4; i++) {
-        output.push(add(new Date(output[i]), { days: 1 }));
-      }
-      setOvulationTwo(output);  
-    };
-
-
+  //   const handlePickOvulationTwo = () => {
+  //     let monthTwo = nextPeriod[0]
+  //     let output = [add(new Date(monthTwo), { days: (input/3) })];
+  //     for (let i = 0; i < 4; i++) {
+  //       output.push(add(new Date(output[i]), { days: 1 }));
+  //     }
+  //     setOvulationTwo(output);  
+  //   };
 
 
-  const modifiers = {
-    highlight: (date) => {
-      return nextPeriod.some((d) => {
-        return isSameDay(d, date);
-      });
-    },
-    highlight2: (monthTwo) => {
-      return periodTwo.some((d) => {
-        return isSameDay(d, monthTwo);
-      });
-    },
-    ovulation: (date) => {
-      return nextOvulation.some((d) => {
-        return isSameDay(d, date);
-      });
-    },
-    ovulation2: (monthTwo) => {
-      return ovulationTwo.some((d) => {
-        return isSameDay(d, monthTwo);
-      });
-    }
-  };
+
+
+  // const modifiers = {
+  //   highlight: (date) => {
+  //     return nextPeriod.some((d) => {
+  //       return isSameDay(d, date);
+  //     });
+  //   },
+  //   highlight2: (monthTwo) => {
+  //     return periodTwo.some((d) => {
+  //       return isSameDay(d, monthTwo);
+  //     });
+  //   },
+  //   ovulation: (date) => {
+  //     return nextOvulation.some((d) => {
+  //       return isSameDay(d, date);
+  //     });
+  //   },
+  //   ovulation2: (monthTwo) => {
+  //     return ovulationTwo.some((d) => {
+  //       return isSameDay(d, monthTwo);
+  //     });
+  //   }
+  // };
 
   const modifiersClassNames = {
     highlight: "-period",
@@ -146,8 +146,20 @@ Solution2
         months={2}
         month={currentDate}
         onMonthChange={(e) => {
-          console.log('event',e)
-          // let newToday = new Date();
+          const modifiers = {
+            highlight: (date) => {
+                let allDates = periods.reduce((dates, period) => {
+                    return [...dates, ...period.dates];
+                }, []);
+                return allDates.some((d) => isSameDay(d, date));
+            },
+            ovulation: (date) => {
+                let allOvulation = periods.reduce((dates, period) => {
+                    return [...dates, period.ovulation];
+                }, []);
+                return allOvulation.some((d) => isSameDay(d, date));
+            },
+        };        // let newToday = new Date();
           // newToday.setMonth(newToday.getMonth() + 1)
           // console.log('newToday',newToday)
           setCurrentDate((currentDate)=>{
