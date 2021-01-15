@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import colors from "../utils/colors";
+import colors from "../../utils/colors";
 import { SubHeader, CustomInput, FormContainer, P } from "../typography";
 
 import Button from "../Buttons/Buttons.js";
@@ -15,7 +15,7 @@ export default function Register() {
       setMessage("Please enter your details");
     }
   };
-  
+
   return (
     <FormContainer>
       <SubHeader>

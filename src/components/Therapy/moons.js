@@ -28,30 +28,30 @@ import moon27 from "../../moon-icons/moon26.png";
 
 
 export const therapyFiles = [
-    {title: "First Quarter", color: "purple",
-        data: [
-            {text: "day1", icon: moon1, file:".//***"},
-            {text: "day2", icon: moon2, file:".//***"},
-            {text: "day3", icon: moon3, file:".//***"},
-            {text: "day4", icon: moon4, file:".//***"},
-            {text: "day5", icon: moon5, file:".//***"},
-            {text: "day6", icon: moon6, file:".//***"},
-            {text: "day7", icon: moon7, file:".//***"}
-        ]
-    },
-    {title: "Second Quarter", color: "blue",
-        data: [
+    {title: "First Quarter",
+    data:[
+        {text: "day1", icon: moon1, file:".//***"},
+        {text: "day2", icon: moon2, file:".//***"},
+        {text: "day3", icon: moon3, file:".//***"},
+        {text: "day4", icon: moon4, file:".//***"},
+        {text: "day5", icon: moon5, file:".//***"},
+        {text: "day6", icon: moon6, file:".//***"},
+        {text: "day7", icon: moon7, file:".//***"}
+    ]},
+
+    {title: "Second Quarter",
+        data:[
             {text: "day8", icon: moon8, file:".//***"},
             {text: "day9", icon: moon9, file:".//***"},
             {text: "day10", icon: moon10, file:".//***"},
             {text: "day11", icon: moon11, file:".//***"},
             {text: "day12", icon: moon12, file:".//***"},
             {text: "day13", icon: moon13, file:".//***"},
-            {text: "day14", icon: moon13, file:".//***"}
-        ]
-    },
-    {title: "Third Quarter", color: "orange",
-        data: [
+            {text: "day14", icon: moon14, file:".//***"}
+        ]},
+
+        {title: "Third Quarter",
+            data:[
             {text: "day15", icon: moon15, file:".//***"},
             {text: "day16", icon: moon16, file:".//***"},
             {text: "day17", icon: moon17, file:".//***"},
@@ -59,6 +59,5 @@ export const therapyFiles = [
             {text: "day19", icon: moon19, file:".//***"},
             {text: "day20", icon: moon20, file:".//***"},
             {text: "day21", icon: moon21, file:".//***"}
-        ]
-    }  
+            ]}
 ]
