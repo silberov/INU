@@ -1,11 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import { primaryFont } from '../componenets/typography';
+import { primaryFont } from '../components/typography';
 
 export const GlobalStyle = createGlobalStyle`
 
 body {
      margin: 0;
-     padding: 0;
      font-family: ${primaryFont};
 }
 * {
