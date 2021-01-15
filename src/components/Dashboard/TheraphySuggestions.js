@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { SubHeader } from "../typography";
 import { Button, Moon } from "../Buttons/Buttons";
@@ -24,7 +23,7 @@ const ButtonDiv = styled.div`
   flex-direction: column-reversed;
   align-items: flex-end;
   align-content: space-around;
-`
+`;
 
 export default function TheraphySuggestions() {
   return (
