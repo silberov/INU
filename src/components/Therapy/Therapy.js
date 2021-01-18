@@ -2,7 +2,8 @@ import styled from "styled-components";
 //import colors from "../../utils/colors";
 import { P, SubHeader } from "../typography";
 import Button, { Moon } from "../Buttons/Buttons";
-import { therapyFiles } from "./moons";
+import data from "../../Data/TherapyData.json";
+import colors from "../utils/colors";
 
 const SectionWraper = styled.div`
   max-width: 800px;
@@ -12,18 +13,14 @@ const SectionWraper = styled.div`
   justify-content: space-between;
 `;
 
-const TherapyWraper = styled.div`
-  padding: 35px;
-  text-align: left;
-`;
+
 
 function Therapy({quarter}) {
-    //console.log(props)
     return (
         <>
             <SubHeader margin={"30px auto 10px auto"}>{quarter.title}</SubHeader>
             <SectionWraper>
-                {quarter.data.map(item => <Button modifiers={["therapy"]}>
+                {quarter.data.map(item => <Button modifiers={["therapy", quarter.title === "Second Quarter" && "blue", quarter.title === "Third Quarter" && "orange"]}>
                 {item.text}
                 <Moon src={item.icon} alt="*" />
                 </Button>)}
@@ -32,14 +29,4 @@ function Therapy({quarter}) {
     )
 }
 
-function TherapyContainer() {
-  return (
-    <TherapyWraper>
-      {therapyFiles.map((item) => <Therapy quarter={item} />)}
-    </TherapyWraper>
-  );
-}
-
-
-
-export default TherapyContainer;
+export default Therapy;
