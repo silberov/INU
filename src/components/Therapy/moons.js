@@ -28,7 +28,7 @@ import moon27 from "../../moon-icons/moon26.png";
 
 
 export const therapyFiles = [
-    {title: "First Quarter", color: "purple",
+    {title: "First Quarter",
         data: [
             {text: "day1", icon: moon1, file:".//***"},
             {text: "day2", icon: moon2, file:".//***"},
@@ -39,7 +39,7 @@ export const therapyFiles = [
             {text: "day7", icon: moon7, file:".//***"}
         ]
     },
-    {title: "Second Quarter", color: "blue",
+    {title: "Second Quarter",
         data: [
             {text: "day8", icon: moon8, file:".//***"},
             {text: "day9", icon: moon9, file:".//***"},
@@ -47,10 +47,10 @@ export const therapyFiles = [
             {text: "day11", icon: moon11, file:".//***"},
             {text: "day12", icon: moon12, file:".//***"},
             {text: "day13", icon: moon13, file:".//***"},
-            {text: "day14", icon: moon13, file:".//***"}
+            {text: "day14", icon: moon14, file:".//***"}
         ]
     },
-    {title: "Third Quarter", color: "orange",
+    {title: "Third Quarter",
         data: [
             {text: "day15", icon: moon15, file:".//***"},
             {text: "day16", icon: moon16, file:".//***"},
