@@ -6,34 +6,27 @@ import colors from "../../utils/colors";
 import queryString from "query-string";
 import { Redirect } from "react-router-dom";
 
-export default function ResetPassword(props) {
-  const [newPassword, setNewPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [resetSuccessful, setResetSuccessful] = useState(false);
 
-  const resetToken = queryString.parse(props.location.search);
-  console.log(resetToken);
 
-  const handleSubmit = async (evt) => {
-    evt.preventDefault();
-    const response = await postDataToPath("/user/reset-password", {
-      newPassword,
-      repeatPassword,
-      resetToken: resetToken.token,
-    });
-    if (response.error) {
-      setMessage(response.error);
-    } else {
-      setMessage(response.message);
-      setTimeout(() => {
-        setResetSuccessful(true);
-      }, 1500);
-    }
-  };
+export default function ResetPassword(props){
+ const  [newPassword, setNewPassword]= useState("")
+ const  [repeatPassword, setRepeatPassword]= useState("")
+ const [message, setMessage] = useState("");
+ const [resetSuccessful, setResetSuccessful] = useState(false);
+  
+  const resetToken = queryString.parse(props.location.search)
+  console.log(resetToken)
 
-  if (resetSuccessful) {
-    return <Redirect to={"/login"} />;
+ const handleSubmit = async (evt) => {
+  evt.preventDefault();
+const response = await postDataToPath("/api/auth/reset-password", { newPassword,repeatPassword, resetToken: resetToken.token});
+  if (response.error) {
+    setMessage(response.error);
+  } else {
+    setMessage(response.message);
+    setTimeout(() => {
+      setResetSuccessful(true)
+    }, 1500);
   }
 
   return (

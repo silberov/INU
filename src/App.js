@@ -29,19 +29,19 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
         <Switch>
-          <Route path="/user/register" component={Register} />
+          <Route path="/auth/register" component={Register} />
         </Switch>
         <Switch>
-          <Route path="/user/register-2" component={Register2} />
+          <Route path="/auth/register-2" component={Register2} />
         </Switch>
         <Switch>
-          <Route path="/user/forgot-password" component={ForgotPassword} />
+          <Route path="/forgot-password" component={ForgotPassword} />
         </Switch>
         <Switch>
           <Route path="/user/dashboard" component={Dashboard} />
         </Switch>
         <Switch>
-          <Route path="/user/reset-password" component={ResetPassword} />
+          <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
           <Route path="/typotest" component={TypoTest} />
