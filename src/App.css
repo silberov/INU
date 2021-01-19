@@ -7,6 +7,7 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -15,6 +16,7 @@
 .nice-dates-day {
   color: #111;
 }
+
 .nice-dates-popover {
   box-shadow: none;
   border: 1px solid #ddd;
@@ -22,22 +24,35 @@
   max-width: 480px;
   transition: none;
 }
-/* .calendar {
-  width: 50%;
-  height: 50%
-} */
+
+.nice-dates-day{
+  font-size: 13px;
+}
 
 .nice-dates-day.-period {
-  color: red;
+  color: #92305E;
 }
-.nice-dates-day.-period2 {
-  color: red;
-}
+
 .nice-dates-day.-ovulation {
-  color: cornflowerblue;
+  color: #FEA900;
 }
-.nice-dates-day.-ovulation2 {
-  color: cornflowerblue;
+
+.nice-dates-week-header_day {
+  color: #92305E;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.nice-dates-navigation {
+  font-weight: bold;
+  text-align: right;
+  font-size: 22px;
+  margin-top: 50px;
+
+}
+
+.nice-dates-navigation_previous, .nice-dates-navigation_next {
+  display: none;
 }
 
 .form {
