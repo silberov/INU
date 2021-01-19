@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import {CustomInput, MainHeader, FormContainer,P} from "../typography"
-import  Buttons from "../Buttons/Buttons"
-import { postDataToPath } from "../utils/api";
-import colors from "../utils/colors";
-import queryString from 'query-string';
+import { CustomInput, MainHeader, FormContainer, P } from "../typography";
+import Buttons from "../Buttons/Buttons";
+import { postDataToPath } from "../../utils/api";
+import colors from "../../utils/colors";
+import queryString from "query-string";
 import { Redirect } from "react-router-dom";
 
 
@@ -28,23 +28,23 @@ const response = await postDataToPath("/api/auth/reset-password", { newPassword,
       setResetSuccessful(true)
     }, 1500);
   }
- }
 
-if (resetSuccessful) {
-  return <Redirect to={"/login"} />;
-}
+  return (
+    <FormContainer>
+      <MainHeader>Please Enter New Password</MainHeader>
+      <CustomInput
+        saveInput={setNewPassword}
+        placeholder="New Password"
+        type="password"
+      />
 
-return (<FormContainer>
-<MainHeader>Please Enter New Password</MainHeader>
-<CustomInput saveInput={setNewPassword} placeholder="New Password" type="password" />
-
-<CustomInput saveInput={setRepeatPassword} placeholder="Repeat Password" type="password" />
-<Buttons runOnClick={handleSubmit}> Submit </Buttons>
-<P color={colors.importantMessage}>{message}</P>
-
-</FormContainer>
-)
-
-
-
+      <CustomInput
+        saveInput={setRepeatPassword}
+        placeholder="Repeat Password"
+        type="password"
+      />
+      <Buttons runOnClick={handleSubmit}> Submit </Buttons>
+      <P color={colors.importantMessage}>{message}</P>
+    </FormContainer>
+  );
 }
