@@ -47,5 +47,9 @@ const response = await postDataToPath("/api/auth/reset-password", { newPassword,
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );
+<<<<<<< HEAD
 };
 };
+
+}
+
