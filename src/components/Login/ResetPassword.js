@@ -19,7 +19,7 @@ export default function ResetPassword(props){
 
  const handleSubmit = async (evt) => {
   evt.preventDefault();
-const response = await postDataToPath("/reset-password", { newPassword,repeatPassword, resetToken: resetToken.token});
+const response = await postDataToPath("/api/auth/reset-password", { newPassword,repeatPassword, resetToken: resetToken.token});
   if (response.error) {
     setMessage(response.error);
   } else {

@@ -17,7 +17,7 @@ export default function Register2(props) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("/create", {
+    const response = await postDataToPath("/api/user/create", {
       name,
       email,
       password,
