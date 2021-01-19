@@ -4,8 +4,8 @@ import Button from "../Buttons/Buttons";
 import { Link, Redirect } from "react-router-dom";
 
 import { SubHeader, CustomInput, FormContainer, P } from "../typography";
-import colors from "../utils/colors";
-import { postDataToPath } from "../utils/api";
+import colors from "../../utils/colors";
+import { postDataToPath } from "../../utils/api";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -23,10 +23,9 @@ export default function Login() {
       setTimeout(() => {
         setUser(response);
       }, 2000);
-      
+
       setMessage("");
     }
-
   };
 
   if (user) {
@@ -52,9 +51,7 @@ export default function Login() {
         <P>Forget Password</P>
       </Link>
       <Link to="/typotest">
-        <p>
-          to test
-        </p>
+        <p>to test</p>
       </Link>
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>

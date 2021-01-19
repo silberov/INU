@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import colors from "../utils/colors";
+import colors from "../../utils/colors";
 import { SubHeader, CustomInput, FormContainer, P } from "../typography";
 
 import Button from "../Buttons/Buttons.js";
-import { postDataToPath } from "../utils/api";
+import { postDataToPath } from "../../utils/api";
 import { Redirect } from "react-router-dom";
 
 export default function Register2(props) {
@@ -21,7 +21,7 @@ export default function Register2(props) {
       name,
       email,
       password,
-      repeatPassword
+      repeatPassword,
     });
 
     if (response.error) {

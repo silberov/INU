@@ -1,14 +1,17 @@
+import MainCalendar from "./components/calendars/MainCalendar";
+import PeriodDates from "./components/calendars/PeriodDates";
+
 // import styled from 'styled-components';
 // import colors from './utils/colors';
 
 import "./App.css";
 // import colors from './utils/colors';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
-import Dashboard from "./components/Dashboard.js";
-import ResetPassword from "./components/Login/ResetPassword"
+import Dashboard from "./components/Dashboard/Dashboard.js";
+import ResetPassword from "./components/Login/ResetPassword";
 import TypoTest from "./components/TypoTest";
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
@@ -18,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <Switch>
+        <Switch>
           <Route exact path="/" component={HomePage} />
         </Switch>
         <Switch>
@@ -42,7 +45,12 @@ function App() {
         <Switch>
           <Route path="/typotest" component={TypoTest} />
         </Switch>
-
+        <Switch>
+          <Route exact path="/period" component={PeriodDates} />
+        </Switch>
+        <Switch>
+          <Route exact path="/calendar" component={MainCalendar} />
+        </Switch>
       </BrowserRouter>
     </div>
   );
