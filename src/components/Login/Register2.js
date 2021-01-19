@@ -17,7 +17,7 @@ export default function Register2(props) {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("/user/create", {
+    const response = await postDataToPath("/api/user/create", {
       name,
       email,
       password,
@@ -41,7 +41,7 @@ export default function Register2(props) {
   };
 
   if (!email || !name) {
-    return <Redirect to="/user/register" />;
+    return <Redirect to="/auth/register" />;
   }
 
   if (user || shouldLogin) {
