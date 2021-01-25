@@ -26,6 +26,11 @@ const BUTTON_MODIFIERS = {
     align-items: center;
     margin: 0 0 20px 0;
   `,
+  period: () => css`
+    position: absolute;
+    top: 643px;
+    left: 95px;
+  `,
   blue: () => css`
     background: ${colors.buleGrad};
   `,
@@ -68,32 +73,3 @@ export const Button = styled.button.attrs((props) => ({
 `;
 
 export default Button;
-
-  
-export const ButtonPeriod = styled.button.attrs((props) => ({
-  // we can define static props
-  onClick: props.runOnClick,
-}))`
-  font-family: "tondo", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.3em;
-  line-height: 1.13em;
-  cursor: pointer;
-  color: ${colors.white};
-  padding: 12px 68px;
-  margin: 20px auto;
-  border-radius: ${corners.button};
-  border: none;
-  position: absolute; top: 643px; left: 95px;
-  outline: none;
-  background: ${colors.primaryGrad};
-  filter: ${shadows.button};
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    outline: none;
-  }
-  ${applyStyleModifiers(BUTTON_MODIFIERS)};
-`;
