@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import { Link } from "react-router-dom";
-import { ButtonPeriod } from "../Buttons/Buttons";
+import { Button } from "../Buttons/Buttons";
 import {
   FormContainer,
   P,
@@ -43,7 +43,7 @@ export default function PeriodDates() {
       </FormContainer>
       <br />
       <Link to="/calendar">
-        <ButtonPeriod>Next</ButtonPeriod>
+        <Button modifiers={["period"]}>Next</Button>
       </Link>
     </div>
   );
