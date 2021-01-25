@@ -13,7 +13,6 @@ import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword";
-import TypoTest from "./components/TypoTest";
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
 // import TypoTest from "./typo-test";
@@ -44,16 +43,10 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route path="/typotest" component={TypoTest} />
+          <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
-          <Route exact path="/period" component={PeriodDates} />
-        </Switch>
-        <Switch>
-          <Route exact path="/cycle" component={PeriodLength} />
-        </Switch>
-        <Switch>
-          <Route exact path="/calendar" component={MainCalendar} />
+          <Route exact path="/user/calendar" component={MainCalendar} />
         </Switch>
       </BrowserRouter>
     </div>
