@@ -4,6 +4,12 @@ import { applyStyleModifiers } from "styled-components-modifiers";
 import colors from "../utils/colors";
 export const primaryFont = "tondo, sans-serif";
 
+const ALIGNMENT_MODIFIERS = {
+  center: () => css`
+  text-align: center;
+  `
+}
+
 const FONT_WEIGHT_MODIFIERS = {
   //font-weight
   light: () => css`
@@ -65,6 +71,7 @@ export const MainHeader = styled.h1`
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const Header = styled.h2`
@@ -76,6 +83,7 @@ export const Header = styled.h2`
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const SubHeader = styled.h3`
@@ -87,6 +95,8 @@ export const SubHeader = styled.h3`
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
+  
 `;
 
 export const P = styled.p`
