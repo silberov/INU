@@ -27,7 +27,7 @@ export default function Dashboard() {
   console.log("DOES IT GO TO THIS PAGE?");
   return (
     <>
-      <Link to="/calendar">
+      <Link to="/user/calendar">
         {" "}
         <calButton>
           <img src={calendarIcon} />

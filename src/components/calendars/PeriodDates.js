@@ -50,7 +50,7 @@ export default function PeriodDates() {
           </P>
         </div>
         <br />
-        <Link to="/calendar">
+        <Link to="/user/calendar">
           <Button>Next</Button>
         </Link>
       </div>

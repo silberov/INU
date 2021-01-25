@@ -46,10 +46,10 @@ function App() {
           <Route path="/typotest" component={TypoTest} />
         </Switch>
         <Switch>
-          <Route exact path="/period" component={PeriodDates} />
+          <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
-          <Route exact path="/calendar" component={MainCalendar} />
+          <Route exact path="/user/calendar" component={MainCalendar} />
         </Switch>
       </BrowserRouter>
     </div>
