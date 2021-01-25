@@ -14,10 +14,8 @@ export default function HomePage() {
   return (
     <div>
       <FormContainer>
-
         {/* <LogoHomePage src={applogo} alt="logo" /> */}
         <Link to="/user/register">
-
           <Button>Register</Button>
         </Link>
 

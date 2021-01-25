@@ -46,13 +46,12 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route exact path="/period" component={PeriodDates} />
+
+          <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
-          <Route exact path="/cycle" component={PeriodLength} />
-        </Switch>
-        <Switch>
-          <Route exact path="/calendar" component={MainCalendar} />
+          <Route exact path="/user/calendar" component={MainCalendar} />
+
         </Switch>
         <Switch>
           <Route exact path="/therapy" component={TherapyContainer} />
