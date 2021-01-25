@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
+import styled, { css } from "styled-components";
+import { applyStyleModifiers } from "styled-components-modifiers";
 
-import colors from '../utils/colors';
-import { shadows, corners } from '../utils/effects';
+import colors from "../../utils/colors";
+import { shadows, corners } from "../../utils/effects";
 
 // const TherapyDiv =  styled.button`
 //     background: ${colors.primaryGrad};
@@ -12,9 +12,8 @@ import { shadows, corners } from '../utils/effects';
 //     font-size: 1.25em;
 // `;
 
-
 const BUTTON_MODIFIERS = {
-  disabled: () => css `
+  disabled: () => css`
     background: ${colors.disabledGray};
   `,
   therapy: () => css`
@@ -26,30 +25,29 @@ const BUTTON_MODIFIERS = {
     justify-content: center;
     align-items: center;
     margin: 0 0 20px 0;
- 
   `,
   blue: () => css`
     background: ${colors.buleGrad};
   `,
-  orange: () => css `
+  orange: () => css`
     background: ${colors.orangeGrad};
   `,
-}
+};
 
 export const Moon = styled.img`
   height: 27px;
   width: 27px;
   margin-left: 10px;
-`
+`;
 
- const Button = styled.button.attrs((props) => ({
+export const Button = styled.button.attrs((props) => ({
   // we can define static props
   onClick: props.runOnClick,
 }))`
-  font-family: 'tondo', sans-serif;
+  font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.3em;
   line-height: 1.13em;
   cursor: pointer;
   color: ${colors.white};
