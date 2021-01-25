@@ -42,7 +42,7 @@ export default function PeriodDates() {
         </P>
       </FormContainer>
       <br />
-      <Link to="/user/calendar">
+      <Link to="/calendar">
         <ButtonPeriod>Next</ButtonPeriod>
       </Link>
     </div>
