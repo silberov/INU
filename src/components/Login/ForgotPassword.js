@@ -16,7 +16,7 @@ export default function ForgotPassword() {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await postDataToPath("/user/forgot-password", {
+    const response = await postDataToPath("/api/auth/forgot-password", {
       email,
       name,
     });
