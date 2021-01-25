@@ -11,6 +11,8 @@ const BUTTON_MODIFIERS = {
   therapy: () => css`
     border-radius: ${corners.therapy};
     //padding: 20px 30px;
+    font-size: 1.25rem;
+    //line-height: 1rem;
     width: 144px;
     height: 64px;
     display: flex;
@@ -36,11 +38,13 @@ export const Moon = styled.img`
   font-family: 'tondo', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.3em;
-  line-height: 1.13em;
+  font-size: 1.125rem;
+  line-height: 1rem;
   cursor: pointer;
   color: ${colors.white};
-  padding: 12px 68px;
+  height: 50px;
+  width: 185px;
+  //padding: 12px 68px;
   margin: 20px auto;
   border-radius: ${corners.button};
   border: none;

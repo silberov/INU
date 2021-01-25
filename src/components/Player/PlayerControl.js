@@ -34,7 +34,7 @@ const heandlePlayPause = (e) => {
   //e.target
 };
 
-function PlayerControl() {
+function PlayerControl(props) {
   return (
     <ControlWrap>
       <Sub src={repeat} />
