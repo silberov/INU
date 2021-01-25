@@ -1,5 +1,6 @@
 import MainCalendar from "./components/calendars/MainCalendar";
 import PeriodDates from "./components/calendars/PeriodDates";
+import PeriodLength from "./components/calendars/PeriodLength";
 
 // import styled from 'styled-components';
 // import colors from './utils/colors';
@@ -12,7 +13,6 @@ import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword";
-import TypoTest from "./components/TypoTest";
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
 // import TypoTest from "./typo-test";
@@ -28,22 +28,19 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
         <Switch>
-          <Route path="/user/register" component={Register} />
+          <Route path="/auth/register" component={Register} />
         </Switch>
         <Switch>
-          <Route path="/user/register-2" component={Register2} />
+          <Route path="/auth/register-2" component={Register2} />
         </Switch>
         <Switch>
-          <Route path="/user/forgot-password" component={ForgotPassword} />
+          <Route path="/forgot-password" component={ForgotPassword} />
         </Switch>
         <Switch>
           <Route path="/user/dashboard" component={Dashboard} />
         </Switch>
         <Switch>
-          <Route path="/user/reset-password" component={ResetPassword} />
-        </Switch>
-        <Switch>
-          <Route path="/typotest" component={TypoTest} />
+          <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
           <Route exact path="/user/period" component={PeriodDates} />
