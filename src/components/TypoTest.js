@@ -2,11 +2,11 @@ import { MainHeader , Header , SubHeader , P } from './typography';
 import Button from './Buttons/Buttons'
 import Therapy from "./Therapy/Therapy";
 import "../App.css"
-<<<<<<< HEAD
+
 import Player from './Player/Player';
-=======
+
 import TherapyContainer from './Therapy/TherapyContainer';
->>>>>>> 01e38e4d3753c1672951175a6c30f5875d94489a
+
 
 
 
@@ -29,14 +29,11 @@ function TypoTest () {
         <P modifiers={['small', 'gray3']}>How intense was the pain <br/>during sex?</P>
         <P modifiers={'xsmall'}>How intense was the pain <br/>during sex?</P> */}
 
-
-<<<<<<< HEAD
         {/* <Therapy /> */}
 
         <Player title={"day1"} description={"apocalypse and chill"} />
-=======
+
         <TherapyContainer />
->>>>>>> 01e38e4d3753c1672951175a6c30f5875d94489a
     </>
     );
 }
