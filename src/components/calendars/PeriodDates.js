@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import { Link } from "react-router-dom";
-import Button from "../Buttons/Buttons";
-import { FormContainer, P, MainHeader, Header } from "../typography";
+import { ButtonPeriod } from "../Buttons/Buttons";
+import { FormContainer, P, MainHeader, Header, TopCorner, GoBack } from "../typography";
 import colors from "../../utils/colors";
+import topcorner from "../../images/corner-blue.png";
+import goback from "../../images/goback.png";
+
+
 // import applogo from "../../images/applogo.png";
 // import bottompattern from "../../images/bottompattern.png";
 
 export default function PeriodDates() {
   const [selectedDay, setSelectedDay] = useState();
-  const [input, setInput] = useState(28);
 
   const handleDayChange = (day) => {
     setSelectedDay(day);
@@ -18,42 +21,24 @@ export default function PeriodDates() {
   };
 
   return (
-    <FormContainer>
       <div>
-        <div>
-          <Header color={colors.primary}>
-            Select your cycle length. The average is 28 days.
-            <br />
-            <form>
-              <input
-                className="form"
-                type="number"
-                min="20"
-                max="40"
-                placeholder="enter number of days"
-                value={input}
-                onChange={(event) => {
-                  console.log("days", input);
-                  setInput(event.target.value);
-                }}
-              />
-            </form>
-          </Header>
-        </div>
-        <div>
-          <br />
+          <Link to="/cycle">
+          <GoBack src={goback} alt="back-arrow" />
+          </Link>      
+          <TopCorner src={topcorner} alt="top-right-corner" />
+      <FormContainer>
           <Header>Select the first day of your last period.</Header>
-          {selectedDay && <P>{selectedDay.toLocaleDateString()}</P>}
-          {!selectedDay && <P>dd/mm/yyyy</P>}
+          {/* {selectedDay && <P>{selectedDay.toLocaleDateString()}</P>} */}
+          <br />
+          {/* {!selectedDay} */}
           <P>
             <DayPickerInput onDayChange={handleDayChange} />
           </P>
-        </div>
+          </FormContainer>
         <br />
         <Link to="/calendar">
-          <Button>Next</Button>
+          <ButtonPeriod>Next</ButtonPeriod>
         </Link>
-      </div>
-    </FormContainer>
+    </div>
   );
 }

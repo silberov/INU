@@ -1,5 +1,6 @@
 import MainCalendar from "./components/calendars/MainCalendar";
 import PeriodDates from "./components/calendars/PeriodDates";
+import PeriodLength from "./components/calendars/PeriodLength";
 
 // import styled from 'styled-components';
 // import colors from './utils/colors';
@@ -47,6 +48,9 @@ function App() {
         </Switch>
         <Switch>
           <Route exact path="/period" component={PeriodDates} />
+        </Switch>
+        <Switch>
+          <Route exact path="/cycle" component={PeriodLength} />
         </Switch>
         <Switch>
           <Route exact path="/calendar" component={MainCalendar} />
