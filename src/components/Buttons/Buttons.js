@@ -1,16 +1,7 @@
 import styled, {css} from 'styled-components';
 import { applyStyleModifiers } from 'styled-components-modifiers';
-
-import colors from '../utils/colors';
-import { shadows, corners } from '../utils/effects';
-
-// const TherapyDiv =  styled.button`
-//     background: ${colors.primaryGrad};
-//     border: none;
-//     border-radius: 14px;
-//     padding: 20px;
-//     font-size: 1.25em;
-// `;
+import colors from '../../utils/colors';
+import { shadows, corners } from '../../utils/effects';
 
 
 const BUTTON_MODIFIERS = {
@@ -26,7 +17,6 @@ const BUTTON_MODIFIERS = {
     justify-content: center;
     align-items: center;
     margin: 0 0 20px 0;
- 
   `,
   blue: () => css`
     background: ${colors.buleGrad};
@@ -42,14 +32,11 @@ export const Moon = styled.img`
   margin-left: 10px;
 `
 
- const Button = styled.button.attrs((props) => ({
-  // we can define static props
-  onClick: props.runOnClick,
-}))`
+ export const Button = styled.button`
   font-family: 'tondo', sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.4em;
+  font-size: 1.3em;
   line-height: 1.13em;
   cursor: pointer;
   color: ${colors.white};

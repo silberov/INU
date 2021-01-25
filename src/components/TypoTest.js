@@ -3,6 +3,7 @@ import Button from './Buttons/Buttons'
 import Therapy from "./Therapy/Therapy";
 import "../App.css"
 import Player from './Player/Player';
+import TherapyContainer from './Therapy/TherapyContainer';
 
 
 
@@ -26,9 +27,7 @@ function TypoTest () {
         <P modifiers={'xsmall'}>How intense was the pain <br/>during sex?</P> */}
 
 
-        <Therapy />
-
-        {/* <Player title={"day1"} description={"apocalypse and chill"} /> */}
+        <TherapyContainer />
     </>
     );
 }
