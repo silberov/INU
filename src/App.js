@@ -13,8 +13,11 @@ import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword";
+
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
+import TherapyContainer from "./components/Therapy/TherapyContainer";
+import Player from "./components/Player/Player";
 // import TypoTest from "./typo-test";
 
 function App() {
@@ -43,10 +46,18 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
+
           <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
           <Route exact path="/user/calendar" component={MainCalendar} />
+
+        </Switch>
+        <Switch>
+          <Route exact path="/therapy" component={TherapyContainer} />
+        </Switch>
+        <Switch>
+          <Route exact path="/therapy/:session" component={Player} />
         </Switch>
       </BrowserRouter>
     </div>

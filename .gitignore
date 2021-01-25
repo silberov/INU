@@ -23,14 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 .eslintcache
 
-<<<<<<< HEAD
 .env
-=======
-<<<<<<< HEAD
-.env
-=======
->>>>>>> 00890092b26601f1259fc092456ab5a93ece3283
 
->>>>>>> 7cf132237e19a94081c02b3824770e104321385b
 *.psd
 *.ai

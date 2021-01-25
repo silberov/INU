@@ -9,6 +9,7 @@ import colors from "../../utils/colors";
 // import applogo from "../../images/applogo.png";
 // import bottompattern from "../../images/bottompattern.png";
 
+
 export default function HomePage() {
   return (
     <div>
