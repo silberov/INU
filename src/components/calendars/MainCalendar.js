@@ -7,13 +7,16 @@ import "react-nice-dates/build/style.css";
 import { Link } from "react-router-dom";
 import Button from "../Buttons/Buttons";
 import {
-  FormContainer,
+  MainHeader,
   P,
-  Cross
+  Cross,
+  BottomPattern,
+  BottomPatternCropped,
 } from "../typography";
 import colors from "../../utils/colors";
 import topcorner from "../../images/corner-blue.png";
 import cross from "../../images/cross.png";
+import bottompatterncropped from "../../images/bgs/bottom-cropped.png";
 
 export default function MainCalendar() {
   const [date, setDate] = useState(new Date());
@@ -49,17 +52,15 @@ export default function MainCalendar() {
 
   return (
     <div>
-      <Link to="/">
-      <Cross src={cross} alt="cross" />
-      </Link> 
+      <div>
+        <Link to="/user/dashboard">
+          <Cross src={cross} alt="cross" />
+        </Link>
+        <div className="calendartitle">
+          <MainHeader>Calendar</MainHeader>
+        </div>
         <P color={colors.primary}>
           <div className="calendar">
-            {/* <p>
-              Please select the first day of your last period.
-              <br />
-              Selected date:
-              {date ? format(date, "dd MMM yyyy", { locale: enGB }) : "none"}.
-            </p> */}
             <DatePickerCalendar
               date={date}
               onDateChange={(date) => handlePickDate(date)}
@@ -69,6 +70,10 @@ export default function MainCalendar() {
             />
           </div>
         </P>
+      </div>
+      {/* <div>
+        <BottomPatternCropped src={bottompatterncropped} />
+      </div> */}
     </div>
   );
 }

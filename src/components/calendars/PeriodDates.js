@@ -18,31 +18,31 @@ import goback from "../../images/goback.png";
 // import applogo from "../../images/applogo.png";
 // import bottompattern from "../../images/bottompattern.png";
 
+var moment = require("moment"); // require
+moment().format();
+
 export default function PeriodDates() {
   const [selectedDay, setSelectedDay] = useState();
 
   const handleDayChange = (day) => {
     setSelectedDay(day);
-    console.log("selected day", day);
+    const formattedDay = new Date(day).toISOString();
+    console.log("formatted", formattedDay);
   };
 
   return (
-    <div>
-      <Link to="/cycle">
+    <div className="cyclepicker">
+      <Link to="/user/cycle">
         <GoBack src={goback} alt="back-arrow" />
       </Link>
       <TopCorner src={topcorner} alt="top-right-corner" />
       <FormContainer>
         <Header>Select the first day of your last period.</Header>
-        {/* {selectedDay && <P>{selectedDay.toLocaleDateString()}</P>} */}
         <br />
-        {/* {!selectedDay} */}
-        <P>
-          <DayPickerInput onDayChange={handleDayChange} />
-        </P>
+        <DayPickerInput onDayChange={handleDayChange} />
       </FormContainer>
       <br />
-      <Link to="/calendar">
+      <Link to="/user/calendar">
         <Button modifiers={["period"]}>Next</Button>
       </Link>
     </div>

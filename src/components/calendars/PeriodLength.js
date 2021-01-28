@@ -20,7 +20,7 @@ export default function PeriodLength() {
 
   return (
     <div>
-      <Link to="/ ">
+      <Link to="/">
         <GoBack src={goback} alt="back-arrow" />
       </Link>
       <TopCorner src={topcorner} alt="top-right-corner" />
@@ -44,7 +44,7 @@ export default function PeriodLength() {
             />
           </form>
         </Header>
-        <Link to="/period">
+        <Link to="/user/period">
           <Button modifiers={["period"]}>Next</Button>
         </Link>
       </FormContainer>

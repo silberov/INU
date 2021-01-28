@@ -6,9 +6,9 @@ export const primaryFont = "tondo, sans-serif";
 
 const ALIGNMENT_MODIFIERS = {
   center: () => css`
-  text-align: center;
-  `
-}
+    text-align: center;
+  `,
+};
 
 const FONT_WEIGHT_MODIFIERS = {
   //font-weight
@@ -96,7 +96,6 @@ export const SubHeader = styled.h3`
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
   ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
-  
 `;
 
 export const P = styled.p`
@@ -147,19 +146,30 @@ export const LogoHomePage = styled.img`
 `;
 
 export const BottomPattern = styled.img`
-  width: 400px;
+  width: 200;
   margin-top: 100px;
+`;
+
+export const BottomPatternCropped = styled.img`
+  width: 100%;
+  margin-bottom: 0px;
 `;
 
 export const TopCorner = styled.img`
   width: 50%;
-  position: absolute; top: 0px; right: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 `;
 
 export const GoBack = styled.img`
-  position: absolute; top: 35px; left: 40px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
 `;
 
 export const Cross = styled.img`
-  position: absolute; top: 35px; left: 40px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
 `;
