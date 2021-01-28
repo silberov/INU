@@ -28,7 +28,7 @@ const response = await postDataToPath("/api/auth/reset-password", { newPassword,
       setResetSuccessful(true)
     }, 1500);
   }
- }
+
   return (
     <FormContainer>
       <MainHeader>Please Enter New Password</MainHeader>
@@ -49,7 +49,7 @@ const response = await postDataToPath("/api/auth/reset-password", { newPassword,
   );
 
 };
-
+};
 
 
 
