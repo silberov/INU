@@ -1,7 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import meditation from "../../images/meditation.png"
 
-import { MainHeader , Header , SubHeader , P } from '../typography';
+import { MainHeader , Header } from '../typography';
 import PlayerControl from "./PlayerControl";
 
 const CenterImg = styled.img`
@@ -16,11 +17,16 @@ const PlayerMainWrap = styled.div`
 
 
 function Player (props) {
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    console.log(props)
+
     return (
         <PlayerMainWrap>
-            <MainHeader modifiers={["center", "light"]}>Therapy · {props.title}</MainHeader>
+            <audio src={props.trucks.audio} ></audio>
+            <MainHeader modifiers={["center", "light"]}>Therapy · {props.trucks[0] && props.trucks[props.currentTherapy].title}</MainHeader>
             <CenterImg src={meditation}/>
-            <Header modifiers={["center"]}>{props.description}</Header>
+            <Header modifiers={["center"]}>{props.trucks[0] && props.trucks[props.currentTherapy].title}</Header>
             <PlayerControl />
         </PlayerMainWrap>
     );
