@@ -41,7 +41,7 @@ export default function Register2(props) {
   };
 
   if (!email || !name) {
-    return <Redirect to="/auth/register" />;
+    return <Redirect to="/user/register" />;
   }
 
   if (user || shouldLogin) {
