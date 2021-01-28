@@ -4,6 +4,12 @@ import { applyStyleModifiers } from "styled-components-modifiers";
 import colors from "../utils/colors";
 export const primaryFont = "tondo, sans-serif";
 
+const ALIGNMENT_MODIFIERS = {
+  center: () => css`
+  text-align: center;
+  `
+}
+
 const FONT_WEIGHT_MODIFIERS = {
   //font-weight
   light: () => css`
@@ -65,6 +71,7 @@ export const MainHeader = styled.h1`
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const Header = styled.h2`
@@ -76,6 +83,7 @@ export const Header = styled.h2`
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const SubHeader = styled.h3`
@@ -87,6 +95,8 @@ export const SubHeader = styled.h3`
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
+  
 `;
 
 export const P = styled.p`
@@ -125,8 +135,7 @@ export const FormContainer = styled.div`
   text-align: center;
   justify-content: center;
   align-content: center;
-  margin-left: 40%;
-  max-width: 200px;
+  max-width: 250px;
 `;
 
 export const LogoHomePage = styled.img`
@@ -140,4 +149,17 @@ export const LogoHomePage = styled.img`
 export const BottomPattern = styled.img`
   width: 400px;
   margin-top: 100px;
+`;
+
+export const TopCorner = styled.img`
+  width: 50%;
+  position: absolute; top: 0px; right: 0px;
+`;
+
+export const GoBack = styled.img`
+  position: absolute; top: 35px; left: 40px;
+`;
+
+export const Cross = styled.img`
+  position: absolute; top: 35px; left: 40px;
 `;

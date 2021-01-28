@@ -12,23 +12,28 @@ export const DashboardDiv = styled.div`
   margin-top: 25px auto;
   margin-bottom: 25px auto;
   text-align: center;
-  border: 1px solid black;
   border-radius: 5px;
   display: flex;
   align-items: flex-start;
+  box-shadow: -1em 0 0.2em #aaaaaa;
+  border: 0.5px solid #aaaaaa;
+  width: auto;
+  height: auto;
 `;
 
 const ButtonDiv = styled.div`
   display: flex;
   flex-direction: column-reversed;
-  align-items: flex-end;
+  align-items: center;
   align-content: space-around;
+  margin: 15px;
+  margin-top: 45px;
 `;
 
 export default function TheraphySuggestions() {
   return (
     <DashboardDiv>
-      <SubHeader>Therapy Suggestions</SubHeader>
+      <SubHeader modifiers={["purple"]}>Therapy Suggestions</SubHeader>
       <ButtonDiv>
         <Button modifiers={["therapy"]}>Day 1</Button>
         <Button modifiers={["therapy"]}>Day 2</Button>

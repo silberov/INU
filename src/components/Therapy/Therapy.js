@@ -2,8 +2,11 @@ import styled from "styled-components";
 //import colors from "../../utils/colors";
 import { P, SubHeader } from "../typography";
 import Button, { Moon } from "../Buttons/Buttons";
-import { therapyFiles } from "./moons";
-import colors from "../../utils/colors";
+import { useState } from "react";
+
+
+//import { therapyFiles } from "./moons";
+
 
 export const SectionWraper = styled.div`
   max-width: 800px;
@@ -14,6 +17,7 @@ export const SectionWraper = styled.div`
 `;
 
 function Therapy({ quarter }) {
+  const [redirect, setRedirect ] = useState(false)
   return (
     <>
       <SubHeader margin={"30px auto 10px auto"}>{quarter.title}</SubHeader>
@@ -25,6 +29,7 @@ function Therapy({ quarter }) {
               quarter.title === "Second Quarter" && "blue",
               quarter.title === "Third Quarter" && "orange",
             ]}
+            onClick={()=>{}}
           >
             {item.text}
             <Moon src={item.icon} alt="*" />
