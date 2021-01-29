@@ -4,25 +4,24 @@ import { add, format, isSameDay, getDay } from "date-fns";
 import { enGB } from "date-fns/locale";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
+import { Link } from "react-router-dom";
 import Button from "../Buttons/Buttons";
 import {
-  FormContainer,
-  P,
   MainHeader,
-  Header,
-  LogoHomePage,
+  P,
+  Cross,
   BottomPattern,
+  BottomPatternCropped,
 } from "../typography";
 import colors from "../../utils/colors";
+import topcorner from "../../images/corner-blue.png";
+import cross from "../../images/cross.png";
+import bottompatterncropped from "../../images/bgs/bottom-cropped.png";
 
 export default function MainCalendar() {
   const [date, setDate] = useState(new Date());
   const [periodsArray, setPeriodsArray] = useState([]);
-  const [nextPeriod, setNextPeriod] = useState([]);
-  const [nextOvulation, setNextOvulation] = useState([]);
   const [input, setInput] = useState(28);
-  const [periodTwo, setPeriodTwo] = useState([]);
-  const [ovulationTwo, setOvulationTwo] = useState([]);
 
   useEffect(() => {
     setPeriodsArray(() => predictPeriods(new Date(date), 3, input));
@@ -53,46 +52,28 @@ export default function MainCalendar() {
 
   return (
     <div>
-      <FormContainer>
+      <div>
+        <Link to="/user/dashboard">
+          <Cross src={cross} alt="cross" />
+        </Link>
+        <div className="calendartitle">
+          <MainHeader>Calendar</MainHeader>
+        </div>
         <P color={colors.primary}>
-          <div>
-            <p>
-              How many days does your cycle usually last? The average is 28
-              days.
-            </p>
-            <form>
-              <input
-                className="form"
-                type="number"
-                min="20"
-                max="40"
-                placeholder="enter number of days"
-                value={input}
-                onChange={(event) => {
-                  console.log("days", input);
-                  setInput(event.target.value);
-                }}
-              />
-            </form>
-          </div>
           <div className="calendar">
-            <p>
-              Please select the first day of your last period.
-              <br />
-              Selected date:
-              {date ? format(date, "dd MMM yyyy", { locale: enGB }) : "none"}.
-            </p>
             <DatePickerCalendar
               date={date}
               onDateChange={(date) => handlePickDate(date)}
               modifiers={modifiers}
               modifiersClassNames={modifiersClassNames}
               locale={enGB}
-              // months={1}
             />
           </div>
         </P>
-      </FormContainer>
+      </div>
+      {/* <div>
+        <BottomPatternCropped src={bottompatterncropped} />
+      </div> */}
     </div>
   );
 }

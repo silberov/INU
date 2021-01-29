@@ -4,7 +4,7 @@ export function calculatePeriod(start, cycleDuration) {
   let period = {
     startingDate: start,
     dates: [start],
-    ovulation: add(new Date(start), { days: cycleDuration / 3 }),
+    ovulation: add(new Date(start), { days: cycleDuration - 14 }),
   };
   for (let i = 0; i < 6; i++) {
     period.dates.push(add(new Date(period.dates[i]), { days: 1 }));
@@ -22,3 +22,4 @@ export function predictPeriods(starting, number, cycleLength) {
   }
   return periods;
 }
+

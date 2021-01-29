@@ -3,7 +3,6 @@ export async function postDataToPath(path, data) {
   const url = `${path}`;
   const response = await fetch(url, {
     method: "POST",
-    credentials:"include", // send cookies to server
     headers: {
       "Content-Type": "application/json",
     },

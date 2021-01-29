@@ -1,5 +1,6 @@
 import MainCalendar from "./components/calendars/MainCalendar";
 import PeriodDates from "./components/calendars/PeriodDates";
+import PeriodLength from "./components/calendars/PeriodLength";
 
 // import styled from 'styled-components';
 // import colors from './utils/colors';
@@ -12,9 +13,11 @@ import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword";
-import TypoTest from "./components/TypoTest";
+
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
+import TherapyContainer from "./components/Therapy/TherapyContainer";
+import Player from "./components/Player/Player";
 // import TypoTest from "./typo-test";
 
 function App() {
@@ -28,10 +31,10 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
         <Switch>
-          <Route path="/auth/register" component={Register} />
+          <Route path="/user/register" component={Register} />
         </Switch>
         <Switch>
-          <Route path="/auth/register-2" component={Register2} />
+          <Route path="/user/register-2" component={Register2} />
         </Switch>
         <Switch>
           <Route path="/forgot-password" component={ForgotPassword} />
@@ -43,13 +46,19 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route path="/typotest" component={TypoTest} />
+          <Route exact path="/user/cycle" component={PeriodLength} />
         </Switch>
         <Switch>
-          <Route exact path="/period" component={PeriodDates} />
+          <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
-          <Route exact path="/calendar" component={MainCalendar} />
+          <Route exact path="/user/calendar" component={MainCalendar} />
+        </Switch>
+        <Switch>
+          <Route exact path="/therapy" component={TherapyContainer} />
+        </Switch>
+        <Switch>
+          <Route exact path="/therapy/:session" component={Player} />
         </Switch>
       </BrowserRouter>
     </div>
