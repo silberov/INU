@@ -25,6 +25,9 @@ function App() {
   const [nextTherapy, setNextTherapy] = useState(currentTherapy + 1);
   const [prevTherapy, setPrevTherapy] = useState(currentTherapy - 1);
 
+  const [periodDay, setPeriodDay] = useState("");
+  const [periodLength, setPeriodLength] = useState(28);
+
   console.log("index", currentTherapy);
   console.log("prevTherapy", prevTherapy);
   console.log("NextTherapy", nextTherapy);
