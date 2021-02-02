@@ -13,16 +13,16 @@ import "./Dashboard.css";
 
 const DashboardWrap = styled.div`
   padding: 20px;
-  max-width: 750px;
+  max-width: 420px;
   margin: auto;
 `;
 
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  margin: 25px;
-`;
+// const Div = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-content: space-between;
+//   margin: 25px;
+// `;
 
 const calButton = styled.button`
   background: none;
@@ -39,12 +39,12 @@ export default function Dashboard() {
           <img src={calendarIcon} />
         </calButton>{" "}
       </Link>
-      <Div>
-        <CurrentDate />
-        <DailySuggestions />
-        <br></br>
-        <TheraphySuggestions />
-      </Div>
+      {/* <Div> */}
+      <CurrentDate />
+      <DailySuggestions />
+      <br></br>
+      <TheraphySuggestions />
+      {/* </Div> */}
       <Navbar />
     </DashboardWrap>
   );
