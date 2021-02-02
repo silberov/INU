@@ -37,29 +37,35 @@ const TEXT_COLOR_MODIFIERS = {
 
 const TEXT_SIZE_MODIFIERS = {
   xlarge: () => css`
-    font-size: 1.25em;
-    line-height: 1.4em;
-    letter-spacing: -0.03em;
+    font-size: 1.25rem;
+    line-height: 1.4rem;
+    letter-spacing: -0.03rem;
   `,
   large: () => css`
-    font-size: 1.2em;
-    line-height: 1.35em;
-    letter-spacing: -0.025em;
+    font-size: 1.2rem;
+    line-height: 1.35rem;
+    letter-spacing: -0.025rem;
   `,
   normal: () => css`
-    font-size: 1em;
-    line-height: 1.3em;
-    letter-spacing: -0.02em;
+    font-size: 1rem;
+    line-height: 1.3rem;
+    letter-spacing: -0.02rem;
   `,
   small: () => css`
-    font-size: 0.875em;
-    line-height: 1.25em;
-    letter-spacing: -0.015em;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: -0.015rem;
   `,
   xsmall: () => css`
-    font-size: 0.8em;
-    line-height: 1.2em;
-    letter-spacing: -0.005em;
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    letter-spacing: -0.005rem;
+  `,
+};
+const NAV_BAR_MODIFIERS = {
+  nav: () => css`
+    position: relative;
+    top: -3px;
   `,
 };
 
@@ -108,6 +114,7 @@ export const P = styled.p`
   ${applyStyleModifiers(TEXT_SIZE_MODIFIERS)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
+  ${applyStyleModifiers(NAV_BAR_MODIFIERS)};
 `;
 
 export const CustomInput = styled.input.attrs((props) => ({

@@ -21,9 +21,15 @@ const NavbarDiv = styled.div`
   justify-content: space-around;
 `;
 
+const IconBox = styled.div`
+  margin: 10px;
+  text-align: center;
+`;
+
 const MenuIcons = styled.ul`
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
   text-align: center;
 `;
 
@@ -31,17 +37,23 @@ function Navbar() {
   return (
     <NavbarDiv>
       {/* <MenuIcons> */}
-      <Link style={{ alignText: "center" }} to="/user/dashboard">
-        <img src={CycleIcon} alt="cycle-icon" />
-        <P>Cycle</P>
+      <Link style={{ textDecoration: "none" }} to="/user/dashboard">
+        <IconBox>
+          <img src={CycleIcon} alt="cycle-icon" />
+          {/* <br />
+          jsdkfbhs */}
+          <P modifiers={["xsmall", "nav"]}>Cycle</P>
+        </IconBox>
       </Link>
       <Link>
         <img src={AddButton} alt="add-button" />
       </Link>
-      <Link to="/therapy">
-        <img src={SelfcareIcon} alt="selfcare-icon" />
-        <br />
-        Selfcare
+      <Link style={{ textDecoration: "none" }} to="/therapy">
+        <IconBox>
+          <img src={SelfcareIcon} alt="selfcare-icon" />
+
+          <P modifiers={["xsmall", "nav"]}>Selfcare</P>
+        </IconBox>
       </Link>
       {/* <Link><li>Diet</li></Link>
                     <Link><li>News</li></Link> */}
