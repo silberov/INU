@@ -21,27 +21,34 @@ const Sub = styled.img`
   width: 20px;
   height: 20px;
 `;
-const heandlePlayPause = (e) => {
-    e.preventDefault();
-  console.log(e.target);
-  if (e.target.alt === "play") {
-    e.target.src = pause;
-    e.target.alt = "pause"
-  } else {
-    e.target.src = play;
-    e.target.alt = "play"
-  }
-  //e.target
-};
 
-function PlayerControl(props) {
+function PlayerControl({ isPlaying, setIsPlaying, onSkip }) {
+  //console.log(props);
+  const heandlePlayPause = (e) => {
+    e.preventDefault();
+    console.log(isPlaying);
+    setIsPlaying(!isPlaying);
+    if (isPlaying) {
+      e.target.src = play;
+      e.target.alt = "play";
+    } else {
+      e.target.src = pause;
+      e.target.alt = "pause";
+    }
+    //e.target
+  };
   return (
     <ControlWrap>
       <Sub src={repeat} />
-      <Sub src={skipBack} />
+      <Sub src={skipBack} onClick={() => onSkip(false)} />
       {/* <button onClick={heandlePlayPause}>hjsdbg</button> */}
-      <Main onClick={heandlePlayPause} src={play} alt={"play"} />
-      <Sub src={skipForward} />
+      <Main onClick={heandlePlayPause} src={pause} alt={"pause"} />
+      <Sub
+        src={skipForward}
+        onClick={() => {
+          onSkip();
+        }}
+      />
       <Sub src={download} />
     </ControlWrap>
   );

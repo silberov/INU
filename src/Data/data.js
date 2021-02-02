@@ -1,4 +1,4 @@
-import moon1 from '../images/moon-icons/moon0.png';
+import moon1 from "../images/moon-icons/moon0.png";
 import moon3 from "../images/moon-icons/moon2.png";
 import moon2 from "../images/moon-icons/moon1.png";
 import moon4 from "../images/moon-icons/moon3.png";
@@ -27,31 +27,160 @@ import moon26 from "../images/moon-icons/moon25.png";
 import moon27 from "../images/moon-icons/moon26.png";
 
 export const therapyFiles = [
-    {order: 1, title: "day1", icon: moon1, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 2, title: "day2", icon: moon2, audio:"./Cattle Decapitation - Manufactured Extinct.mp3"},
-    {order: 3, title: "day3", icon: moon3, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 4, title: "day4", icon: moon4, audio:"./Cattle Decapitation - Pacific Grim.mp3"},
-    {order: 5, title: "day5", icon: moon5, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 6, title: "day6", icon: moon6, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 7, title: "day7", icon: moon7, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 8, title: "day1", icon: moon8, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 9, title: "day2", icon: moon9, audio:"./Cattle Decapitation - Manufactured Extinct.mp3"},
-    {order: 10, title: "day3", icon: moon10, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 11, title: "day4", icon: moon11, audio:"./Cattle Decapitation - Pacific Grim.mp3"},
-    {order: 12, title: "day5", icon: moon12, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 13, title: "day6", icon: moon13, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 14, title: "day7", icon: moon14, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 15, title: "day2", icon: moon15, audio:"./Cattle Decapitation - Manufactured Extinct.mp3"},
-    {order: 16, title: "day3", icon: moon16, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 17, title: "day4", icon: moon17, audio:"./Cattle Decapitation - Pacific Grim.mp3"},
-    {order: 18, title: "day5", icon: moon18, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 19, title: "day6", icon: moon19, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 20, title: "day7", icon: moon20, audio:"./Cattle Decapitation - The Prophets Of Loss.mp3"},
-    {order: 21, title: "day1", icon: moon21, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 22, title: "day1", icon: moon22, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 23, title: "day1", icon: moon23, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-    {order: 24, title: "day1", icon: moon24, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 25, title: "day1", icon: moon25, audio:"./Cattle Decapitation - Not Suitable For Life.mp3"},
-    {order: 26, title: "day1", icon: moon26, audio:"./Cattle Decapitation - Apex Blasphemy.mp3"},
-
-]
+  {
+    order: 1,
+    title: "day1",
+    icon: moon1,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 2,
+    title: "day2",
+    icon: moon2,
+    audio: "./Cattle Decapitation - Manufactured Extinct.mp3",
+  },
+  {
+    order: 3,
+    title: "day3",
+    icon: moon3,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 4,
+    title: "day4",
+    icon: moon4,
+    audio: "./Cattle Decapitation - Pacific Grim.mp3",
+  },
+  {
+    order: 5,
+    title: "day5",
+    icon: moon5,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 6,
+    title: "day6",
+    icon: moon6,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 7,
+    title: "day7",
+    icon: moon7,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 8,
+    title: "day8",
+    icon: moon8,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 9,
+    title: "day9",
+    icon: moon9,
+    audio: "./Cattle Decapitation - Manufactured Extinct.mp3",
+  },
+  {
+    order: 10,
+    title: "day10",
+    icon: moon10,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 11,
+    title: "day11",
+    icon: moon11,
+    audio: "./Cattle Decapitation - Pacific Grim.mp3",
+  },
+  {
+    order: 12,
+    title: "day12",
+    icon: moon12,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 13,
+    title: "day13",
+    icon: moon13,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 14,
+    title: "day14",
+    icon: moon14,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 15,
+    title: "day15",
+    icon: moon15,
+    audio: "./Cattle Decapitation - Manufactured Extinct.mp3",
+  },
+  {
+    order: 16,
+    title: "day16",
+    icon: moon16,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 17,
+    title: "day17",
+    icon: moon17,
+    audio: "./Cattle Decapitation - Pacific Grim.mp3",
+  },
+  {
+    order: 18,
+    title: "day18",
+    icon: moon18,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 19,
+    title: "day19",
+    icon: moon19,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 20,
+    title: "day20",
+    icon: moon20,
+    audio: "./Cattle Decapitation - The Prophets Of Loss.mp3",
+  },
+  {
+    order: 21,
+    title: "day21",
+    icon: moon21,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 22,
+    title: "day22",
+    icon: moon22,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 23,
+    title: "day23",
+    icon: moon23,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+  {
+    order: 24,
+    title: "day24",
+    icon: moon24,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 25,
+    title: "day25",
+    icon: moon25,
+    audio: "./Cattle Decapitation - Not Suitable For Life.mp3",
+  },
+  {
+    order: 26,
+    title: "day26",
+    icon: moon26,
+    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+  },
+];

@@ -19,20 +19,9 @@ import { useEffect, useState } from "react";
 import { therapyFiles } from "./Data/data";
 
 function App() {
-  // const [therapies, setTherapies] = useState([]);
   const [therapyData, setTherapyData] = useState([]);
-  const [currentTherapy, setCurrentTherapy] = useState(1);
-  const [nextTherapy, setNextTherapy] = useState(currentTherapy + 1);
-  const [prevTherapy, setPrevTherapy] = useState(currentTherapy - 1);
+  const [currentTherapy, setCurrentTherapy] = useState(0);
 
-  const [periodDay, setPeriodDay] = useState("");
-  const [periodLength, setPeriodLength] = useState(28);
-
-  console.log("index", currentTherapy);
-  console.log("prevTherapy", prevTherapy);
-  console.log("NextTherapy", nextTherapy);
-
-  //console.log(currentTherapy, nextTherapy,  prevTherapy, therapyData)
   const displayTherapy = [
     { title: "First Quarter", files: therapyData.slice(0, 7) },
     { title: "Second Quarter", files: therapyData.slice(7, 14) },
@@ -44,46 +33,29 @@ function App() {
   ];
 
   const getCurrentTherapy = (num) => {
+    console.log("num", num);
     const index = Number(num);
     console.log("index", index);
     setCurrentTherapy(index);
-    if (index === therapyData.length - 1) {
-      setNextTherapy(0);
-    } else {
-      setNextTherapy(index + 1);
-    }
-    if (index - 1 < 0) {
-      setPrevTherapy(therapyData.length - 1);
-    } else {
-      setPrevTherapy(index - 1);
-    }
-    console.log("prevTherapy", prevTherapy);
-    console.log("currentTherapy", currentTherapy);
-    console.log("NextTherapy", nextTherapy);
-    console.log("therapyData", therapyData);
   };
 
-  const skipToNext = () => {
-    setPrevTherapy(currentTherapy);
-    setCurrentTherapy(nextTherapy);
-    if (nextTherapy + 1 === therapyData.length) {
-      setNextTherapy(0);
-    } else {
-      setNextTherapy(currentTherapy + 1);
-    }
-    console.log("prevTherapy", prevTherapy);
-    console.log("currentTherapy", currentTherapy);
-    console.log("NextTherapy", nextTherapy);
-  };
-
-  const skipToPrev = () => {
-    setNextTherapy(currentTherapy);
-    setCurrentTherapy(prevTherapy);
-    if (prevTherapy - 1 < 0) {
-      setPrevTherapy(therapyData.length - 1);
-    } else {
-      setPrevTherapy(currentTherapy - 1);
-    }
+  const skip = (forward = true) => {
+    setCurrentTherapy(() => {
+      let temp = currentTherapy;
+      if (forward) {
+        if (temp + 1 > therapyData.length - 1) {
+          return 0;
+        } else {
+          return temp + 1;
+        }
+      } else {
+        if (temp - 1 < 0) {
+          return therapyData.length - 1;
+        } else {
+          return temp - 1;
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -115,7 +87,24 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route exact path="/user/period" component={PeriodDates} />
+          <Route
+            exact
+            path="/user/cycle"
+            render={() => {
+              <PeriodLength />;
+            }}
+            component={PeriodLength}
+          />
+        </Switch>
+        <Switch>
+          <Route
+            exact
+            path="/user/period"
+            render={() => {
+              <PeriodDates />;
+            }}
+            component={PeriodDates}
+          />
         </Switch>
         <Switch>
           <Route exact path="/user/calendar" component={MainCalendar} />
@@ -142,8 +131,7 @@ function App() {
               <Player
                 currentTherapy={currentTherapy}
                 trucks={therapyData}
-                onSkipNext={skipToNext}
-                onSkipBack={skipToPrev}
+                onSkip={skip}
               />
             )}
           ></Route>

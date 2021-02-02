@@ -6,9 +6,9 @@ export const primaryFont = "tondo, sans-serif";
 
 const ALIGNMENT_MODIFIERS = {
   center: () => css`
-  text-align: center;
-  `
-}
+    text-align: center;
+  `,
+};
 
 const FONT_WEIGHT_MODIFIERS = {
   //font-weight
@@ -65,7 +65,7 @@ const TEXT_SIZE_MODIFIERS = {
 
 export const MainHeader = styled.h1`
   font-family: ${primaryFont};
-  font-size: 1.6em;
+  font-size: 1.625rem;
   line-height: 1.3em;
   letter-spacing: -0.017em;
   color: ${colors.primaryGray};
@@ -76,7 +76,7 @@ export const MainHeader = styled.h1`
 
 export const Header = styled.h2`
   font-family: ${primaryFont};
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.05em;
   letter-spacing: -0.018em;
   color: ${colors.primaryGray};
@@ -88,7 +88,7 @@ export const Header = styled.h2`
 
 export const SubHeader = styled.h3`
   font-family: ${primaryFont};
-  font-size: 1.125em;
+  font-size: 1.125rem;
   line-height: 1.05em;
   letter-spacing: -0.018em;
   color: ${colors.primaryGray};
@@ -96,7 +96,6 @@ export const SubHeader = styled.h3`
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
   ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
   ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
-  
 `;
 
 export const P = styled.p`
@@ -147,19 +146,30 @@ export const LogoHomePage = styled.img`
 `;
 
 export const BottomPattern = styled.img`
-  width: 400px;
+  width: 200;
   margin-top: 100px;
+`;
+
+export const BottomPatternCropped = styled.img`
+  width: 100%;
+  margin-bottom: 0px;
 `;
 
 export const TopCorner = styled.img`
   width: 50%;
-  position: absolute; top: 0px; right: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
 `;
 
 export const GoBack = styled.img`
-  position: absolute; top: 35px; left: 40px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
 `;
 
 export const Cross = styled.img`
-  position: absolute; top: 35px; left: 40px;
+  position: absolute;
+  top: 35px;
+  left: 40px;
 `;

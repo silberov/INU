@@ -11,6 +11,12 @@ import "./Dashboard.css";
 
 // CSS
 
+const DashboardWrap = styled.div`
+  padding: 20px;
+  max-width: 750px;
+  margin: auto;
+`;
+
 const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +32,7 @@ const calButton = styled.button`
 export default function Dashboard() {
   console.log("DOES IT GO TO THIS PAGE?");
   return (
-    <>
+    <DashboardWrap>
       <Link to="/user/calendar">
         {" "}
         <calButton>
@@ -40,6 +46,6 @@ export default function Dashboard() {
         <TheraphySuggestions />
       </Div>
       <Navbar />
-    </>
+    </DashboardWrap>
   );
 }

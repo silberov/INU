@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import { SubHeader } from "../typography";
 import { Button, Moon } from "../Buttons/Buttons";
 import styled from "styled-components";
+import colors from "../../utils/colors";
+import { shadows, corners } from "../../utils/effects";
 
 // Styled Components
 
 export const DashboardDiv = styled.div`
   margin: auto;
-  padding: 16px;
-  background-color: "#ffffff";
-  margin-top: 25px auto;
-  margin-bottom: 25px auto;
+  padding: 25px;
+  background-color: ${colors.white};
+  margin: 0 20px;
   text-align: center;
-  border-radius: 5px;
-  display: flex;
-  align-items: flex-start;
-  box-shadow: -1em 0 0.2em #aaaaaa;
-  border: 0.5px solid #aaaaaa;
+  border-radius: ${corners.therapy};
+  text-align: left;
+  /* display: flex;
+  align-items: flex-start; */
+  filter: ${shadows.card};
+  /* border: 0.5px solid #aaaaaa; */
   width: auto;
   height: auto;
 `;

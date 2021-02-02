@@ -21,8 +21,8 @@ const BUTTON_MODIFIERS = {
   `,
   period: () => css`
     position: absolute;
-    top: 643px;
-    left: 95px;
+    top: 80%;
+    left: 25%;
   `,
   blue: () => css`
     background: ${colors.buleGrad};

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useAsyncError from "./useAsyncError";
 
-const API_URL = process.env.REACT_APP_BACK_END_URL;
+const API_URL = "http://localhost:3000/api";
 
 export default function useCrud(path) {
   const [error, setError] = useState("");
@@ -36,7 +36,7 @@ export default function useCrud(path) {
     });
   };
   const handleAddItem = (newItem) => {
-    fetchApi(`${path}`, "POST", { newItem })
+    fetchApi(`${API_URL}${path}`, "POST", { newItem })
       .then((item) => {
         setItems([...items, item]);
       })
@@ -49,9 +49,9 @@ export default function useCrud(path) {
       })
       .catch((err) => setError(err.message));
   };
-  const handleUpdate = (itemId, newData) => {
-    console.log(newData);
-    fetchApi(`${path}${itemId}`, "PUT", { newData })
+  const handleUpdate = (newData, itemId = "") => {
+    console.log("newData", newData);
+    fetchApi(`${path}${itemId}`, "PUT", newData)
       .then((updatedItem) => {
         setItems((items) =>
           items.map((item) => {
