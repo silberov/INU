@@ -9,18 +9,15 @@ import { shadows, corners } from "../../utils/effects";
 
 export const DashboardDiv = styled.div`
   margin: auto;
-  padding: 25px;
-  background-color: ${colors.white};
-  margin: 0 20px;
-  text-align: center;
-  border-radius: ${corners.therapy};
-  text-align: left;
-  /* display: flex;
-  align-items: flex-start; */
-  filter: ${shadows.card};
-  /* border: 0.5px solid #aaaaaa; */
+  padding: 16px;
+  background-color: #ffffff;
+  margin-top: 25px auto;
+  margin-bottom: 25px auto;
+  border-radius: 5px;
+  border: 0.5px solid #aaaaaa;
   width: auto;
   height: auto;
+  filter: ${shadows.card};
 `;
 
 const ButtonDiv = styled.div`
