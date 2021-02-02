@@ -26,12 +26,12 @@ export default function DailySuggestions() {
 
   return (
     <DashboardDiv>
-      <SubHeader modifiers={["purple"]}>Daily suggestions</SubHeader>
-
+      <SubHeader margin={"0 auto 10px 0"} modifiers={["purple"]}>
+        Daily suggestions
+      </SubHeader>
       <P>
         During this week, your ability to rotate three dimensional images
-        increases.
-        <br></br>This will come in handy when you’re navigating a new route,
+        increases.This will come in handy when you’re navigating a new route,
         parking in a tight spot, or building that IKEA furniture.
       </P>
     </DashboardDiv>

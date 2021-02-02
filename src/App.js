@@ -94,20 +94,16 @@ function App() {
           <Route
             exact
             path="/user/cycle"
-            render={() => {
-              <PeriodLength />;
-            }}
-            component={PeriodLength}
+            render={() => <PeriodLength />}
+            // component={PeriodLength}
           />
         </Switch>
         <Switch>
           <Route
             exact
             path="/user/period"
-            render={() => {
-              <PeriodDates />;
-            }}
-            component={PeriodDates}
+            render={() => <PeriodDates />}
+            // component={PeriodDates}
           />
         </Switch>
         <Switch>

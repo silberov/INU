@@ -8,28 +8,22 @@ import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
 import calendarIcon from "../Dashboard/calendar.png";
 import "./Dashboard.css";
+import bg from "../../images/bgs/background.png";
 
 // CSS
 
 const DashboardWrap = styled.div`
-  padding: 20px;
+  padding: 15px;
   max-width: 420px;
   margin: auto;
-  font-family: "Tondo";
-  background-image: url("../../images/bgs/background.png");
+  height: 100vh;
+  background-image: url(${bg});
+  background-position: bottom;
   background-repeat: no-repeat;
-  background-blend-mode: soft-light;
-  /* background-size: cover; */
-  background-size: 640px;
-  background-position: center bottom;
+  background-size: 170%;
 `;
 
-// const Div = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-content: space-between;
-//   margin: 25px;
-// `;
+// x
 
 const calButton = styled.button`
   background: none;
@@ -49,10 +43,9 @@ export default function Dashboard() {
       {/* <Div> */}
       <CurrentDate />
       <DailySuggestions />
-      <br></br>
       <TheraphySuggestions />
       {/* </Div> */}
-      <Navbar />
+      <Navbar selected={"cycle"} />
     </DashboardWrap>
   );
 }

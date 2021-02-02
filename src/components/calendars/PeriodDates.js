@@ -35,7 +35,10 @@ export default function PeriodDates() {
   };
 
   return (
-    <div className="cyclepicker">
+    <div
+      className="cyclepicker"
+      style={{ width: "245px", margin: "auto", textAlign: "center" }}
+    >
       <Link to="/user/cycle">
         <GoBack src={goback} alt="back-arrow" />
       </Link>
@@ -46,6 +49,7 @@ export default function PeriodDates() {
         <DayPickerInput onDayChange={(e) => handleDayChange(e)} />
       </FormContainer>
       <br />
+      {/* <Button modifiers={["period"]}>Next</Button> */}
       <Link to="/user/calendar">
         <Button modifiers={["period"]}>Next</Button>
       </Link>

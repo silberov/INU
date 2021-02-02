@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import Therapy from "./Therapy";
 import { useEffect, useState } from "react";
+import Navbar from "../Navbar/Navbar";
 
 const TherapyWraper = styled.div`
   padding: 27px;
@@ -25,6 +26,7 @@ function TherapyContainer({ therapyData, onTherapy }) {
           <Therapy key={index} quarter={block} onTherapy={onTherapy} />
         ))
       )}
+      <Navbar selected={"selfcare"} />
     </TherapyWraper>
   );
 }

@@ -48,7 +48,7 @@ const TEXT_SIZE_MODIFIERS = {
   `,
   normal: () => css`
     font-size: 1rem;
-    line-height: 1.3rem;
+    line-height: 1.35rem;
     letter-spacing: -0.02rem;
   `,
   small: () => css`
@@ -72,19 +72,20 @@ const NAV_BAR_MODIFIERS = {
 export const MainHeader = styled.h1`
   font-family: ${primaryFont};
   font-size: 1.625rem;
-  line-height: 1.3em;
-  letter-spacing: -0.017em;
+  line-height: 1.3rem;
+  letter-spacing: -0.017rem;
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
+  ${applyStyleModifiers(TEXT_COLOR_MODIFIERS)};
   ${applyStyleModifiers(ALIGNMENT_MODIFIERS)};
 `;
 
 export const Header = styled.h2`
   font-family: ${primaryFont};
   font-size: 1.25rem;
-  line-height: 1.05em;
-  letter-spacing: -0.018em;
+  line-height: 1.45rem;
+  letter-spacing: -0.018rem;
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
@@ -94,9 +95,9 @@ export const Header = styled.h2`
 
 export const SubHeader = styled.h3`
   font-family: ${primaryFont};
-  font-size: 1.125rem;
-  line-height: 1.05em;
-  letter-spacing: -0.018em;
+  font-size: 1.25rem;
+  line-height: 1.05rem;
+  letter-spacing: -0.018rem;
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
@@ -109,7 +110,8 @@ export const P = styled.p`
   margin: 0;
   font-family: ${primaryFont};
   font-weight: 400;
-  font-size: 1em;
+  font-size: 1rem;
+  line-height: 1.45rem;
   color: ${colors.primaryGray};
   ${applyStyleModifiers(TEXT_SIZE_MODIFIERS)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
@@ -136,7 +138,7 @@ export const CustomInput = styled.input.attrs((props) => ({
 `;
 
 export const FormContainer = styled.div`
-  margin-top: 200px;
+  margin: 200px auto;
   display: grid;
   text-align: center;
   justify-content: center;

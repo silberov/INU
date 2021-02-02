@@ -59,7 +59,7 @@ export default function UpdatePeriod() {
   };
 
   return (
-    <div>
+    <div style={{ margin: " 200px auto" }}>
       <div className="cyclepicker">
         <Link to="/user/dashboard">
           <GoBack src={cross} alt="cross" />
