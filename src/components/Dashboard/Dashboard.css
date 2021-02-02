@@ -1,10 +1,10 @@
-@media screen and (min-width: 600px) {
-  body {
-    font-family: "Tondo";
-    background-image: url("../../images/bgs/background.png");
-    background-repeat: no-repeat;
-    background-blend-mode: soft-light;
-    background-size: cover;
-    height: 150vh;
-  }
+/* @media screen and (min-width: 600px) { */
+body {
+  font-family: "Tondo";
+  background-image: url("../../images/bgs/background.png");
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  /* background-size: cover; */
+  background-size: 640px;
+  background-position: center bottom;
 }
