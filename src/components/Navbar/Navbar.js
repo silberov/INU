@@ -45,7 +45,7 @@ function Navbar() {
           <P modifiers={["xsmall", "nav"]}>Cycle</P>
         </IconBox>
       </Link>
-      <Link>
+      <Link to="/user/updateperiod">
         <img src={AddButton} alt="add-button" />
       </Link>
       <Link style={{ textDecoration: "none" }} to="/therapy">
