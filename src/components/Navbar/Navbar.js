@@ -35,7 +35,7 @@ function Navbar() {
         <img src={CycleIcon} alt="cycle-icon" />
         <P>Cycle</P>
       </Link>
-      <Link>
+      <Link to="/user/updateperiod">
         <img src={AddButton} alt="add-button" />
       </Link>
       <Link to="/therapy">

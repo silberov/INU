@@ -15,6 +15,13 @@ const DashboardWrap = styled.div`
   padding: 20px;
   max-width: 420px;
   margin: auto;
+  font-family: "Tondo";
+  background-image: url("../../images/bgs/background.png");
+  background-repeat: no-repeat;
+  background-blend-mode: soft-light;
+  /* background-size: cover; */
+  background-size: 640px;
+  background-position: center bottom;
 `;
 
 // const Div = styled.div`
