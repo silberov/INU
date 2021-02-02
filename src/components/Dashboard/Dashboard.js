@@ -11,12 +11,18 @@ import "./Dashboard.css";
 
 // CSS
 
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  margin: 25px;
+const DashboardWrap = styled.div`
+  padding: 20px;
+  max-width: 420px;
+  margin: auto;
 `;
+
+// const Div = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-content: space-between;
+//   margin: 25px;
+// `;
 
 const calButton = styled.button`
   background: none;
@@ -26,20 +32,20 @@ const calButton = styled.button`
 export default function Dashboard() {
   console.log("DOES IT GO TO THIS PAGE?");
   return (
-    <>
+    <DashboardWrap>
       <Link to="/user/calendar">
         {" "}
         <calButton>
           <img src={calendarIcon} />
         </calButton>{" "}
       </Link>
-      <Div>
-        <CurrentDate />
-        <DailySuggestions />
-        <br></br>
-        <TheraphySuggestions />
-      </Div>
+      {/* <Div> */}
+      <CurrentDate />
+      <DailySuggestions />
+      <br></br>
+      <TheraphySuggestions />
+      {/* </Div> */}
       <Navbar />
-    </>
+    </DashboardWrap>
   );
 }

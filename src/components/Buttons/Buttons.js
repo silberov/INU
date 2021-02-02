@@ -30,6 +30,10 @@ const BUTTON_MODIFIERS = {
   orange: () => css`
     background: ${colors.orangeGrad};
   `,
+  //orangePink
+  pink: () => css`
+    background: ${colors.orangePink};
+  `,
 };
 
 export const Moon = styled.img`

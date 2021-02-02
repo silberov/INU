@@ -2,30 +2,34 @@ import React, { useState, useEffect } from "react";
 import { SubHeader } from "../typography";
 import { Button, Moon } from "../Buttons/Buttons";
 import styled from "styled-components";
-import { shadows } from "../../utils/effects";
+import colors from "../../utils/colors";
+import { shadows, corners } from "../../utils/effects";
 
 // Styled Components
 
 export const DashboardDiv = styled.div`
-  margin: auto;
-  padding: 16px;
-  background-color: #ffffff;
-  margin-top: 25px auto;
-  margin-bottom: 25px auto;
-  border-radius: 5px;
-  border: 0.5px solid #aaaaaa;
-  width: auto;
-  height: auto;
+  margin: auto 20px;
+  padding: 24px;
+  background-color: ${colors.white};
+  /* margin-top: 25px auto;
+  margin-bottom: 25px auto; */
+  border-radius: ${corners.therapy};
+
+  /* width: auto;
+  height: auto; */
   filter: ${shadows.card};
 `;
 
 const ButtonDiv = styled.div`
   display: flex;
-  flex-direction: column-reversed;
-  align-items: center;
-  align-content: space-around;
-  margin: 15px;
-  margin-top: 45px;
+  justify-content: space-between;
+  padding-top: 20px;
+  /* padding: 15px; */
+  /* flex-direction: column-reversed; */
+  /* align-items: center; */
+
+  /* margin: 15px;
+  margin-top: 45px; */
 `;
 
 export default function TheraphySuggestions() {

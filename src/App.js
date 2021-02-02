@@ -2,12 +2,9 @@ import MainCalendar from "./components/calendars/MainCalendar";
 import PeriodDates from "./components/calendars/PeriodDates";
 import PeriodLength from "./components/calendars/PeriodLength";
 
-// import styled from 'styled-components';
-// import colors from './utils/colors';
-
 import "./App.css";
-// import colors from './utils/colors';
-import { BrowserRouter, Route, Switch, Router } from "react-router-dom";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
@@ -18,9 +15,53 @@ import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
 import TherapyContainer from "./components/Therapy/TherapyContainer";
 import Player from "./components/Player/Player";
-// import TypoTest from "./typo-test";
+import { useEffect, useState } from "react";
+import { therapyFiles } from "./Data/data";
 
 function App() {
+  const [therapyData, setTherapyData] = useState([]);
+  const [currentTherapy, setCurrentTherapy] = useState(0);
+
+  const displayTherapy = [
+    { title: "First Quarter", files: therapyData.slice(0, 7) },
+    { title: "Second Quarter", files: therapyData.slice(7, 14) },
+    { title: "Third Quarter", files: therapyData.slice(14, 21) },
+    {
+      title: "Forth Quarter",
+      files: therapyData.slice(21, therapyData.length),
+    },
+  ];
+
+  const getCurrentTherapy = (num) => {
+    console.log("num", num);
+    const index = Number(num);
+    console.log("index", index);
+    setCurrentTherapy(index);
+  };
+
+  const skip = (forward = true) => {
+    setCurrentTherapy(() => {
+      let temp = currentTherapy;
+      if (forward) {
+        if (temp + 1 > therapyData.length - 1) {
+          return 0;
+        } else {
+          return temp + 1;
+        }
+      } else {
+        if (temp - 1 < 0) {
+          return therapyData.length - 1;
+        } else {
+          return temp - 1;
+        }
+      }
+    });
+  };
+
+  useEffect(() => {
+    setTherapyData(therapyFiles);
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -46,19 +87,54 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route exact path="/user/cycle" component={PeriodLength} />
+          <Route
+            exact
+            path="/user/cycle"
+            render={() => {
+              <PeriodLength />;
+            }}
+            component={PeriodLength}
+          />
         </Switch>
         <Switch>
-          <Route exact path="/user/period" component={PeriodDates} />
+          <Route
+            exact
+            path="/user/period"
+            render={() => {
+              <PeriodDates />;
+            }}
+            component={PeriodDates}
+          />
         </Switch>
         <Switch>
           <Route exact path="/user/calendar" component={MainCalendar} />
         </Switch>
         <Switch>
-          <Route exact path="/therapy" component={TherapyContainer} />
+          <Route
+            exact
+            path="/therapy"
+            render={() => (
+              <TherapyContainer
+                therapyData={displayTherapy}
+                onTherapy={(n) => {
+                  getCurrentTherapy(n);
+                }}
+              />
+            )}
+          ></Route>
         </Switch>
         <Switch>
-          <Route exact path="/therapy/:session" component={Player} />
+          <Route
+            exact
+            path="/player"
+            render={() => (
+              <Player
+                currentTherapy={currentTherapy}
+                trucks={therapyData}
+                onSkip={skip}
+              />
+            )}
+          ></Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -8,6 +8,6 @@ export async function postDataToPath(path, data) {
     },
     body: JSON.stringify(data),
   });
-  console.log(response)
+  console.log(response);
   return response.json();
 }
