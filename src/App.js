@@ -10,6 +10,7 @@ import Register from "./components/Login/Register1";
 import ForgotPassword from "./components/Login/ForgotPassword";
 import Dashboard from "./components/Dashboard/Dashboard.js";
 import ResetPassword from "./components/Login/ResetPassword";
+import UpdatePeriod from "./components/calendars/UpdatePeriod";
 
 import HomePage from "./components/HomePage/HomePage";
 import Register2 from "./components/Login/Register2";
@@ -82,6 +83,9 @@ function App() {
         </Switch>
         <Switch>
           <Route path="/user/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <Route path="/user/updateperiod" component={UpdatePeriod} />
         </Switch>
         <Switch>
           <Route path="/reset-password" component={ResetPassword} />
