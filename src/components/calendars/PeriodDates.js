@@ -14,12 +14,10 @@ import {
 import colors from "../../utils/colors";
 import topcorner from "../../images/corner-blue.png";
 import goback from "../../images/goback.png";
+import useCrud from "../../hooks/useCrud";
 
 // import applogo from "../../images/applogo.png";
 // import bottompattern from "../../images/bottompattern.png";
-
-var moment = require("moment"); // require
-moment().format();
 
 export default function PeriodDates() {
   const [selectedDay, setSelectedDay] = useState();
@@ -27,7 +25,13 @@ export default function PeriodDates() {
   const handleDayChange = (day) => {
     setSelectedDay(day);
     const formattedDay = new Date(day).toISOString();
-    console.log("formatted", formattedDay);
+
+    console.log("selected day", day);
+    // const response = await fetch("http://localhost:3000/api/cycle")
+    //   .then((resp) => resp.json())
+    //   .then((data) => {
+
+    //   });
   };
 
   return (
@@ -39,7 +43,7 @@ export default function PeriodDates() {
       <FormContainer>
         <Header>Select the first day of your last period.</Header>
         <br />
-        <DayPickerInput onDayChange={handleDayChange} />
+        <DayPickerInput onDayChange={(e) => handleDayChange(e)} />
       </FormContainer>
       <br />
       <Link to="/user/calendar">

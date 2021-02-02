@@ -65,7 +65,7 @@ const TEXT_SIZE_MODIFIERS = {
 
 export const MainHeader = styled.h1`
   font-family: ${primaryFont};
-  font-size: 1.6em;
+  font-size: 1.625rem;
   line-height: 1.3em;
   letter-spacing: -0.017em;
   color: ${colors.primaryGray};
@@ -76,7 +76,7 @@ export const MainHeader = styled.h1`
 
 export const Header = styled.h2`
   font-family: ${primaryFont};
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.05em;
   letter-spacing: -0.018em;
   color: ${colors.primaryGray};
@@ -88,7 +88,7 @@ export const Header = styled.h2`
 
 export const SubHeader = styled.h3`
   font-family: ${primaryFont};
-  font-size: 1.125em;
+  font-size: 1.125rem;
   line-height: 1.05em;
   letter-spacing: -0.018em;
   color: ${colors.primaryGray};

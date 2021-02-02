@@ -30,6 +30,10 @@ const BUTTON_MODIFIERS = {
   orange: () => css`
     background: ${colors.orangeGrad};
   `,
+  //orangePink
+  pink: () => css`
+    background: ${colors.orangePink};
+  `,
 };
 
 export const Moon = styled.img`
@@ -38,7 +42,10 @@ export const Moon = styled.img`
   margin-left: 10px;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button.attrs((props) => ({
+// we can define static props	
+onClick: props.runOnClick,	
+}))`  
   font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;
