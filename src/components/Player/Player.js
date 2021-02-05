@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import meditation from "../../images/meditation.png";
+import useSound from "use-sound";
+//import sound from "../../../public/Cattle Decapitation - Apex Blasphemy.mp3";
 
 import { MainHeader, Header } from "../typography";
 import PlayerControl from "./PlayerControl";
@@ -16,26 +18,33 @@ const PlayerMainWrap = styled.div`
 `;
 
 function Player({ currentTherapy, trucks, onSkip }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
+  //const [isPlaying, setIsPlaying] = useState(true);
+  console.log(trucks[0] && trucks[currentTherapy].audio);
   const audioEl = useRef(null);
 
-  useEffect(() => {
-    if (isPlaying) {
-      audioEl.current.play();
-    } else {
-      audioEl.current.pause();
-    }
-  });
-
-  console.log();
+  const soundUrl = "./Cattle Decapitation - Apex Blasphemy.mp3";
+  console.log(soundUrl);
+  const [play, { stop, isPlaying }] = useSound(soundUrl);
+  //setIsPlaying((isPlaying) => !isPlaying);
+  // useEffect(() => {
+  //   if (!isPlaying) {
+  //     audioEl.current.play();
+  //     console.log("play", isPlaying);
+  //   } else {
+  //     audioEl.current.pause();
+  //     console.log("stop", isPlaying);
+  //   }
+  // }, [isPlaying]);
 
   return (
     <PlayerMainWrap>
-      <audio
+      <button active={isPlaying} play={play} stop={stop}>
+        play
+      </button>
+      {/* <audio
         src={trucks[0] && trucks[currentTherapy].audio}
         ref={audioEl}
-      ></audio>
+      ></audio> */}
       <MainHeader modifiers={["center", "light"]}>
         Therapy · {trucks[0] && trucks[currentTherapy].title}
       </MainHeader>
@@ -43,11 +52,11 @@ function Player({ currentTherapy, trucks, onSkip }) {
       <Header modifiers={["center"]}>
         {trucks[0] && trucks[currentTherapy].title}
       </Header>
-      <PlayerControl
+      {/* <PlayerControl
         isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
+        setIsPlaying={(a) => setIsPlaying(a)}
         onSkip={(s) => onSkip(s)}
-      />
+      /> */}
     </PlayerMainWrap>
   );
 }

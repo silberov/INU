@@ -43,9 +43,9 @@ export const Moon = styled.img`
 `;
 
 export const Button = styled.button.attrs((props) => ({
-// we can define static props	
-onClick: props.runOnClick,	
-}))`  
+  // we can define static props
+  // onClick: props.runOnClick,
+}))`
   font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;

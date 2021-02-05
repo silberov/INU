@@ -31,7 +31,7 @@ export const therapyFiles = [
     order: 1,
     title: "day1",
     icon: moon1,
-    audio: "./Cattle Decapitation - Apex Blasphemy.mp3",
+    audio: "../../public/Cattle Decapitation - Apex Blasphemy.mp3",
   },
   {
     order: 2,

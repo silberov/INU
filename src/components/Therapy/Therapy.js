@@ -18,7 +18,7 @@ export const SectionWraper = styled.div`
 function Therapy({ quarter, onTherapy }) {
   const [redirect, setRedirect] = useState(false);
 
-  //console.log("a", quarter, onTherapy)
+  console.log("hello");
   return (
     <>
       {redirect && <Redirect to="/player" />}
@@ -28,7 +28,7 @@ function Therapy({ quarter, onTherapy }) {
           quarter.files.map((item, index) => (
             <Button
               key={index}
-              value={item.order - 1}
+              value={Number(item.order) - 1}
               modifiers={[
                 "therapy",
                 quarter.title === "Second Quarter" && "blue",
@@ -36,7 +36,8 @@ function Therapy({ quarter, onTherapy }) {
                 quarter.title === "Forth Quarter" && "pink",
               ]}
               onClick={(e) => {
-                onTherapy(e.target.value);
+                console.log("click");
+                onTherapy(Number(e.target.value));
                 setRedirect(true);
               }}
             >
