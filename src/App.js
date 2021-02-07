@@ -31,10 +31,10 @@ function App() {
           <Route exact path="/login" component={Login} />
         </Switch>
         <Switch>
-          <Route path="/auth/register" component={Register} />
+          <Route path="/user/register" component={Register} />
         </Switch>
         <Switch>
-          <Route path="/auth/register-2" component={Register2} />
+          <Route path="/user/register-2" component={Register2} />
         </Switch>
         <Switch>
           <Route path="/forgot-password" component={ForgotPassword} />
@@ -46,12 +46,10 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-
           <Route exact path="/user/period" component={PeriodDates} />
         </Switch>
         <Switch>
           <Route exact path="/user/calendar" component={MainCalendar} />
-
         </Switch>
         <Switch>
           <Route exact path="/therapy" component={TherapyContainer} />

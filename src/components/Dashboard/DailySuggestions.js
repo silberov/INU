@@ -2,38 +2,29 @@ import React, { useState, useEffect } from "react";
 import { P, SubHeader, MainHeader } from "../typography";
 import { DashboardDiv } from "./TheraphySuggestions";
 import styled from "styled-components";
-
+import phases from "./CurrentDate";
 //CSS
 
 export default function DailySuggestions() {
   const [quote, setQuote] = useState([]);
 
-  useEffect(() => {
-    fetch("https://quoteai.p.rapidapi.com/ai-quotes/0", {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "quoteai.p.rapidapi.com",
-        "x-rapidapi-key": "881aac81e1msh5b35cf46c5be8fcp1aafdbjsnec347adc64a7",
-      },
-    })
-      .then((response) => {
-        console.log("what", response);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://my.api.mockaroo.com/inu_daily.json?key=e1692940")
+  //     .then((response) => response.json())
+  //     .then((data) => setQuote(data));
+  // }, []);
+
+  console.log("data?", quote);
 
   return (
     <DashboardDiv>
       <SubHeader modifiers={["purple"]}>Daily suggestions</SubHeader>
 
-      <P>
-        During this week, your ability to rotate three dimensional images
-        increases.
-        <br></br>This will come in handy when you’re navigating a new route,
-        parking in a tight spot, or building that IKEA furniture.
-      </P>
+      {quote
+        .filter((messages) => messages.phase === phases.id)
+        .map((filteredMessage) => (
+          <P>{filteredMessage.Suggestion}</P>
+        ))}
     </DashboardDiv>
   );
 }
