@@ -50,9 +50,6 @@ export default function Login() {
       <Link to="/forgot-password">
         <P>Forget Password</P>
       </Link>
-      <Link to="/typotest">
-        <p>to test</p>
-      </Link>
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { P, MainHeader, SubHeader } from "../typography";
+import { P, MainHeader, SubHeader, Header } from "../typography";
 import styled from "styled-components";
 import { formatDistance } from "date-fns";
 
@@ -7,7 +7,7 @@ import { formatDistance } from "date-fns";
 
 const DateDiv = styled.div`
   text-align: center;
-  margin-bottom: 25px;
+  margin: 25px 0 45px 0;
 `;
 
 export const phases = [
@@ -51,12 +51,14 @@ function CurrentDate() {
 
   return (
     <DateDiv>
-      <P>
+      <P modifiers={["large"]}>
         {date} {month}
       </P>
       <br></br>
-      <SubHeader> Tag {dateNumber} </SubHeader>
-
+      <MainHeader modifiers={["purple"]} margin={"12px auto"}>
+        Tag {dateNumber}
+      </MainHeader>
+      <hr style={{ margin: "15px auto 10px auto ", width: " 50%" }} />
       {phases
         .filter((title) => title.day === distance)
         .map((filteredTitle) => (

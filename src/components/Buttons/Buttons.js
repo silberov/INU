@@ -1,11 +1,11 @@
-import styled, {css} from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
-import colors from '../../utils/colors';
-import { shadows, corners } from '../../utils/effects';
-
+import styled, { css } from "styled-components";
+import { applyStyleModifiers } from "styled-components-modifiers";
+import colors from "../../utils/colors";
+import { shadows, corners } from "../../utils/effects";
+import plus from "../../images/nav/cross.png";
 
 const BUTTON_MODIFIERS = {
-  disabled: () => css `
+  disabled: () => css`
     background: ${colors.disabledGray};
   `,
   therapy: () => css`
@@ -20,22 +20,33 @@ const BUTTON_MODIFIERS = {
     align-items: center;
     margin: 0 0 20px 0;
   `,
+  period: () => css`
+    position: relative;
+    bottom: -210px;
+  `,
   blue: () => css`
     background: ${colors.buleGrad};
   `,
-  orange: () => css `
+  orange: () => css`
     background: ${colors.orangeGrad};
   `,
-}
+  //orangePink
+  pink: () => css`
+    background: ${colors.orangePink};
+  `,
+};
 
 export const Moon = styled.img`
   height: 27px;
   width: 27px;
   margin-left: 10px;
-`
+`;
 
- export const Button = styled.button`
-  font-family: 'tondo', sans-serif;
+export const Button = styled.button.attrs((props) => ({
+  // we can define static props
+  onClick: props.runOnClick,
+}))`
+  font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 1.125rem;
@@ -44,7 +55,6 @@ export const Moon = styled.img`
   color: ${colors.white};
   height: 50px;
   width: 185px;
-  //padding: 12px 68px;
   margin: 20px auto;
   border-radius: ${corners.button};
   border: none;
@@ -59,34 +69,21 @@ export const Moon = styled.img`
   }
   ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
+
+// const Circle = styled.div`
+//   width: 62px;
+//   height: 62px;
+//   border-radius: 100px;
+//   background: ${colors.buleGrad};
+//   display: flex;
+// `;
+
+// export const PlusButton = () => {
+//   return (
+//     <Circle>
+//       <img src={plus} alt="add" />
+//     </Circle>
+//   );
+// };
 
 export default Button;
-
-  
-export const ButtonPeriod = styled.button.attrs((props) => ({
-  // we can define static props
-  onClick: props.runOnClick,
-}))`
-  font-family: "tondo", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 1.3em;
-  line-height: 1.13em;
-  cursor: pointer;
-  color: ${colors.white};
-  padding: 12px 68px;
-  margin: 20px auto;
-  border-radius: ${corners.button};
-  border: none;
-  position: absolute; top: 643px; left: 95px;
-  outline: none;
-  background: ${colors.primaryGrad};
-  filter: ${shadows.button};
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    outline: none;
-  }
-  ${applyStyleModifiers(BUTTON_MODIFIERS)};
-`;

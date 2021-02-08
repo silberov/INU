@@ -3,13 +3,14 @@ import { P, SubHeader, MainHeader } from "../typography";
 import { DashboardDiv } from "./TheraphySuggestions";
 import styled from "styled-components";
 import phases from "./CurrentDate";
+const API_URL = process.env.REACT_APP_API_URL;
 //CSS
 
 export default function DailySuggestions() {
   const [quote, setQuote] = useState([]);
 
   // useEffect(() => {
-  //   fetch("https://my.api.mockaroo.com/inu_daily.json?key=e1692940")
+  //   fetch(`${API_URL}//:phaseId/suggestions/:suggestionId`)
   //     .then((response) => response.json())
   //     .then((data) => setQuote(data));
   // }, []);
@@ -23,7 +24,7 @@ export default function DailySuggestions() {
       {quote
         .filter((messages) => messages.phase === phases.id)
         .map((filteredMessage) => (
-          <P>{filteredMessage.Suggestion}</P>
+          <P>{filteredMessage.text}</P>
         ))}
     </DashboardDiv>
   );

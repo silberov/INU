@@ -8,15 +8,22 @@ import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
 import calendarIcon from "../Dashboard/calendar.png";
 import "./Dashboard.css";
+import bg from "../../images/bgs/background.png";
 
 // CSS
 
-const Div = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  margin: 25px;
+const DashboardWrap = styled.div`
+  padding: 15px;
+  max-width: 420px;
+  margin: auto;
+  height: 100vh;
+  background-image: url(${bg});
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 170%;
 `;
+
+// x
 
 const calButton = styled.button`
   background: none;
@@ -26,20 +33,19 @@ const calButton = styled.button`
 export default function Dashboard() {
   console.log("DOES IT GO TO THIS PAGE?");
   return (
-    <>
+    <DashboardWrap>
       <Link to="/user/calendar">
         {" "}
         <calButton>
           <img src={calendarIcon} />
         </calButton>{" "}
       </Link>
-      <Div>
-        <CurrentDate />
-        <DailySuggestions />
-        <br></br>
-        <TheraphySuggestions />
-      </Div>
-      <Navbar />
-    </>
+      {/* <Div> */}
+      <CurrentDate />
+      <DailySuggestions />
+      <TheraphySuggestions />
+      {/* </Div> */}
+      <Navbar selected={"cycle"} />
+    </DashboardWrap>
   );
 }
