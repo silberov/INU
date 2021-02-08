@@ -1,18 +1,20 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import Cycle from "../../images/nav/cycle-icon-selected.png";
-import Selfcare from "../../images/nav/selfcare-icon-selected.png";
 import CycleIcon from "../../images/nav/cycle-icon.png";
 import CycleSelected from "../../images/nav/cycle-icon-selected.png";
 import SelfcareIcon from "../../images/nav/selfcare-icon.png";
 import SelfcareSelected from "../../images/nav/selfcare-icon-selected.png";
+
 import plus from "../../images/nav/cross.png";
 import { P } from "../typography";
 import { shadows } from "../../utils/effects";
 import colors from "../../utils/colors";
 // import { PlusButton } from "../Buttons/Buttons";
 
-//CSS
+const IconBox = styled.div`
+  margin: 10px;
+  text-align: center;
+`;
 
 const NavbarDiv = styled.div`
   background-color: ${colors.white};

@@ -64,7 +64,7 @@ export default function Register2(props) {
         type="password"
       />
 
-      <Button runOnClick={handleSubmit}>Register</Button>
+      <Button onClick={handleSubmit}>Register</Button>
 
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>

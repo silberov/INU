@@ -91,7 +91,6 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route exact path="/user/period" component={PeriodDates} />
           <Route
             exact
             path="/user/cycle"
