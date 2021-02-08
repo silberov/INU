@@ -48,7 +48,6 @@ export const Button = styled.button`
   color: ${colors.white};
   height: 50px;
   width: 185px;
-  //padding: 12px 68px;
   margin: 20px auto;
   border-radius: ${corners.button};
   border: none;

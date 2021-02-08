@@ -11,7 +11,10 @@ import { shadows } from "../../utils/effects";
 import colors from "../../utils/colors";
 // import { PlusButton } from "../Buttons/Buttons";
 
-//CSS
+const IconBox = styled.div`
+  margin: 10px;
+  text-align: center;
+`;
 
 const NavbarDiv = styled.div`
   background-color: ${colors.white};
