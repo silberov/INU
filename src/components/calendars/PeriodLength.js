@@ -25,18 +25,7 @@ export default function PeriodLength() {
   //http://localhost:3000/api/cycle/phases/1
   const { onUpdate } = useCrud("/cycle");
 
-  useEffect(() => {
-    // fetch(`http://localhost:3000/api/cycle`, "PUT", { cycle_length: input })
-    //   .then((updatedItem) => {
-    //         if (item.id === updatedItem.id) {
-    //           return updatedItem;
-    //         }
-    //         return item;
-    //       })
-    //     );
-    //   })
-    //   .catch((err) => setError(err.message));
-  }, [input]);
+  useEffect(() => {}, [input]);
 
   const heandleChange = (event) => {
     console.log("days", input);
@@ -45,7 +34,7 @@ export default function PeriodLength() {
   };
 
   return (
-    <div>
+    <div style={{ margin: " 200px auto" }}>
       <Link to="/">
         <GoBack src={goback} alt="back-arrow" />
       </Link>

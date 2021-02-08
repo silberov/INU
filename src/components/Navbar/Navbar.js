@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import CycleIcon from "../../images/nav/cycle-icon.png";
+import CycleSelected from "../../images/nav/cycle-icon-selected.png";
 import SelfcareIcon from "../../images/nav/selfcare-icon.png";
-import AddButton from "../../images/nav/addsymptoms@2x.png";
+import SelfcareSelected from "../../images/nav/selfcare-icon-selected.png";
+
+import plus from "../../images/nav/cross.png";
 import { P } from "../typography";
 import { shadows } from "../../utils/effects";
 import colors from "../../utils/colors";
+// import { PlusButton } from "../Buttons/Buttons";
 
 //CSS
 
@@ -14,38 +18,83 @@ const NavbarDiv = styled.div`
   position: fixed;
   width: 100%;
   bottom: 0;
+  left: 0;
   height: 71px;
-  margin: auto;
   filter: ${shadows.card};
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+`;
+
+const IconBox = styled.div`
+  width: 66px;
+  margin: 10px;
+  text-align: center;
 `;
 
 const MenuIcons = styled.ul`
   display: flex;
   justify-content: space-evenly;
+  align-items: flex-end;
   text-align: center;
 `;
 
-function Navbar() {
+const Circle = styled.div`
+  width: 62px;
+  height: 62px;
+  border-radius: 100px;
+  background: ${colors.buleGrad};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: ${shadows.button};
+`;
+
+const PlusButton = () => {
+  return (
+    <Circle>
+      <img src={plus} alt="add" />
+    </Circle>
+  );
+};
+
+function Navbar({ selected }) {
+  console.log("selected", selected);
   return (
     <NavbarDiv>
-      {/* <MenuIcons> */}
-      <Link style={{ alignText: "center" }} to="/user/dashboard">
-        <img src={CycleIcon} alt="cycle-icon" />
-        <P>Cycle</P>
+      <Link style={{ textDecoration: "none" }} to="/user/dashboard">
+        <IconBox>
+          <img
+            src={selected === "cycle" ? `${CycleSelected}` : `${CycleIcon}`}
+            alt="cycle-icon"
+          />
+
+          <P modifiers={[selected === "cycle" && "purple", "xsmall", "nav"]}>
+            Cycle
+          </P>
+        </IconBox>
       </Link>
-      <Link>
-        <img src={AddButton} alt="add-button" />
+      <Link
+        style={{ position: "relative", top: "-15px" }}
+        to="/user/updateperiod"
+      >
+        <PlusButton />
       </Link>
-      <Link to="/therapy">
-        <img src={SelfcareIcon} alt="selfcare-icon" />
-        <br />
-        Selfcare
+      <Link style={{ textDecoration: "none" }} to="/therapy">
+        <IconBox>
+          <img
+            src={
+              selected === "selfcare"
+                ? `${SelfcareSelected}`
+                : `${SelfcareIcon}`
+            }
+            alt="selfcare-icon"
+          />
+
+          <P modifiers={[selected === "selfcare" && "purple", "xsmall", "nav"]}>
+            Selfcare
+          </P>
+        </IconBox>
       </Link>
-      {/* <Link><li>Diet</li></Link>
-                    <Link><li>News</li></Link> */}
-      {/* </MenuIcons> */}
     </NavbarDiv>
   );
 }

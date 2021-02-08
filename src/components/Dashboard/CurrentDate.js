@@ -1,5 +1,5 @@
 import React from "react";
-import { P, MainHeader, SubHeader } from "../typography";
+import { P, MainHeader, SubHeader, Header } from "../typography";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 
@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const DateDiv = styled.div`
   text-align: center;
-  margin-bottom: 25px;
+  margin: 25px 0 45px 0;
 `;
 
 function CurrentDate() {
@@ -34,11 +34,13 @@ function CurrentDate() {
 
   return (
     <DateDiv>
-      <P>
+      <P modifiers={["large"]}>
         {date} {month}
       </P>
-      <br></br>
-      <SubHeader>Day X</SubHeader>
+      <hr style={{ margin: "15px auto 10px auto ", width: " 50%" }} />
+      <MainHeader modifiers={["purple"]} margin={"12px auto"}>
+        Day X
+      </MainHeader>
       <P>Beginning of your period</P>
     </DateDiv>
   );

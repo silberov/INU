@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { predictPeriods } from "../../utils/period";
-import { add, format, isSameDay, getDay } from "date-fns";
+import { isSameDay } from "date-fns";
 import { enGB } from "date-fns/locale";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
 import { Link } from "react-router-dom";
 import Button from "../Buttons/Buttons";
-import {
-  MainHeader,
-  P,
-  Cross,
-  BottomPattern,
-  BottomPatternCropped,
-} from "../typography";
+import { MainHeader, P, Cross } from "../typography";
 import colors from "../../utils/colors";
-import topcorner from "../../images/corner-blue.png";
 import cross from "../../images/cross.png";
-import bottompatterncropped from "../../images/bgs/bottom-cropped.png";
+import Navbar from "../Navbar/Navbar";
 
 export default function MainCalendar() {
   const [date, setDate] = useState(new Date());
@@ -52,28 +45,24 @@ export default function MainCalendar() {
 
   return (
     <div>
-      <div>
-        <Link to="/user/dashboard">
-          <Cross src={cross} alt="cross" />
-        </Link>
-        <div className="calendartitle">
-          <MainHeader>Calendar</MainHeader>
-        </div>
-        <P color={colors.primary}>
-          <div className="calendar">
-            <DatePickerCalendar
-              date={date}
-              onDateChange={(date) => handlePickDate(date)}
-              modifiers={modifiers}
-              modifiersClassNames={modifiersClassNames}
-              locale={enGB}
-            />
-          </div>
-        </P>
+      <Link to="/user/dashboard">
+        <Cross src={cross} alt="cross" />
+      </Link>
+      <div className="calendartitle">
+        <MainHeader>Calendar</MainHeader>
       </div>
-      {/* <div>
-        <BottomPatternCropped src={bottompatterncropped} />
-      </div> */}
+      <P color={colors.primary}>
+        <div className="calendar" style={{ width: "352px", margin: "auto" }}>
+          <DatePickerCalendar
+            date={date}
+            onDateChange={(date) => handlePickDate(date)}
+            modifiers={modifiers}
+            modifiersClassNames={modifiersClassNames}
+            locale={enGB}
+          />
+        </div>
+      </P>
+      <Navbar />
     </div>
   );
 }
