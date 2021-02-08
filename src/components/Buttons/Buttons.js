@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { applyStyleModifiers } from "styled-components-modifiers";
 import colors from "../../utils/colors";
 import { shadows, corners } from "../../utils/effects";
-import plus from "../../images/nav/cross.png";
 
 const BUTTON_MODIFIERS = {
   disabled: () => css`
@@ -21,18 +20,15 @@ const BUTTON_MODIFIERS = {
     margin: 0 0 20px 0;
   `,
   period: () => css`
-    position: relative;
-    bottom: -210px;
+    position: absolute;
+    top: 80%;
+    left: 25%;
   `,
   blue: () => css`
     background: ${colors.buleGrad};
   `,
   orange: () => css`
     background: ${colors.orangeGrad};
-  `,
-  //orangePink
-  pink: () => css`
-    background: ${colors.orangePink};
   `,
 };
 
@@ -42,10 +38,7 @@ export const Moon = styled.img`
   margin-left: 10px;
 `;
 
-export const Button = styled.button.attrs((props) => ({
-  // we can define static props
-  onClick: props.runOnClick,
-}))`
+export const Button = styled.button`
   font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -55,6 +48,7 @@ export const Button = styled.button.attrs((props) => ({
   color: ${colors.white};
   height: 50px;
   width: 185px;
+  //padding: 12px 68px;
   margin: 20px auto;
   border-radius: ${corners.button};
   border: none;
@@ -69,21 +63,5 @@ export const Button = styled.button.attrs((props) => ({
   }
   ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
-
-// const Circle = styled.div`
-//   width: 62px;
-//   height: 62px;
-//   border-radius: 100px;
-//   background: ${colors.buleGrad};
-//   display: flex;
-// `;
-
-// export const PlusButton = () => {
-//   return (
-//     <Circle>
-//       <img src={plus} alt="add" />
-//     </Circle>
-//   );
-// };
 
 export default Button;

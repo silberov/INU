@@ -50,7 +50,7 @@ export default function ResetPassword(props) {
         placeholder="Repeat Password"
         type="password"
       />
-      <Buttons runOnClick={handleSubmit}> Submit </Buttons>
+      <Buttons onClick={handleSubmit}> Submit </Buttons>
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );
