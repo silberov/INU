@@ -11,14 +11,21 @@ const DateDiv = styled.div`
 `;
 
 export const phases = [
-  { id: 1, day: 1, message: "Beggining of your period" },
-  { id: 2, day: 7, message: "Follicular Phase" },
-  { id: 3, day: 15, message: "Ovulation Phase" },
-  { id: 4, day: 19, message: "Luteal Phase “PMS”" },
+  { id: 1, startday: 1, endday: 6, message: "Period Phase" },
+  { id: 2, startday: 7, endday: 14, message: "Follicular Phase" },
+  { id: 3, startday: 15, endday: 18, message: "Ovulation Phase" },
+  { id: 4, startday: 19, message: "Luteal Phase “PMS”" },
 ];
 
 function CurrentDate() {
   // Current Date Display
+
+  const phases = [
+    { id: 1, startday: 1, endday: 6, message: "Period Phase" },
+    { id: 2, startday: 7, endday: 14, message: "Follicular Phase" },
+    { id: 3, startday: 15, endday: 18, message: "Ovulation Phase" },
+    { id: 4, startday: 19, message: "Luteal Phase “PMS”" },
+  ];
 
   const d = new Date();
   const months = [
@@ -41,14 +48,15 @@ function CurrentDate() {
 
   // Current Day and Phase display
 
-  const startingDate = new Date(2021, 0, 23);
+  const startingDate = new Date(2021, 1, 1);
 
   const distance = formatDistance(startingDate, new Date(), {
     addSuffix: false,
   });
 
-  const dateNumber = +distance.slice(0, 1);
+  const dateNumber = +distance.slice(0, 2);
 
+  console.log();
   return (
     <DateDiv>
       <P modifiers={["large"]}>
@@ -56,13 +64,17 @@ function CurrentDate() {
       </P>
       <br></br>
       <MainHeader modifiers={["purple"]} margin={"12px auto"}>
-        Tag {dateNumber}
+        Day {dateNumber}
       </MainHeader>
       <hr style={{ margin: "15px auto 10px auto ", width: " 50%" }} />
+
       {phases
-        .filter((title) => title.day === distance)
+        .filter(
+          (titlex) =>
+            titlex.startday <= dateNumber && titlex.endday >= dateNumber
+        )
         .map((filteredTitle) => (
-          <P>{filteredTitle.message}</P>
+          <P> {filteredTitle.message} </P>
         ))}
     </DateDiv>
   );
