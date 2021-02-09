@@ -24,38 +24,28 @@ export default function UpdatePeriod() {
   const [selectedDay, setSelectedDay] = useState();
   const [input, setInput] = useState(28);
 
-  //const { items, onAdd, onDelete, onUpdate } = useCrud("/phases/");
-  //http://localhost:3000/api/cycle/phases/1
-  //   const { onUpdate } = useCrud("/cycle");
+  const { items, onUpdate } = useCrud("/cycle");
 
   useEffect(() => {
-    // fetch(`http://localhost:3000/api/cycle`, "PUT", { cycle_length: input })
-    //   .then((updatedItem) => {
-    //         if (item.id === updatedItem.id) {
-    //           return updatedItem;
-    //         }
-    //         return item;
-    //       })
-    //     );
-    //   })
-    //   .catch((err) => setError(err.message));
-  }, [input]);
+    setInput(items?.cycle?.cycle_length);
+  }, [items]);
+
+  useEffect(() => {}, [input]);
 
   const heandleChange = (event) => {
     console.log("days", input);
+
     setInput(Number(event.target.value));
+    onUpdate({ cycle_length: Number(event.target.value) });
     // onAdd({...whatever})
   };
 
   const handleDayChange = (day) => {
+    //console.log("day", day);
     setSelectedDay(day);
     const formattedDay = new Date(day).toISOString();
-
-    // const response = await fetch("http://localhost:3000/api/cycle")
-    //   .then((resp) => resp.json())
-    //   .then((data) => {
-
-    //   });
+    onUpdate({ last_period: formattedDay });
+    console.log("items", items);
   };
 
   return (

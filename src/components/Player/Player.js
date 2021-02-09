@@ -25,11 +25,11 @@ function Player({ currentTherapy, trucks, onSkip }) {
   //console.log(trucks[0] && trucks[currentTherapy].audio);
   const audioEl = useRef(null);
 
-  console.log("sound", sound);
+  // console.log("sound", sound);
 
-  const soundUrl = "./Cattle Decapitation - Apex Blasphemy.mp3";
-  console.log(soundUrl);
-  const [play, { stop, isPlaying1 }] = useSound(sound);
+  const soundUrl = "http://mu5ic.ru/relax/sound-nature/evening-forest.mp3";
+  // console.log(soundUrl);
+  const [play, { stop, isPlaying1 }] = useSound(soundUrl);
 
   useEffect(() => {
     // setIsPlaying((isPlaying1) => !isPlaying);
@@ -47,13 +47,13 @@ function Player({ currentTherapy, trucks, onSkip }) {
       <Link to="/therapy">
         <GoBack src={goback} alt="back-arrow" />
       </Link>
-      {/* <button active={isPlaying1} play={play} stop={stop}>
+      {/* <button active={isPlaying1} onClick={play} play={play} stop={stop}>
         test play
       </button> */}
-      <audio
+      {/* <audio
         src={trucks[0] && trucks[currentTherapy].audio}
         ref={audioEl}
-      ></audio>
+      ></audio> */}
       <MainHeader modifiers={["center", "light"]}>
         Therapy · {trucks[0] && trucks[currentTherapy].title}
       </MainHeader>

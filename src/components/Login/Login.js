@@ -43,7 +43,7 @@ export default function Login() {
         placeholder="Password"
         type="password"
       />
-      <Button runOnClick={handleSubmit}>Login</Button>
+      <Button onClick={handleSubmit}>Login</Button>
 
      
 
