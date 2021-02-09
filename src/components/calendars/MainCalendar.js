@@ -10,11 +10,21 @@ import { MainHeader, P, Cross } from "../typography";
 import colors from "../../utils/colors";
 import cross from "../../images/cross.png";
 import Navbar from "../Navbar/Navbar";
+import useCrud from "../../hooks/useCrud";
 
 export default function MainCalendar() {
   const [date, setDate] = useState(new Date());
   const [periodsArray, setPeriodsArray] = useState([]);
   const [input, setInput] = useState(28);
+
+  const { items } = useCrud("/cycle");
+
+  useEffect(() => {
+    const data = items;
+    console.log("data", data);
+    setInput(data?.cycle?.cycle_length);
+    setDate(data?.cycle?.last_period);
+  }, [items]);
 
   useEffect(() => {
     setPeriodsArray(() => predictPeriods(new Date(date), 3, input));
@@ -52,7 +62,7 @@ export default function MainCalendar() {
         <MainHeader>Calendar</MainHeader>
       </div>
       <P color={colors.primary}>
-        <div className="calendar">
+        <div className="calendar" style={{ width: "352px", margin: "auto" }}>
           <DatePickerCalendar
             date={date}
             onDateChange={(date) => handlePickDate(date)}

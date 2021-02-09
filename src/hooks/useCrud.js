@@ -53,14 +53,18 @@ export default function useCrud(path) {
     console.log("newData", newData);
     fetchApi(`${path}${itemId}`, "PUT", newData)
       .then((updatedItem) => {
-        setItems((items) =>
-          items.map((item) => {
-            if (item.id === updatedItem.id) {
-              return updatedItem;
-            }
-            return item;
-          })
-        );
+        setItems((items) => {
+          if (itemId) {
+            items.map((item) => {
+              if (item.id === updatedItem.id) {
+                return updatedItem;
+              }
+              return item;
+            });
+          } else {
+            return updatedItem;
+          }
+        });
       })
       .catch((err) => setError(err.message));
   };

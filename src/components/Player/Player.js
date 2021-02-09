@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import meditation from "../../images/meditation.png";
+import goback from "../../images/goback.png";
+import useSound from "use-sound";
+import sound from "./Cattle Decapitation - Apex Blasphemy.mp3";
 
-import { MainHeader, Header } from "../typography";
+import { MainHeader, Header, GoBack } from "../typography";
 import PlayerControl from "./PlayerControl";
+import { Link } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 
 const CenterImg = styled.img`
   display: block;
@@ -12,30 +17,43 @@ const CenterImg = styled.img`
 `;
 
 const PlayerMainWrap = styled.div`
-  margin: 35px;
+  margin: 72px 35px 35px 35px;
 `;
 
 function Player({ currentTherapy, trucks, onSkip }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
+  const [isPlaying, setIsPlaying] = useState(true);
+  //console.log(trucks[0] && trucks[currentTherapy].audio);
   const audioEl = useRef(null);
 
+  // console.log("sound", sound);
+
+  const soundUrl = "http://mu5ic.ru/relax/sound-nature/evening-forest.mp3";
+  // console.log(soundUrl);
+  const [play, { stop, isPlaying1 }] = useSound(soundUrl);
+
   useEffect(() => {
-    if (isPlaying) {
+    // setIsPlaying((isPlaying1) => !isPlaying);
+    if (!isPlaying) {
       audioEl.current.play();
+      console.log("play", isPlaying);
     } else {
       audioEl.current.pause();
+      console.log("stop", isPlaying);
     }
-  });
-
-  console.log();
+  }, [isPlaying]);
 
   return (
     <PlayerMainWrap>
-      <audio
+      <Link to="/therapy">
+        <GoBack src={goback} alt="back-arrow" />
+      </Link>
+      {/* <button active={isPlaying1} onClick={play} play={play} stop={stop}>
+        test play
+      </button> */}
+      {/* <audio
         src={trucks[0] && trucks[currentTherapy].audio}
         ref={audioEl}
-      ></audio>
+      ></audio> */}
       <MainHeader modifiers={["center", "light"]}>
         Therapy · {trucks[0] && trucks[currentTherapy].title}
       </MainHeader>
@@ -45,9 +63,10 @@ function Player({ currentTherapy, trucks, onSkip }) {
       </Header>
       <PlayerControl
         isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
+        setIsPlaying={(a) => setIsPlaying(a)}
         onSkip={(s) => onSkip(s)}
       />
+      <Navbar selected={"selfcare"} />
     </PlayerMainWrap>
   );
 }

@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import DayPickerInput from "react-day-picker/DayPickerInput";
 import "react-day-picker/lib/style.css";
 import { Link } from "react-router-dom";
 import { Button } from "../Buttons/Buttons";
-import {
-  FormContainer,
-  P,
-  MainHeader,
-  Header,
-  TopCorner,
-  GoBack,
-} from "../typography";
+import { FormContainer, Header, TopCorner, GoBack } from "../typography";
 import colors from "../../utils/colors";
 import topcorner from "../../images/corner-blue.png";
 import goback from "../../images/goback.png";
@@ -23,9 +15,13 @@ export default function PeriodLength() {
 
   //const { items, onAdd, onDelete, onUpdate } = useCrud("/phases/");
   //http://localhost:3000/api/cycle/phases/1
-  const { onUpdate } = useCrud("/cycle");
+  const { onUpdate, items } = useCrud("/cycle");
 
-  useEffect(() => {}, [input]);
+  useEffect(() => {
+    const data = items;
+    console.log("data", data);
+    setInput(data?.cycle?.cycle_length);
+  }, [items]);
 
   const heandleChange = (event) => {
     console.log("days", input);
