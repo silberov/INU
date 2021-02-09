@@ -52,10 +52,11 @@
   font-size: 22px;
   margin-top: 20px;
 }
-
-.nice-dates-navigation_previous,
-.nice-dates-navigation_next {
-  display: none;
+@media screen and (max-width: 400px) {
+  .nice-dates-navigation_previous,
+  .nice-dates-navigation_next {
+    display: none;
+  }
 }
 
 .form {
@@ -64,7 +65,7 @@
 
 .calendartitle {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 72px;
 }
 
 .cyclepicker {

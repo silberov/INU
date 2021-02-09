@@ -29,6 +29,7 @@ const NavbarDiv = styled.div`
 `;
 
 const IconBox = styled.div`
+  width: 66px;
   margin: 10px;
   text-align: center;
 `;
