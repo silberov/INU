@@ -43,15 +43,12 @@ export default function Login() {
         placeholder="Password"
         type="password"
       />
-      <Button runOnClick={handleSubmit}>Login</Button>
+      <Button onClick={handleSubmit}>Login</Button>
 
      
 
       <Link to="/forgot-password">
         <P>Forget Password</P>
-      </Link>
-      <Link to="/typotest">
-        <p>to test</p>
       </Link>
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>

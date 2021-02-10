@@ -26,11 +26,11 @@ export default function Register() {
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
 
       {!name || !email ? (
-        <Button runOnClick={handleSubmit}>Next</Button>
+        <Button onClick={handleSubmit}>Next</Button>
       ) : (
         <Link
           to={{
-            pathname: "/auth/register-2",
+            pathname: "/user/register-2",
             state: {
               name,
               email,

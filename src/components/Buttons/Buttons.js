@@ -1,16 +1,7 @@
 import styled, { css } from "styled-components";
 import { applyStyleModifiers } from "styled-components-modifiers";
-
 import colors from "../../utils/colors";
 import { shadows, corners } from "../../utils/effects";
-
-// const TherapyDiv =  styled.button`
-//     background: ${colors.primaryGrad};
-//     border: none;
-//     border-radius: 14px;
-//     padding: 20px;
-//     font-size: 1.25em;
-// `;
 
 const BUTTON_MODIFIERS = {
   disabled: () => css`
@@ -19,12 +10,19 @@ const BUTTON_MODIFIERS = {
   therapy: () => css`
     border-radius: ${corners.therapy};
     //padding: 20px 30px;
+    font-size: 1.25rem;
+    //line-height: 1rem;
     width: 144px;
     height: 64px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 0 20px 0;
+  `,
+  period: () => css`
+    position: absolute;
+    top: 80%;
+    left: 25%;
   `,
   blue: () => css`
     background: ${colors.buleGrad};
@@ -40,18 +38,16 @@ export const Moon = styled.img`
   margin-left: 10px;
 `;
 
-export const Button = styled.button.attrs((props) => ({
-  // we can define static props
-  onClick: props.runOnClick,
-}))`
+export const Button = styled.button`
   font-family: "tondo", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.3em;
-  line-height: 1.13em;
+  font-size: 1.125rem;
+  line-height: 1rem;
   cursor: pointer;
   color: ${colors.white};
-  padding: 12px 68px;
+  height: 50px;
+  width: 185px;
   margin: 20px auto;
   border-radius: ${corners.button};
   border: none;

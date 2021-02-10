@@ -1,20 +1,32 @@
 import styled from "styled-components";
-//import colors from "../../utils/colors";
-import { P, SubHeader } from "../typography";
-import Button, { Moon } from "../Buttons/Buttons";
-import { therapyFiles } from "./moons";
-import colors from "../../utils/colors";
+
 import Therapy from "./Therapy";
+import { useEffect, useState } from "react";
+import Navbar from "../Navbar/Navbar";
 
 const TherapyWraper = styled.div`
   padding: 27px;
   text-align: left;
+  max-width: 320px;
+  margin: auto;
 `;
 
-function TherapyContainer() {
+function TherapyContainer({ therapyData, onTherapy }) {
+  //console.log(onTherapy, therapyData)
+  // const [therapyData, setTherapyData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  //console.log("therapyData", therapyData);
   return (
     <TherapyWraper>
-      {therapyFiles && therapyFiles.map((block) => <Therapy quarter={block} />)}
+      {loading ? (
+        <h1>loading...</h1>
+      ) : (
+        therapyData.map((block, index) => (
+          <Therapy key={index} quarter={block} onTherapy={onTherapy} />
+        ))
+      )}
+      <Navbar selected={"selfcare"} />
     </TherapyWraper>
   );
 }

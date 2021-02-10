@@ -1,11 +1,15 @@
 #root {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: center; */
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
+/* .app {
+  width: 750px;
+  margin: auto;
+} */
 
 .App-link {
   color: #61dafb;
@@ -15,6 +19,7 @@
 .nice-dates-day {
   color: #111;
 }
+
 .nice-dates-popover {
   box-shadow: none;
   border: 1px solid #ddd;
@@ -22,24 +27,47 @@
   max-width: 480px;
   transition: none;
 }
-/* .calendar {
-  width: 50%;
-  height: 50%
-} */
+
+.nice-dates-day {
+  font-size: 13px;
+}
 
 .nice-dates-day.-period {
-  color: red;
+  color: #92305e;
 }
-.nice-dates-day.-period2 {
-  color: red;
-}
+
 .nice-dates-day.-ovulation {
-  color: cornflowerblue;
+  color: #fea900;
 }
-.nice-dates-day.-ovulation2 {
-  color: cornflowerblue;
+
+.nice-dates-week-header_day {
+  color: #92305e;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.nice-dates-navigation {
+  font-weight: bold;
+  text-align: right;
+  font-size: 22px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 400px) {
+  .nice-dates-navigation_previous,
+  .nice-dates-navigation_next {
+    display: none;
+  }
 }
 
 .form {
   width: 150px;
+}
+
+.calendartitle {
+  text-align: center;
+  margin-top: 72px;
+}
+
+.cyclepicker {
+  color: black;
 }

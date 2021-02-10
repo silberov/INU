@@ -44,7 +44,7 @@ export default function ForgotPassword() {
 
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
 
-      <Button runOnClick={handleSubmit}>Reset</Button>
+      <Button onClick={handleSubmit}>Reset</Button>
 
       <P color={colors.importantMessage}>{errorMessage}</P>
     </FormContainer>
