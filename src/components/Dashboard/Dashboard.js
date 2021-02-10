@@ -9,6 +9,8 @@ import styled from "styled-components";
 import calendarIcon from "../Dashboard/calendar.png";
 import "./Dashboard.css";
 import bg from "../../images/bgs/background.png";
+import { useState, useEffect } from "react";
+import useCrud from "../../hooks/useCrud";
 
 // CSS
 
@@ -31,21 +33,27 @@ const calButton = styled.button`
 `;
 
 export default function Dashboard() {
-  console.log("DOES IT GO TO THIS PAGE?");
+  const { items, loading } = useCrud("/cycle");
   return (
-    <DashboardWrap>
-      <Link to="/user/calendar">
-        {" "}
-        <calButton>
-          <img src={calendarIcon} />
-        </calButton>{" "}
-      </Link>
-      {/* <Div> */}
-      <CurrentDate />
-      <DailySuggestions />
-      <TheraphySuggestions />
-      {/* </Div> */}
-      <Navbar selected={"cycle"} />
-    </DashboardWrap>
+    <div>
+      {loading ? (
+        <h1>loading</h1>
+      ) : (
+        <DashboardWrap>
+          <Link to="/user/calendar">
+            {" "}
+            <calButton>
+              <img src={calendarIcon} />
+            </calButton>{" "}
+          </Link>
+          {/* <Div> */}
+          <CurrentDate periodStart={items?.cycle?.last_period} />
+          <DailySuggestions />
+          <TheraphySuggestions />
+          {/* </Div> */}
+          <Navbar selected={"cycle"} />
+        </DashboardWrap>
+      )}{" "}
+    </div>
   );
 }

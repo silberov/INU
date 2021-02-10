@@ -1,7 +1,8 @@
-import React from "react";
 import { P, MainHeader, SubHeader, Header } from "../typography";
 import styled from "styled-components";
-import { formatDistance } from "date-fns";
+import { formatDistance, differenceInCalendarDays } from "date-fns";
+import useCrud from "../../hooks/useCrud";
+import React, { useState, useEffect } from "react";
 
 // CSS
 
@@ -17,7 +18,7 @@ export const phases = [
   { id: 4, startday: 19, message: "Luteal Phase “PMS”" },
 ];
 
-function CurrentDate() {
+function CurrentDate(props) {
   // Current Date Display
 
   const phases = [
@@ -48,13 +49,16 @@ function CurrentDate() {
 
   // Current Day and Phase display
 
-  const startingDate = new Date(2021, 1, 1);
+  // props.periodStart === undefined
+  // props.periodStart === "123456754"
+  const startingDate = new Date(props.periodStart.substring(0, 10));
 
-  const distance = formatDistance(startingDate, new Date(), {
-    addSuffix: false,
-  });
+  console.log("props", props, "newdate", startingDate, "moment");
 
-  const dateNumber = +distance.slice(0, 2);
+  // items?.cycle?.last_period
+  const distance = differenceInCalendarDays(new Date(), startingDate) + 1; // =1
+  // console.log(distance);
+  // const dateNumber = +distance.slice(0, 2);
 
   console.log();
   return (
@@ -64,14 +68,13 @@ function CurrentDate() {
       </P>
       <br></br>
       <MainHeader modifiers={["purple"]} margin={"12px auto"}>
-        Day {dateNumber}
+        Day {distance}
       </MainHeader>
       <hr style={{ margin: "15px auto 10px auto ", width: " 50%" }} />
 
       {phases
         .filter(
-          (titlex) =>
-            titlex.startday <= dateNumber && titlex.endday >= dateNumber
+          (titlex) => titlex.startday <= distance && titlex.endday >= distance
         )
         .map((filteredTitle) => (
           <P> {filteredTitle.message} </P>
@@ -81,3 +84,4 @@ function CurrentDate() {
 }
 
 export default CurrentDate;
+
