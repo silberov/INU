@@ -11,6 +11,7 @@ import "./Dashboard.css";
 import bg from "../../images/bgs/background.png";
 import { useState, useEffect } from "react";
 import useCrud from "../../hooks/useCrud";
+import { formatDistance, differenceInCalendarDays } from "date-fns";
 
 // CSS
 
@@ -32,8 +33,41 @@ const calButton = styled.button`
   border: none;
 `;
 
+export const phases = [
+  { id: 1, startday: 1, endday: 6, message: "Period Phase" },
+  { id: 2, startday: 7, endday: 14, message: "Follicular Phase" },
+  { id: 3, startday: 15, endday: 18, message: "Ovulation Phase" },
+  { id: 4, startday: 19, message: "Luteal Phase “PMS”" },
+];
+
+// DailySuggestion
 export default function Dashboard() {
   const { items, loading } = useCrud("/cycle");
+
+  const periodStart = items.cycle?.last_period || new Date().toString();
+
+  console.log("load", loading);
+
+  const startingDate = new Date(periodStart.substring(0, 10));
+
+  console.log("start period", startingDate);
+
+  const distance = differenceInCalendarDays(new Date(), startingDate) + 1; // =1
+
+  console.log(distance);
+
+  const filterMessage = phases
+    .filter(
+      (titlex) => titlex.startday <= distance && titlex.endday >= distance
+    )
+    .map((filteredTitle) => filteredTitle.message);
+
+  const filteredId = phases
+    .filter(
+      (titlex) => titlex.startday <= distance && titlex.endday >= distance
+    )
+    .map((filteredId) => filteredId.id);
+
   return (
     <div>
       {loading ? (
@@ -46,11 +80,9 @@ export default function Dashboard() {
               <img src={calendarIcon} />
             </calButton>{" "}
           </Link>
-          {/* <Div> */}
-          <CurrentDate periodStart={items?.cycle?.last_period} />
-          <DailySuggestions />
+          <CurrentDate counter={distance} phaseTitle={filterMessage} />
+          <DailySuggestions phaseId={filteredId} />
           <TheraphySuggestions />
-          {/* </Div> */}
           <Navbar selected={"cycle"} />
         </DashboardWrap>
       )}{" "}
