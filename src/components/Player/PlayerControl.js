@@ -23,33 +23,45 @@ const Sub = styled.img`
   height: 20px;
 `;
 
-function PlayerControl({ isPlaying, play, pause, onSkip }, props) {
-  //console.log(props);
-
-  useEffect(() => {
-    play();
-  }, []);
+function PlayerControl({ isPlaying, play, pause, stop, onSkip }) {
+  // useEffect(() => {
+  //   console.log("mount playing?", isPlaying);
+  //   if (!isPlaying) {
+  //     console.log("play");
+  //     play();
+  //   }
+  // }, []);
+  console.log("re-playing?", isPlaying);
   const heandlePlayPause = (e) => {
     e.preventDefault();
-    console.log("cklick");
-    if (!isPlaying) {
-      play();
-    } else {
+    console.log("click", isPlaying);
+    if (isPlaying) {
+      //play();
       pause();
+    } else {
+      //pause();
+      play();
     }
   };
   return (
     <ControlWrap>
       <Sub src={repeat} />
-      <Sub src={skipBack} onClick={() => onSkip(false)} />
+      <Sub
+        src={skipBack}
+        onClick={() => {
+          stop();
+          onSkip(false);
+        }}
+      />
       <Main
         onClick={(e) => heandlePlayPause(e)}
-        src={isPlaying ? playImg : pauseImg}
-        alt={isPlaying ? "play" : "pause"}
+        src={isPlaying ? pauseImg : playImg}
+        alt={isPlaying ? "pause" : "play"}
       />
       <Sub
         src={skipForward}
         onClick={() => {
+          stop();
           onSkip();
         }}
       />

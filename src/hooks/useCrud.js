@@ -9,7 +9,6 @@ export default function useCrud(path) {
   const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
   useEffect(() => {
-    setLoading(true);
     fetchApi(`${path}`)
       .then((items) => {
         setItems(items);
@@ -20,6 +19,7 @@ export default function useCrud(path) {
       });
   }, []);
   const fetchApi = (path, method, body) => {
+    setLoading(true);
     return fetch(`${API_URL}${path}`, {
       method,
       headers: { "content-type": "application/json" },

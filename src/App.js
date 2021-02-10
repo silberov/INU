@@ -22,7 +22,6 @@ import { therapyFiles } from "./Data/data";
 function App() {
   const [therapyData, setTherapyData] = useState([]);
   const [currentTherapy, setCurrentTherapy] = useState(0);
-  const [soundUrl, setSoundUrl] = useState("");
 
   const displayTherapy = [
     { title: "First Quarter", files: therapyData.slice(0, 7) },
@@ -56,10 +55,6 @@ function App() {
   useEffect(() => {
     setTherapyData(therapyFiles);
   }, []);
-
-  useEffect(() => {
-    setSoundUrl();
-  }, [currentTherapy, therapyData]);
 
   return (
     <div className="App">
@@ -125,8 +120,8 @@ function App() {
             path="/player"
             render={() => (
               <Player
-                currentTherapy={currentTherapy}
-                trucks={therapyData}
+                therapyItem={therapyFiles[currentTherapy]}
+                //soundUrl={soundUrl}
                 onSkip={skip}
               />
             )}
