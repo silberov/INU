@@ -4,6 +4,8 @@ import { SubHeader, CustomInput, FormContainer, P } from "../typography";
 
 import Button from "../Buttons/Buttons.js";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import Checkbox from "../checkbox";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -40,7 +42,7 @@ export default function Register() {
           <Button>Next</Button>
         </Link>
       )}
-
+      <Checkbox />
       <P color={colors.importantMessage}>{message}</P>
     </FormContainer>
   );

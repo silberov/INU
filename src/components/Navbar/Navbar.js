@@ -56,7 +56,7 @@ const PlusButton = () => {
 };
 
 function Navbar({ selected }) {
-  console.log("selected", selected);
+  //console.log("selected", selected);
   return (
     <NavbarDiv>
       <Link style={{ textDecoration: "none" }} to="/user/dashboard">

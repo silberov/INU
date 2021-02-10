@@ -22,12 +22,12 @@ const Sub = styled.img`
   height: 20px;
 `;
 
-function PlayerControl({ isPlaying, setIsPlaying, onSkip }) {
-  //console.log(props);
+function PlayerControl({ isPlaying, setIsPlaying, onSkip }, props) {
+  console.log(props);
   const heandlePlayPause = (e) => {
     e.preventDefault();
-    console.log(isPlaying);
-    setIsPlaying(!isPlaying);
+    console.log("cklick");
+    //setIsPlaying(!isPlaying);
     if (isPlaying) {
       e.target.src = play;
       e.target.alt = "play";
