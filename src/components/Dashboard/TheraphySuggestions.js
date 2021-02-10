@@ -28,7 +28,7 @@ export default function TheraphySuggestions() {
       </SubHeader>
       <ButtonDiv>
         <Button modifiers={["therapy"]}>Day1</Button>
-        <Button modifiers={["therapy"]}>Day1</Button>
+        <Button modifiers={["therapy"]}>Day2</Button>
         {/* <Button modifiers={["therapy"]}>Day 1</Button>
         <Button modifiers={["therapy"]}>Day 2</Button> */}
       </ButtonDiv>

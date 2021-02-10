@@ -21,7 +21,7 @@ function Therapy({ quarter, setCurrentTherapy }, props) {
   let history = useHistory();
 
   const heandleClick = (therapyNum) => {
-    console.log("click", therapyNum);
+    //console.log("click", therapyNum);
     setCurrentTherapy(therapyNum);
     history.push("/player");
     //setRedirect(true);

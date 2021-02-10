@@ -5,10 +5,11 @@ import goback from "../../images/goback.png";
 import useSound from "use-sound";
 //import sound from "./Cattle Decapitation - Apex Blasphemy.mp3";
 
-import { MainHeader, Header, GoBack } from "../typography";
+import { MainHeader, Header, GoBack, P } from "../typography";
 import PlayerControl from "./PlayerControl";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import Button from "../Buttons/Buttons";
 
 const CenterImg = styled.img`
   display: block;
@@ -24,9 +25,9 @@ const PlayerMainWrap = styled.div`
 function Player({ currentTherapy, trucks, onSkip }) {
   console.log("currentTherapy", currentTherapy);
 
-  const [soundUrl, setSoundUrl] = useState(
-    "http://mu5ic.ru/relax/sound-nature/evening-forest.mp3"
-  );
+  const [soundUrl, setSoundUrl] = useState("");
+  const [louding, setLouding] = useState(true);
+  //http://mu5ic.ru/relax/sound-nature/evening-forest.mp3
   //const [isPlaying, setIsPlaying] = useState(true);
   //console.log(trucks[0] && trucks[currentTherapy].audio);
   //const audioEl = useRef(null);
@@ -35,39 +36,43 @@ function Player({ currentTherapy, trucks, onSkip }) {
 
   //let soundUrl = "http://mu5ic.ru/relax/sound-nature/evening-forest.mp3";
   console.log("url", soundUrl);
-  const [play, { stop, isPlaying }] = useSound(soundUrl);
+  const [play, { stop, pause, isPlaying }] = useSound(soundUrl);
 
   useEffect(() => {
-    setSoundUrl(trucks[currentTherapy].audio);
+    if (trucks[currentTherapy]) {
+      console.log("soundUrl", trucks[currentTherapy].audio);
+      setSoundUrl(trucks[currentTherapy].audio);
+      play();
+      setLouding(false);
+    }
   }, [currentTherapy]);
 
   return (
-    <PlayerMainWrap>
-      <Link to="/therapy">
-        <GoBack src={goback} alt="back-arrow" />
-      </Link>
-      {/* <button active={isPlaying1} onClick={play} play={play} stop={stop}>
-        test play
-      </button> */}
-      {/* <audio
-        src={trucks[0] && trucks[currentTherapy].audio}
-        ref={audioEl}
-      ></audio> */}
-      <MainHeader modifiers={["center", "light"]}>
-        Therapy · {trucks[0] && trucks[currentTherapy].title}
-      </MainHeader>
-      <CenterImg src={meditation} />
-      <Header modifiers={["center"]}>
-        {trucks[0] && trucks[currentTherapy].title}
-      </Header>
-      <PlayerControl
-        play={play}
-        pause={stop}
-        isPlaying={isPlaying}
-        onSkip={onSkip}
-      />
-      <Navbar selected={"selfcare"} />
-    </PlayerMainWrap>
+    <>
+      {louding ? (
+        <P>louding</P>
+      ) : (
+        <PlayerMainWrap>
+          <Link to="/therapy" onClick={() => stop()}>
+            <GoBack src={goback} alt="back-arrow" />
+          </Link>
+          <MainHeader modifiers={["center", "light"]}>
+            Therapy · {trucks[0] && trucks[currentTherapy].title}
+          </MainHeader>
+          <CenterImg src={meditation} />
+          <Header modifiers={["center"]}>
+            {trucks[0] && trucks[currentTherapy].title}
+          </Header>
+          <PlayerControl
+            play={play}
+            pause={pause}
+            isPlaying={isPlaying}
+            onSkip={onSkip}
+          />
+          <Navbar selected={"selfcare"} />
+        </PlayerMainWrap>
+      )}
+    </>
   );
 }
 

@@ -1,10 +1,11 @@
-import play from "../../images/player/play.png";
-import pause from "../../images/player/stop.png";
+import playImg from "../../images/player/play.png";
+import pauseImg from "../../images/player/stop.png";
 import skipForward from "../../images/player/skipright.png";
 import skipBack from "../../images/player/skipleft.png";
 import repeat from "../../images/player/trans.png";
 import download from "../../images/player/download.png";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const ControlWrap = styled.div`
   margin: 50px 0;
@@ -22,27 +23,30 @@ const Sub = styled.img`
   height: 20px;
 `;
 
-function PlayerControl({ isPlaying, setIsPlaying, onSkip }, props) {
-  console.log(props);
+function PlayerControl({ isPlaying, play, pause, onSkip }, props) {
+  //console.log(props);
+
+  useEffect(() => {
+    play();
+  }, []);
   const heandlePlayPause = (e) => {
     e.preventDefault();
     console.log("cklick");
-    //setIsPlaying(!isPlaying);
-    if (isPlaying) {
-      e.target.src = play;
-      e.target.alt = "play";
+    if (!isPlaying) {
+      play();
     } else {
-      e.target.src = pause;
-      e.target.alt = "pause";
+      pause();
     }
-    //e.target
   };
   return (
     <ControlWrap>
       <Sub src={repeat} />
       <Sub src={skipBack} onClick={() => onSkip(false)} />
-      {/* <button onClick={heandlePlayPause}>hjsdbg</button> */}
-      <Main onClick={heandlePlayPause} src={pause} alt={"pause"} />
+      <Main
+        onClick={(e) => heandlePlayPause(e)}
+        src={isPlaying ? playImg : pauseImg}
+        alt={isPlaying ? "play" : "pause"}
+      />
       <Sub
         src={skipForward}
         onClick={() => {

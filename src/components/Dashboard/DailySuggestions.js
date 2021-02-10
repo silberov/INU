@@ -9,22 +9,25 @@ const API_URL = process.env.REACT_APP_API_URL;
 export default function DailySuggestions() {
   const [quote, setQuote] = useState([]);
 
-  // useEffect(() => {
-  //  axios.get(`${API_URL}//:phaseId/suggestions/:suggestionId`)
-  //     .then((data) => setQuote(data));
-  // }, []);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/api/phases/1/suggestions/random`)
+      .then((data) => setQuote(data));
+  }, []);
 
-  console.log("data?", quote);
+  //console.log("data?", quote.data.text);
 
   return (
     <DashboardDiv>
       <SubHeader modifiers={["purple"]}>Daily suggestions</SubHeader>
+      <br></br>
+      <P>{quote.data && quote.data.text}</P>
 
-      {quote
+      {/* {quote
         .filter((messages) => messages.phase === phases.id)
         .map((filteredMessage) => (
           <P>{filteredMessage.text}</P>
-        ))}
+        ))} */}
     </DashboardDiv>
   );
 }

@@ -6,11 +6,14 @@ const API_URL = "http://localhost:3000/api";
 export default function useCrud(path) {
   const [error, setError] = useState("");
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   const throwError = useAsyncError();
   useEffect(() => {
+    setLoading(true);
     fetchApi(`${path}`)
       .then((items) => {
         setItems(items);
+        setLoading(false);
       })
       .catch((err) => {
         throwError(err);
@@ -75,5 +78,7 @@ export default function useCrud(path) {
     onAdd: handleAddItem,
     onDelete: (itemId) => handleDeleteItem(itemId),
     onUpdate: (itemId, newData) => handleUpdate(itemId, newData),
+    loading,
   };
 }
+

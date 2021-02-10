@@ -22,6 +22,7 @@ import { therapyFiles } from "./Data/data";
 function App() {
   const [therapyData, setTherapyData] = useState([]);
   const [currentTherapy, setCurrentTherapy] = useState(0);
+  const [soundUrl, setSoundUrl] = useState("");
 
   const displayTherapy = [
     { title: "First Quarter", files: therapyData.slice(0, 7) },
@@ -32,13 +33,6 @@ function App() {
       files: therapyData.slice(21, therapyData.length),
     },
   ];
-
-  const getCurrentTherapy = (num) => {
-    console.log("num", num);
-    //const index = Number(num);
-    //console.log("index", index);
-    //setCurrentTherapy(index);
-  };
 
   const skip = (forward = true) => {
     setCurrentTherapy(() => {
@@ -62,6 +56,10 @@ function App() {
   useEffect(() => {
     setTherapyData(therapyFiles);
   }, []);
+
+  useEffect(() => {
+    setSoundUrl();
+  }, [currentTherapy, therapyData]);
 
   return (
     <div className="App">

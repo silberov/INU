@@ -12,7 +12,7 @@ const TherapyWraper = styled.div`
 `;
 
 function TherapyContainer({ therapyData, setCurrentTherapy }) {
-  console.log(setCurrentTherapy, therapyData);
+  //console.log(setCurrentTherapy, therapyData);
   // const [therapyData, setTherapyData] = useState([]);
   const [loading, setLoading] = useState(false);
 
