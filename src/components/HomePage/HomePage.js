@@ -3,27 +3,33 @@ import React from "react";
 import Button from "../Buttons/Buttons";
 import { Link } from "react-router-dom";
 
-import { FormContainer, P, LogoHomePage, BottomPattern } from "../typography";
+import { P, BottomPattern } from "../typography";
 
-import colors from "../../utils/colors";
-// import applogo from "../../images/applogo.png";
+import applogo from "../../images/logo/fulllogo.png";
+import styled from "styled-components";
+import { BottomPattWarp } from "../containers";
+
 // import bottompattern from "../../images/bottompattern.png";
+
+const LogoHomePage = styled.img`
+  width: 111px;
+  display: block;
+  margin: 278px auto 78px auto;
+`;
 
 export default function HomePage() {
   return (
-    <div>
-      <FormContainer>
-        {/* <LogoHomePage src={applogo} alt="logo" /> */}
-        <Link to="/user/register">
-          <Button>Register</Button>
-        </Link>
+    // <div style={{ maxWidth: "320px", margin: "auto", textAlign: "center" }}>
+    <BottomPattWarp>
+      <LogoHomePage src={applogo} alt="logo" />
+      <Link to="/user/register">
+        <Button>Register</Button>
+      </Link>
 
-        <Link to="/login">
-          <P color={colors.primary}>Log in</P>
-        </Link>
-
-        {/* <BottomPattern src={bottompattern} alt="bottom-pattren" /> */}
-      </FormContainer>
-    </div>
+      <Link to="/login" style={{ textDecoration: "none" }}>
+        <P modifiers={["normal"]}>Log in</P>
+      </Link>
+    </BottomPattWarp>
+    // </div>
   );
 }

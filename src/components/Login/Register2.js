@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import colors from "../../utils/colors";
-import { SubHeader, CustomInput, FormContainer, P } from "../typography";
+import {
+  SubHeader,
+  CustomInput,
+  FormContainer,
+  P,
+  MainHeader,
+} from "../typography";
 
 import Button from "../Buttons/Buttons.js";
 import { postDataToPath } from "../../utils/api";
 import { Redirect } from "react-router-dom";
+import { BottomPattWarp } from "../containers";
 
 export default function Register2(props) {
   const { name, email } = props?.location?.state || {};
@@ -50,8 +57,10 @@ export default function Register2(props) {
   }
 
   return (
-    <FormContainer>
-      <SubHeader>Select Your password</SubHeader>
+    <BottomPattWarp>
+      <MainHeader margin={"180px auto 10px auto"}>
+        Select Your password
+      </MainHeader>
 
       <CustomInput
         saveInput={setPassword}
@@ -64,9 +73,16 @@ export default function Register2(props) {
         type="password"
       />
 
-      <Button onClick={handleSubmit}>Register</Button>
+      <Button
+        modifiers={
+          password === "" && repeatPassword === "" && ["disabled", "oneSpace"]
+        }
+        onClick={handleSubmit}
+      >
+        Register
+      </Button>
 
       <P color={colors.importantMessage}>{message}</P>
-    </FormContainer>
+    </BottomPattWarp>
   );
 }

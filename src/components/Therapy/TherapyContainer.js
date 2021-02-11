@@ -14,7 +14,7 @@ const TherapyWraper = styled.div`
 function TherapyContainer({ therapyData, setCurrentTherapy }) {
   //console.log(setCurrentTherapy, therapyData);
   // const [therapyData, setTherapyData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
 
   //console.log("therapyData", therapyData);
   return (

@@ -72,7 +72,7 @@ const NAV_BAR_MODIFIERS = {
 export const MainHeader = styled.h1`
   font-family: ${primaryFont};
   font-size: 1.625rem;
-  line-height: 1.3rem;
+  line-height: 2rem;
   letter-spacing: -0.017rem;
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
@@ -144,14 +144,6 @@ export const FormContainer = styled.div`
   justify-content: center;
   align-content: center;
   max-width: 250px;
-`;
-
-export const LogoHomePage = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 35%;
-  margin-bottom: 20%;
 `;
 
 export const BottomPattern = styled.img`
