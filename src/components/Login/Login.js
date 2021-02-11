@@ -3,9 +3,17 @@ import React, { useState } from "react";
 import Button from "../Buttons/Buttons";
 import { Link, Redirect } from "react-router-dom";
 
-import { SubHeader, CustomInput, FormContainer, P } from "../typography";
+import {
+  SubHeader,
+  CustomInput,
+  FormContainer,
+  P,
+  Header,
+  MainHeader,
+} from "../typography";
 import colors from "../../utils/colors";
 import { postDataToPath } from "../../utils/api";
+import { BottomPattWarp } from "../containers";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -36,21 +44,29 @@ export default function Login() {
   }
 
   return (
-    <FormContainer>
-      <SubHeader>
-        <strong>Enter Your Login Details</strong>
-      </SubHeader>
+    <BottomPattWarp>
+      <MainHeader margin={"180px auto 0px auto"}>
+        Enter Your Login
+        <br />
+        Details
+      </MainHeader>
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
       <CustomInput
+        style={{ marginBottom: "120px" }}
         saveInput={setPassword}
         placeholder="Password"
         type="password"
       />
-      <Button onClick={handleSubmit}>Login</Button>
-      <Link to="/forgot-password">
+      <Button
+        onClick={handleSubmit}
+        modifiers={[password === "" && email === "" && "disabled"]}
+      >
+        Login
+      </Button>
+      <Link to="/forgot-password" style={{ textDecoration: "none" }}>
         <P>Forget Password</P>
       </Link>
       <P color={colors.importantMessage}>{message}</P>
-    </FormContainer>
+    </BottomPattWarp>
   );
 }

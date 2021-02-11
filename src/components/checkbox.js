@@ -17,7 +17,7 @@ const Box = styled.input`
 
 function Checkbox() {
   return (
-    <>
+    <div style={{ display: "block" }}>
       <Lable>
         <Box type="checkbox" checked="checked" />I agree to the{" "}
         <Link
@@ -27,7 +27,7 @@ function Checkbox() {
           privecy policy
         </Link>
       </Lable>
-    </>
+    </div>
   );
 }
 

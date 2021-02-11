@@ -7,6 +7,9 @@ const BUTTON_MODIFIERS = {
   disabled: () => css`
     background: ${colors.disabledGray};
   `,
+  oneSpace: () => css`
+    margin-top: 120px;
+  `,
   therapy: () => css`
     border-radius: ${corners.therapy};
     //padding: 20px 30px;

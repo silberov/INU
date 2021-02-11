@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import colors from "../../utils/colors";
-import { SubHeader, CustomInput, FormContainer, P } from "../typography";
+import {
+  SubHeader,
+  CustomInput,
+  FormContainer,
+  P,
+  Header,
+  MainHeader,
+} from "../typography";
 
 import Button from "../Buttons/Buttons.js";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Checkbox from "../checkbox";
+import { BottomPattWarp } from "../containers";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -19,16 +27,21 @@ export default function Register() {
   };
 
   return (
-    <FormContainer>
-      <SubHeader>
-        <strong>Create Your Profile</strong>
-      </SubHeader>
+    <BottomPattWarp>
+      <MainHeader margin={"180px auto 10px auto"}>
+        Create Your Profile
+      </MainHeader>
       <CustomInput saveInput={setName} placeholder="Name" type="text" />
 
       <CustomInput saveInput={setEmail} placeholder="Email" type="text" />
 
       {!name || !email ? (
-        <Button onClick={handleSubmit}>Next</Button>
+        <Button
+          modifiers={[name === "" && email === "" && "disabled", "oneSpace"]}
+          onClick={handleSubmit}
+        >
+          Next
+        </Button>
       ) : (
         <Link
           to={{
@@ -39,11 +52,15 @@ export default function Register() {
             },
           }}
         >
-          <Button>Next</Button>
+          <Button
+            modifiers={[name === "" && email === "" && "disabled", "oneSpace"]}
+          >
+            Next
+          </Button>
         </Link>
       )}
       <Checkbox />
       <P color={colors.importantMessage}>{message}</P>
-    </FormContainer>
+    </BottomPattWarp>
   );
 }

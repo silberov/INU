@@ -5,6 +5,7 @@ import { postDataToPath } from "../../utils/api";
 import colors from "../../utils/colors";
 import queryString from "query-string";
 import { Redirect } from "react-router-dom";
+import { BottomPattWarp } from "../containers";
 
 export default function ResetPassword(props) {
   const [newPassword, setNewPassword] = useState("");
@@ -37,8 +38,10 @@ export default function ResetPassword(props) {
   }
 
   return (
-    <FormContainer>
-      <MainHeader>Please Enter New Password</MainHeader>
+    <BottomPattWarp>
+      <MainHeader margin={"120px auto 10px auto"}>
+        Please Enter New Password
+      </MainHeader>
       <CustomInput
         saveInput={setNewPassword}
         placeholder="New Password"
@@ -50,8 +53,17 @@ export default function ResetPassword(props) {
         placeholder="Repeat Password"
         type="password"
       />
-      <Buttons onClick={handleSubmit}> Submit </Buttons>
+      <Buttons
+        onClick={handleSubmit}
+        modifiers={[
+          newPassword === "" && repeatPassword === "" && "disabled",
+          "oneSpace",
+        ]}
+      >
+        {" "}
+        Submit{" "}
+      </Buttons>
       <P color={colors.importantMessage}>{message}</P>
-    </FormContainer>
+    </BottomPattWarp>
   );
 }
