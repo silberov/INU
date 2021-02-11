@@ -9,7 +9,6 @@ import colors from "../../utils/colors";
 // import applogo from "../../images/applogo.png";
 // import bottompattern from "../../images/bottompattern.png";
 
-
 export default function HomePage() {
   return (
     <div>
@@ -22,6 +21,7 @@ export default function HomePage() {
         <Link to="/login">
           <P color={colors.primary}>Log in</P>
         </Link>
+
         {/* <BottomPattern src={bottompattern} alt="bottom-pattren" /> */}
       </FormContainer>
     </div>

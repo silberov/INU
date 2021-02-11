@@ -11,21 +11,29 @@ const TherapyWraper = styled.div`
   margin: auto;
 `;
 
-function TherapyContainer({ therapyData, onTherapy }) {
-  //console.log(onTherapy, therapyData)
+function TherapyContainer({ therapyData, setCurrentTherapy }) {
+  //console.log(setCurrentTherapy, therapyData);
   // const [therapyData, setTherapyData] = useState([]);
   const [loading, setLoading] = useState(false);
 
   //console.log("therapyData", therapyData);
   return (
     <TherapyWraper>
-      {loading ? (
+      {/* {loading ? (
         <h1>loading...</h1>
       ) : (
         therapyData.map((block, index) => (
           <Therapy key={index} quarter={block} onTherapy={onTherapy} />
         ))
-      )}
+      )} */}
+
+      {therapyData.map((block, index) => (
+        <Therapy
+          key={index}
+          quarter={block}
+          setCurrentTherapy={setCurrentTherapy}
+        />
+      ))}
       <Navbar selected={"selfcare"} />
     </TherapyWraper>
   );

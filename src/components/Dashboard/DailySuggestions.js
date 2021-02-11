@@ -11,7 +11,7 @@ export default function DailySuggestions(props) {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8080/api/phases/${props.phaseId}/suggestions/random`
+        `http://localhost:3000/api/phases/${props.phaseId}/suggestions/random`
       )
       .then((data) => setQuote(data));
   }, [props]);

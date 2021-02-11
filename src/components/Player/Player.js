@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import meditation from "../../images/meditation.png";
 import goback from "../../images/goback.png";
 import useSound from "use-sound";
-import sound from "./Cattle Decapitation - Apex Blasphemy.mp3";
 
 import { MainHeader, Header, GoBack } from "../typography";
 import PlayerControl from "./PlayerControl";
@@ -17,54 +16,45 @@ const CenterImg = styled.img`
 `;
 
 const PlayerMainWrap = styled.div`
-  margin: 72px 35px 35px 35px;
+  max-width: 320px;
+  margin: 72px auto 35px auto;
 `;
 
-function Player({ currentTherapy, trucks, onSkip }) {
-  const [isPlaying, setIsPlaying] = useState(true);
-  //console.log(trucks[0] && trucks[currentTherapy].audio);
-  const audioEl = useRef(null);
-
-  // console.log("sound", sound);
-
-  const soundUrl = "http://mu5ic.ru/relax/sound-nature/evening-forest.mp3";
-  // console.log(soundUrl);
-  const [play, { stop, isPlaying1 }] = useSound(soundUrl);
+function Player({ therapyItem, onSkip }) {
+  console.log("therpy", therapyItem);
+  const [play, { stop, pause, isPlaying }] = useSound(therapyItem.audio, {
+    onend: () => {
+      onSkip();
+    },
+  });
 
   useEffect(() => {
-    // setIsPlaying((isPlaying1) => !isPlaying);
+    console.log("mount playing?", isPlaying);
     if (!isPlaying) {
-      audioEl.current.play();
-      console.log("play", isPlaying);
-    } else {
-      audioEl.current.pause();
-      console.log("stop", isPlaying);
+      play();
     }
-  }, [isPlaying]);
+  }, []);
+
+  useEffect(() => {
+    return () => stop();
+  }, []);
 
   return (
     <PlayerMainWrap>
       <Link to="/therapy">
         <GoBack src={goback} alt="back-arrow" />
       </Link>
-      {/* <button active={isPlaying1} onClick={play} play={play} stop={stop}>
-        test play
-      </button> */}
-      {/* <audio
-        src={trucks[0] && trucks[currentTherapy].audio}
-        ref={audioEl}
-      ></audio> */}
       <MainHeader modifiers={["center", "light"]}>
-        Therapy · {trucks[0] && trucks[currentTherapy].title}
+        Therapy · {therapyItem.title}
       </MainHeader>
       <CenterImg src={meditation} />
-      <Header modifiers={["center"]}>
-        {trucks[0] && trucks[currentTherapy].title}
-      </Header>
+      <Header modifiers={["center"]}>{therapyItem.title}</Header>
       <PlayerControl
+        play={play}
+        stop={stop}
+        pause={pause}
         isPlaying={isPlaying}
-        setIsPlaying={(a) => setIsPlaying(a)}
-        onSkip={(s) => onSkip(s)}
+        onSkip={onSkip}
       />
       <Navbar selected={"selfcare"} />
     </PlayerMainWrap>

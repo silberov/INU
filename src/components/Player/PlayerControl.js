@@ -1,10 +1,11 @@
-import play from "../../images/player/play.png";
-import pause from "../../images/player/stop.png";
+import playImg from "../../images/player/play.png";
+import pauseImg from "../../images/player/stop.png";
 import skipForward from "../../images/player/skipright.png";
 import skipBack from "../../images/player/skipleft.png";
 import repeat from "../../images/player/trans.png";
 import download from "../../images/player/download.png";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const ControlWrap = styled.div`
   margin: 50px 0;
@@ -22,30 +23,45 @@ const Sub = styled.img`
   height: 20px;
 `;
 
-function PlayerControl({ isPlaying, setIsPlaying, onSkip }) {
-  //console.log(props);
+function PlayerControl({ isPlaying, play, pause, stop, onSkip }) {
+  // useEffect(() => {
+  //   console.log("mount playing?", isPlaying);
+  //   if (!isPlaying) {
+  //     console.log("play");
+  //     play();
+  //   }
+  // }, []);
+  console.log("re-playing?", isPlaying);
   const heandlePlayPause = (e) => {
     e.preventDefault();
-    console.log(isPlaying);
-    setIsPlaying(!isPlaying);
+    console.log("click", isPlaying);
     if (isPlaying) {
-      e.target.src = play;
-      e.target.alt = "play";
+      //play();
+      pause();
     } else {
-      e.target.src = pause;
-      e.target.alt = "pause";
+      //pause();
+      play();
     }
-    //e.target
   };
   return (
     <ControlWrap>
       <Sub src={repeat} />
-      <Sub src={skipBack} onClick={() => onSkip(false)} />
-      {/* <button onClick={heandlePlayPause}>hjsdbg</button> */}
-      <Main onClick={heandlePlayPause} src={pause} alt={"pause"} />
+      <Sub
+        src={skipBack}
+        onClick={() => {
+          stop();
+          onSkip(false);
+        }}
+      />
+      <Main
+        onClick={(e) => heandlePlayPause(e)}
+        src={isPlaying ? pauseImg : playImg}
+        alt={isPlaying ? "pause" : "play"}
+      />
       <Sub
         src={skipForward}
         onClick={() => {
+          stop();
           onSkip();
         }}
       />

@@ -33,13 +33,6 @@ function App() {
     },
   ];
 
-  const getCurrentTherapy = (num) => {
-    console.log("num", num);
-    const index = Number(num);
-    console.log("index", index);
-    setCurrentTherapy(index);
-  };
-
   const skip = (forward = true) => {
     setCurrentTherapy(() => {
       let temp = currentTherapy;
@@ -116,9 +109,7 @@ function App() {
             render={() => (
               <TherapyContainer
                 therapyData={displayTherapy}
-                onTherapy={(n) => {
-                  getCurrentTherapy(n);
-                }}
+                setCurrentTherapy={setCurrentTherapy}
               />
             )}
           ></Route>
@@ -129,8 +120,8 @@ function App() {
             path="/player"
             render={() => (
               <Player
-                currentTherapy={currentTherapy}
-                trucks={therapyData}
+                therapyItem={therapyFiles[currentTherapy]}
+                //soundUrl={soundUrl}
                 onSkip={skip}
               />
             )}

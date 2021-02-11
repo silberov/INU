@@ -16,7 +16,10 @@ export default function Login() {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     setMessage("");
-    const response = await postDataToPath("/api/auth/login", { email, password });
+    const response = await postDataToPath("/api/auth/login", {
+      email,
+      password,
+    });
     if (response.error) {
       setMessage(response.error);
     } else {
@@ -44,9 +47,6 @@ export default function Login() {
         type="password"
       />
       <Button onClick={handleSubmit}>Login</Button>
-
-     
-
       <Link to="/forgot-password">
         <P>Forget Password</P>
       </Link>
