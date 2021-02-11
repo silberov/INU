@@ -5,12 +5,12 @@ import { enGB } from "date-fns/locale";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
 import { Link } from "react-router-dom";
-import Button from "../Buttons/Buttons";
 import { MainHeader, P, Cross } from "../typography";
 import colors from "../../utils/colors";
 import cross from "../../images/cross.png";
 import Navbar from "../Navbar/Navbar";
 import useCrud from "../../hooks/useCrud";
+import { DashboardWrap } from "../containers";
 
 export default function MainCalendar() {
   const [date, setDate] = useState(new Date());
@@ -54,7 +54,7 @@ export default function MainCalendar() {
   };
 
   return (
-    <div>
+    <DashboardWrap>
       <Link to="/user/dashboard">
         <Cross src={cross} alt="cross" />
       </Link>
@@ -73,6 +73,6 @@ export default function MainCalendar() {
         </div>
       </P>
       <Navbar />
-    </div>
+    </DashboardWrap>
   );
 }

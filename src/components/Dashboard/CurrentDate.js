@@ -33,24 +33,11 @@ function CurrentDate(props) {
   const month = months[d.getMonth()];
   const date = d.getDate();
 
-  // // Current Day and Phase display
-
-  // // props.periodStart === undefined
-  // // props.periodStart === "123456754"
-  // const startingDate = new Date(props.periodStart.substring(0, 10));
-
-  // console.log("props", props, "newdate", startingDate, "moment");
-
-  // const distance = differenceInCalendarDays(new Date(), startingDate) + 1; // =1
-  // // console.log(distance);
-  // // const dateNumber = +distance.slice(0, 2);
-
   return (
     <DateDiv>
       <P modifiers={["large"]}>
         {date} {month}
       </P>
-      <br></br>
       <MainHeader modifiers={["purple"]} margin={"12px auto"}>
         Day {props.counter}
       </MainHeader>
@@ -62,4 +49,3 @@ function CurrentDate(props) {
 }
 
 export default CurrentDate;
-

@@ -56,7 +56,7 @@ export default function ResetPassword(props) {
       <Buttons
         onClick={handleSubmit}
         modifiers={[
-          newPassword === "" && repeatPassword === "" && "disabled",
+          newPassword === "" || (repeatPassword === "" && "disabled"),
           "oneSpace",
         ]}
       >

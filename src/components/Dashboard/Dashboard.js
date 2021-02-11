@@ -8,23 +8,13 @@ import Navbar from "../Navbar/Navbar";
 import styled from "styled-components";
 import calendarIcon from "../Dashboard/calendar.png";
 import "./Dashboard.css";
-import bg from "../../images/bgs/background.png";
+
 import { useState, useEffect } from "react";
 import useCrud from "../../hooks/useCrud";
 import { formatDistance, differenceInCalendarDays } from "date-fns";
+import { DashboardWrap } from "../containers";
 
 // CSS
-
-const DashboardWrap = styled.div`
-  padding: 15px;
-  max-width: 420px;
-  margin: auto;
-  height: 100vh;
-  background-image: url(${bg});
-  background-position: bottom;
-  background-repeat: no-repeat;
-  background-size: 170%;
-`;
 
 // x
 
@@ -35,9 +25,9 @@ const calButton = styled.button`
 
 export const phases = [
   { id: 1, startday: 1, endday: 6, message: "Period Phase" },
-  { id: 2, startday: 7, endday: 14, message: "Follicular Phase" },
-  { id: 3, startday: 15, endday: 18, message: "Ovulation Phase" },
-  { id: 4, startday: 19, message: "Luteal Phase “PMS”" },
+  { id: 3, startday: 7, endday: 14, message: "Follicular Phase" },
+  { id: 4, startday: 15, endday: 18, message: "Ovulation Phase" },
+  { id: 5, startday: 19, endday: 35, message: "Luteal Phase “PMS”" },
 ];
 
 // DailySuggestion
