@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { SubHeader } from "../typography";
-import { Button, Moon } from "../Buttons/Buttons";
+import { Button } from "../Buttons/Buttons";
 import styled from "styled-components";
 import colors from "../../utils/colors";
 import { shadows, corners } from "../../utils/effects";

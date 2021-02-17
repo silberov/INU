@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import meditation from "../../images/meditation.png";
-import goback from "../../images/goback.png";
 import useSound from "use-sound";
 
-import { MainHeader, Header, GoBack } from "../typography";
+import { MainHeader, Header } from "../typography";
 import PlayerControl from "./PlayerControl";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { GoBack } from "../Buttons/Buttons";
 
 const CenterImg = styled.img`
   display: block;
@@ -42,7 +42,7 @@ function Player({ therapyItem, onSkip }) {
   return (
     <PlayerMainWrap>
       <Link to="/therapy">
-        <GoBack src={goback} alt="back-arrow" />
+        <GoBack />
       </Link>
       <MainHeader modifiers={["center", "light"]}>
         Therapy · {therapyItem.title}

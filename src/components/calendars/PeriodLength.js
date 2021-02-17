@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "react-day-picker/lib/style.css";
 import { Link } from "react-router-dom";
-import { Button } from "../Buttons/Buttons";
-import { FormContainer, Header, TopCorner, GoBack } from "../typography";
+import { Button, GoBack } from "../Buttons/Buttons";
+import { FormContainer, Header, NumInput, TopCorner } from "../typography";
 import colors from "../../utils/colors";
 import topcorner from "../../images/corner-blue.png";
-import goback from "../../images/goback.png";
 
 import useCrud from "../../hooks/useCrud";
-var moment = require("moment");
+import { BottomPattWarp } from "../containers";
 
 export default function PeriodLength() {
   const [input, setInput] = useState(28);
@@ -26,27 +25,23 @@ export default function PeriodLength() {
   const heandleChange = (event) => {
     console.log("days", input);
     setInput(Number(event.target.value));
-    // onAdd({...whatever})
   };
 
   return (
-    <div style={{ margin: " 200px auto" }}>
-      <Link to="/">
-        <GoBack src={goback} alt="back-arrow" />
+    <BottomPattWarp>
+      <Link to="/login">
+        <GoBack />
       </Link>
       <TopCorner src={topcorner} alt="top-right-corner" />
       <FormContainer>
         <Header color={colors.primary}>
           What is your average cycle length?
-          <br />
-          <br />
           <form>
-            <input
+            <NumInput
               className="form"
               type="number"
-              // min="20"
-              // max="40"
-              placeholder="enter number of days"
+              min="20"
+              max="45"
               value={input}
               onChange={(event) => heandleChange(event)}
             />
@@ -54,13 +49,13 @@ export default function PeriodLength() {
         </Header>
         <Link to="/user/period">
           <Button
-            modifiers={["period"]}
+            margin={"200px auto 0 auto"}
             onClick={() => onUpdate({ cycle_length: input })}
           >
             Next
           </Button>
         </Link>
       </FormContainer>
-    </div>
+    </BottomPattWarp>
   );
 }

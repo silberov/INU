@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 
-import {
-  SubHeader,
-  CustomInput,
-  FormContainer,
-  P,
-  MainHeader,
-} from "../typography";
+import { CustomInput, P, MainHeader } from "../typography";
 import colors from "../../utils/colors";
 
 import { postDataToPath } from "../../utils/api";
 import { Link, Redirect } from "react-router-dom";
 
-import Button from "../Buttons/Buttons.js";
+import Button, { GoBack } from "../Buttons/Buttons.js";
 import { BottomPattWarp } from "../containers";
 
 export default function ForgotPassword() {
@@ -43,11 +37,14 @@ export default function ForgotPassword() {
 
   return (
     <BottomPattWarp>
-      <MainHeader margin={"120px auto 10px auto"}>
+      <Link to="/login">
+        <GoBack />
+      </Link>
+      <MainHeader margin={"180px auto 10px auto"}>
         {" "}
-        Forgot Your Password?
-        <br /> Please enter details
+        Find Your Account
       </MainHeader>
+      <P>Please enter your name and email </P>
 
       <CustomInput saveInput={setName} placeholder="Full Name" type="text" />
 
@@ -55,7 +52,7 @@ export default function ForgotPassword() {
 
       <Button
         onClick={handleSubmit}
-        modifiers={[name === "" && email === "" && "disabled", "oneSpace"]}
+        modifiers={[name === "" && email === "" ? "disabled" : "", "oneSpace"]}
       >
         Reset
       </Button>

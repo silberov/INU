@@ -5,7 +5,7 @@ import skipBack from "../../images/player/skipleft.png";
 import repeat from "../../images/player/trans.png";
 import download from "../../images/player/download.png";
 import styled from "styled-components";
-import { useEffect } from "react";
+//import { useEffect } from "react";
 
 const ControlWrap = styled.div`
   margin: 50px 0;

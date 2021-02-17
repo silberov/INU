@@ -73,7 +73,7 @@ export const MainHeader = styled.h1`
   font-family: ${primaryFont};
   font-size: 1.625rem;
   line-height: 2rem;
-  letter-spacing: -0.017rem;
+  letter-spacing: -0.65px;
   color: ${colors.primaryGray};
   margin: ${(props) => (props.margin ? props.margin : 0)};
   ${applyStyleModifiers(FONT_WEIGHT_MODIFIERS)};
@@ -127,14 +127,35 @@ export const CustomInput = styled.input.attrs((props) => ({
   placeholder: props.placeholder,
 }))`
   margin-top: 50px;
-  background: transparent;
+  background: none;
   border: none;
-  border-bottom: 1px ${colors.seconderyGray} solid;
+  border-bottom: 2px ${colors.disabledGray} solid;
   place-items: center;
-  width: 200px;
+  width: 270px;
   text-align: left;
-  outline: transparent;
-  font-size: large;
+  outline: none;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  color: ${colors.primaryGray};
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: ${colors.disabledGray};
+  }
+  :-ms-input-placeholder {
+    color: ${colors.disabledGray};
+  }
+`;
+
+export const NumInput = styled.input`
+  margin: 35px auto 0 auto;
+  width: 100px;
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  color: ${colors.primaryGray};
+  border: none;
+  outline: none;
+  border-bottom: 2px ${colors.disabledGray} solid;
 `;
 
 export const FormContainer = styled.div`
@@ -146,27 +167,21 @@ export const FormContainer = styled.div`
   max-width: 250px;
 `;
 
-export const BottomPattern = styled.img`
-  width: 200;
-  margin-top: 100px;
-`;
+// `export const BottomPattern = styled.img`
+//   width: 200;
+//   margin-top: 100px;
+// `;`
 
-export const BottomPatternCropped = styled.img`
-  width: 100%;
-  margin-bottom: 0px;
-`;
+// export const BottomPatternCropped = styled.img`
+//   width: 100%;
+//   margin-bottom: 0px;
+// `;
 
 export const TopCorner = styled.img`
   width: 50%;
   position: absolute;
   top: 0px;
   right: 0px;
-`;
-
-export const GoBack = styled.img`
-  position: absolute;
-  top: 35px;
-  left: 40px;
 `;
 
 export const Cross = styled.img`
