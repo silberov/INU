@@ -40,7 +40,7 @@ export default function Login() {
   };
 
   if (user) {
-    return <Redirect to={"/user/dashboard"} />;
+    return <Redirect to={"/user/cycle"} />;
   }
 
   return (
