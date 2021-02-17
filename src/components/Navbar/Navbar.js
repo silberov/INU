@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import CycleIcon from "../../images/nav/cycle-icon.png";
 import CycleSelected from "../../images/nav/cycle-icon-selected.png";
 import SelfcareIcon from "../../images/nav/selfcare-icon.png";
@@ -9,7 +9,6 @@ import plus from "../../images/nav/cross.png";
 import { P } from "../typography";
 import { shadows } from "../../utils/effects";
 import colors from "../../utils/colors";
-// import { PlusButton } from "../Buttons/Buttons";
 
 const NavbarDiv = styled.div`
   background-color: ${colors.white};
@@ -26,13 +25,6 @@ const NavbarDiv = styled.div`
 const IconBox = styled.div`
   width: 66px;
   margin: 10px;
-  text-align: center;
-`;
-
-const MenuIcons = styled.ul`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
   text-align: center;
 `;
 
@@ -56,7 +48,6 @@ const PlusButton = () => {
 };
 
 function Navbar({ selected }) {
-  //console.log("selected", selected);
   return (
     <NavbarDiv>
       <Link style={{ textDecoration: "none" }} to="/user/dashboard">

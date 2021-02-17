@@ -57,6 +57,9 @@
   .nice-dates-navigation_next {
     display: none;
   }
+  .nice-dates-navigation_current {
+    padding-right: 10px;
+  }
 }
 
 .form {
@@ -70,4 +73,20 @@
 
 .cyclepicker {
   color: black;
+}
+
+.DayPickerInput > input {
+  display: inline-block;
+  text-align: center;
+  font-size: 1rem;
+  width: 100px;
+  color: #cccbcc;
+  border: none;
+  outline: none;
+  border-bottom: 2px #cccbcc solid;
+}
+
+.DayPickerInput-OverlayWrapper {
+  position: relative;
+  left: -87px;
 }

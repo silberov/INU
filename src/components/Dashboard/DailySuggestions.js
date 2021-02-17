@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { P, SubHeader, MainHeader } from "../typography";
+import { P, SubHeader } from "../typography";
 import { DashboardDiv } from "./TheraphySuggestions";
-import phases from "./CurrentDate";
+
 import axios from "axios";
-const API_URL = process.env.REACT_APP_API_URL;
+//const API_URL = process.env.REACT_APP_API_URL;
 
 export default function DailySuggestions(props) {
   const [quote, setQuote] = useState([]);

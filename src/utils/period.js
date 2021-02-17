@@ -1,4 +1,4 @@
-import { add, format, isSameDay } from "date-fns";
+import { add } from "date-fns";
 
 export function calculatePeriod(start, cycleDuration) {
   let period = {
@@ -22,4 +22,3 @@ export function predictPeriods(starting, number, cycleLength) {
   }
   return periods;
 }
-

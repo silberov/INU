@@ -1,8 +1,7 @@
-import { P, MainHeader, SubHeader, Header } from "../typography";
+import { P, MainHeader } from "../typography";
 import styled from "styled-components";
 
 import useCrud from "../../hooks/useCrud";
-import React, { useState, useEffect } from "react";
 
 // CSS
 

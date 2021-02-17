@@ -8,6 +8,7 @@ const Lable = styled.label`
   line-height: 1.25rem;
   letter-spacing: -0.015rem;
 `;
+
 const Box = styled.input`
   width: 15px;
   height: 15px;

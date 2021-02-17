@@ -1,15 +1,12 @@
 import React from "react";
-
-import Button from "../Buttons/Buttons";
 import { Link } from "react-router-dom";
-
-import { P, BottomPattern } from "../typography";
-
-import applogo from "../../images/logo/fulllogo.png";
 import styled from "styled-components";
+
+import { P } from "../typography";
+import Button from "../Buttons/Buttons";
 import { BottomPattWarp } from "../containers";
 
-// import bottompattern from "../../images/bottompattern.png";
+import applogo from "../../images/logo/fulllogo.png";
 
 const LogoHomePage = styled.img`
   width: 111px;
@@ -19,7 +16,6 @@ const LogoHomePage = styled.img`
 
 export default function HomePage() {
   return (
-    // <div style={{ maxWidth: "320px", margin: "auto", textAlign: "center" }}>
     <BottomPattWarp>
       <LogoHomePage src={applogo} alt="logo" />
       <Link to="/user/register">
@@ -30,6 +26,5 @@ export default function HomePage() {
         <P modifiers={["normal"]}>Log in</P>
       </Link>
     </BottomPattWarp>
-    // </div>
   );
 }

@@ -2,10 +2,15 @@ import styled, { css } from "styled-components";
 import { applyStyleModifiers } from "styled-components-modifiers";
 import colors from "../../utils/colors";
 import { shadows, corners } from "../../utils/effects";
+import goback from "../../images/goback.png";
+import cross from "../../images/cross.png";
+import calendarIcon from "../../images/calendar.png";
 
 const BUTTON_MODIFIERS = {
   disabled: () => css`
     background: ${colors.disabledGray};
+    cursor: not-allowed;
+    pointer-events: all !important;
   `,
   oneSpace: () => css`
     margin-top: 120px;
@@ -22,11 +27,7 @@ const BUTTON_MODIFIERS = {
     align-items: center;
     margin: 0 0 20px 0;
   `,
-  period: () => css`
-    position: absolute;
-    top: 80%;
-    left: 25%;
-  `,
+
   blue: () => css`
     background: ${colors.buleGrad};
   `,
@@ -54,7 +55,8 @@ export const Button = styled.button`
   color: ${colors.white};
   height: 50px;
   width: 185px;
-  margin: 20px auto;
+  //margin: 20px auto;
+  margin: ${(props) => (props.margin ? props.margin : "20px auto")};
   border-radius: ${corners.button};
   border: none;
   outline: none;
@@ -69,4 +71,42 @@ export const Button = styled.button`
   ${applyStyleModifiers(BUTTON_MODIFIERS)};
 `;
 
+export const GoBack = styled.img`
+  position: absolute;
+  width: 14px;
+  height: 29px;
+  top: 35px;
+  left: 35px;
+`;
+
+GoBack.defaultProps = {
+  src: goback,
+  alt: "back-arrow",
+};
+
+export const Close = styled.img`
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 35px;
+  left: 35px;
+`;
+
+Close.defaultProps = {
+  src: cross,
+  alt: "close",
+};
+
+export const CalButton = styled.img`
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  top: 35px;
+  left: 35px;
+`;
+
+CalButton.defaultProps = {
+  src: calendarIcon,
+  alt: "calendar",
+};
 export default Button;

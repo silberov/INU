@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CustomInput, MainHeader, FormContainer, P } from "../typography";
+import { CustomInput, MainHeader, P } from "../typography";
 import Buttons from "../Buttons/Buttons";
 import { postDataToPath } from "../../utils/api";
 import colors from "../../utils/colors";

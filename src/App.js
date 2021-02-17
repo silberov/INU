@@ -84,20 +84,10 @@ function App() {
           <Route path="/reset-password" component={ResetPassword} />
         </Switch>
         <Switch>
-          <Route
-            exact
-            path="/user/cycle"
-            render={() => <PeriodLength />}
-            // component={PeriodLength}
-          />
+          <Route exact path="/user/cycle" render={() => <PeriodLength />} />
         </Switch>
         <Switch>
-          <Route
-            exact
-            path="/user/period"
-            render={() => <PeriodDates />}
-            // component={PeriodDates}
-          />
+          <Route exact path="/user/period" render={() => <PeriodDates />} />
         </Switch>
         <Switch>
           <Route exact path="/user/calendar" component={MainCalendar} />
@@ -121,7 +111,6 @@ function App() {
             render={() => (
               <Player
                 therapyItem={therapyFiles[currentTherapy]}
-                //soundUrl={soundUrl}
                 onSkip={skip}
               />
             )}
